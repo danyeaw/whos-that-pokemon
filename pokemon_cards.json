@@ -1,0 +1,3550 @@
+{
+  "set_info": {
+    "name": "Stellar Crown",
+    "series": "Scarlet & Violet",
+    "set_code": "SV07"
+  },
+  "cards": [
+    {
+      "name": "Venusaur ex",
+      "number": "1",
+      "supertype": "Pok\u00e9mon",
+      "subtypes": [
+        "Stage 2",
+        "ex"
+      ],
+      "rarity": "Double Rare",
+      "images": {
+        "small": "https://images.pokemontcg.io/sv7/1.png",
+        "large": "https://images.pokemontcg.io/sv7/1_hires.png"
+      },
+      "market_prices": {
+        "tcgplayer": null,
+        "cardmarket": 1.55,
+        "updated_at": "2025/02/01"
+      },
+      "local_image": "card_images/Stellar-Crown_001.png",
+      "image_hash": "5000940581ffff66:b67ec0c9089fc1dc:9024646d39ce6ccc:02180000000"
+    },
+    {
+      "name": "Ledyba",
+      "number": "2",
+      "supertype": "Pok\u00e9mon",
+      "subtypes": [
+        "Basic"
+      ],
+      "rarity": "Common",
+      "images": {
+        "small": "https://images.pokemontcg.io/sv7/2.png",
+        "large": "https://images.pokemontcg.io/sv7/2_hires.png"
+      },
+      "market_prices": {
+        "tcgplayer": 0.03,
+        "cardmarket": 0.03,
+        "updated_at": "2025/02/01"
+      },
+      "local_image": "card_images/Stellar-Crown_002.png",
+      "image_hash": "1ce06401ffff7f00:e27251991f1e1ee4:b08ccd6dd3c6c676:02180000000"
+    },
+    {
+      "name": "Ledian",
+      "number": "3",
+      "supertype": "Pok\u00e9mon",
+      "subtypes": [
+        "Stage 1"
+      ],
+      "rarity": "Rare",
+      "images": {
+        "small": "https://images.pokemontcg.io/sv7/3.png",
+        "large": "https://images.pokemontcg.io/sv7/3_hires.png"
+      },
+      "market_prices": {
+        "tcgplayer": null,
+        "cardmarket": 0.05,
+        "updated_at": "2025/02/01"
+      },
+      "local_image": "card_images/Stellar-Crown_003.png",
+      "image_hash": "dcc0c400ffffff3f:fa7ad0850f0fc6d0:b1990d6533dbd666:021c0000000"
+    },
+    {
+      "name": "Celebi",
+      "number": "4",
+      "supertype": "Pok\u00e9mon",
+      "subtypes": [
+        "Basic"
+      ],
+      "rarity": "Uncommon",
+      "images": {
+        "small": "https://images.pokemontcg.io/sv7/4.png",
+        "large": "https://images.pokemontcg.io/sv7/4_hires.png"
+      },
+      "market_prices": {
+        "tcgplayer": 0.06,
+        "cardmarket": 0.03,
+        "updated_at": "2025/02/01"
+      },
+      "local_image": "card_images/Stellar-Crown_004.png",
+      "image_hash": "143c2e5fff7f6600:92de44e87c3033e7:b5f4c8b1d3dace66:02180000000"
+    },
+    {
+      "name": "Lileep",
+      "number": "5",
+      "supertype": "Pok\u00e9mon",
+      "subtypes": [
+        "Stage 1"
+      ],
+      "rarity": "Common",
+      "images": {
+        "small": "https://images.pokemontcg.io/sv7/5.png",
+        "large": "https://images.pokemontcg.io/sv7/5_hires.png"
+      },
+      "market_prices": {
+        "tcgplayer": 0.04,
+        "cardmarket": 0.03,
+        "updated_at": "2025/02/01"
+      },
+      "local_image": "card_images/Stellar-Crown_005.png",
+      "image_hash": "5c000001ffffff3f:ea7ad495954b4bc0:b1217159dbdbc666:02180000040"
+    },
+    {
+      "name": "Cradily",
+      "number": "6",
+      "supertype": "Pok\u00e9mon",
+      "subtypes": [
+        "Stage 2"
+      ],
+      "rarity": "Rare",
+      "images": {
+        "small": "https://images.pokemontcg.io/sv7/6.png",
+        "large": "https://images.pokemontcg.io/sv7/6_hires.png"
+      },
+      "market_prices": {
+        "tcgplayer": null,
+        "cardmarket": 0.06,
+        "updated_at": "2025/02/01"
+      },
+      "local_image": "card_images/Stellar-Crown_006.png",
+      "image_hash": "5e7e042cbf6f7f10:d25a84a51d5b5a7a:b484095d7fcfce66:03180000000"
+    },
+    {
+      "name": "Carnivine",
+      "number": "7",
+      "supertype": "Pok\u00e9mon",
+      "subtypes": [
+        "Basic"
+      ],
+      "rarity": "Common",
+      "images": {
+        "small": "https://images.pokemontcg.io/sv7/7.png",
+        "large": "https://images.pokemontcg.io/sv7/7_hires.png"
+      },
+      "market_prices": {
+        "tcgplayer": 0.03,
+        "cardmarket": 0.03,
+        "updated_at": "2025/02/01"
+      },
+      "local_image": "card_images/Stellar-Crown_007.png",
+      "image_hash": "0c000081ffffff3f:ba7a5581c4e633d1:19313165d3ddc6e6:021c0000200"
+    },
+    {
+      "name": "Mow Rotom",
+      "number": "8",
+      "supertype": "Pok\u00e9mon",
+      "subtypes": [
+        "Basic"
+      ],
+      "rarity": "Common",
+      "images": {
+        "small": "https://images.pokemontcg.io/sv7/8.png",
+        "large": "https://images.pokemontcg.io/sv7/8_hires.png"
+      },
+      "market_prices": {
+        "tcgplayer": 0.03,
+        "cardmarket": 0.03,
+        "updated_at": "2025/02/01"
+      },
+      "local_image": "card_images/Stellar-Crown_008.png",
+      "image_hash": "64201003ffffff10:af6f40d0d2bc0ccd:cdc56766d9cfc666:021c0000000"
+    },
+    {
+      "name": "Grubbin",
+      "number": "9",
+      "supertype": "Pok\u00e9mon",
+      "subtypes": [
+        "Basic"
+      ],
+      "rarity": "Common",
+      "images": {
+        "small": "https://images.pokemontcg.io/sv7/9.png",
+        "large": "https://images.pokemontcg.io/sv7/9_hires.png"
+      },
+      "market_prices": {
+        "tcgplayer": 0.04,
+        "cardmarket": 0.02,
+        "updated_at": "2025/02/01"
+      },
+      "local_image": "card_images/Stellar-Crown_009.png",
+      "image_hash": "14006000ffffff3a:eb6e14949e62c3d1:7467c94dd3dbc666:02180000000"
+    },
+    {
+      "name": "Gossifleur",
+      "number": "10",
+      "supertype": "Pok\u00e9mon",
+      "subtypes": [
+        "Basic"
+      ],
+      "rarity": "Common",
+      "images": {
+        "small": "https://images.pokemontcg.io/sv7/10.png",
+        "large": "https://images.pokemontcg.io/sv7/10_hires.png"
+      },
+      "market_prices": {
+        "tcgplayer": 0.03,
+        "cardmarket": 0.03,
+        "updated_at": "2025/02/01"
+      },
+      "local_image": "card_images/Stellar-Crown_010.png",
+      "image_hash": "4c3b00c1ffff7f00:eb4a14917a606ecf:9df26717dbcfc666:023c0000000"
+    },
+    {
+      "name": "Eldegoss",
+      "number": "11",
+      "supertype": "Pok\u00e9mon",
+      "subtypes": [
+        "Stage 1"
+      ],
+      "rarity": "Uncommon",
+      "images": {
+        "small": "https://images.pokemontcg.io/sv7/11.png",
+        "large": "https://images.pokemontcg.io/sv7/11_hires.png"
+      },
+      "market_prices": {
+        "tcgplayer": 0.03,
+        "cardmarket": 0.03,
+        "updated_at": "2025/02/01"
+      },
+      "local_image": "card_images/Stellar-Crown_011.png",
+      "image_hash": "007f7e27ef076e00:83de1c387e726ae0:b4eae84ddbdfde66:03180000000"
+    },
+    {
+      "name": "Applin",
+      "number": "12",
+      "supertype": "Pok\u00e9mon",
+      "subtypes": [
+        "Basic"
+      ],
+      "rarity": "Common",
+      "images": {
+        "small": "https://images.pokemontcg.io/sv7/12.png",
+        "large": "https://images.pokemontcg.io/sv7/12_hires.png"
+      },
+      "market_prices": {
+        "tcgplayer": 0.06,
+        "cardmarket": 0.03,
+        "updated_at": "2025/02/01"
+      },
+      "local_image": "card_images/Stellar-Crown_012.png",
+      "image_hash": "10008031ffffff10:ea7a1495c6e498f8:65591165dbcec666:021c0000000"
+    },
+    {
+      "name": "Dipplin",
+      "number": "13",
+      "supertype": "Pok\u00e9mon",
+      "subtypes": [
+        "Stage 1"
+      ],
+      "rarity": "Common",
+      "images": {
+        "small": "https://images.pokemontcg.io/sv7/13.png",
+        "large": "https://images.pokemontcg.io/sv7/13_hires.png"
+      },
+      "market_prices": {
+        "tcgplayer": 0.08,
+        "cardmarket": 0.04,
+        "updated_at": "2025/02/01"
+      },
+      "local_image": "card_images/Stellar-Crown_013.png",
+      "image_hash": "1c300181ffffff00:a27a5cd0d83437b5:b1e94d4ddbcfc666:021c0000000"
+    },
+    {
+      "name": "Hydrapple ex",
+      "number": "14",
+      "supertype": "Pok\u00e9mon",
+      "subtypes": [
+        "Stage 2",
+        "ex"
+      ],
+      "rarity": "Double Rare",
+      "images": {
+        "small": "https://images.pokemontcg.io/sv7/14.png",
+        "large": "https://images.pokemontcg.io/sv7/14_hires.png"
+      },
+      "market_prices": {
+        "tcgplayer": null,
+        "cardmarket": 1.12,
+        "updated_at": "2025/02/01"
+      },
+      "local_image": "card_images/Stellar-Crown_014.png",
+      "image_hash": "d042703039ffffe7:cd48b09c4f4fc393:a396c363633a8ccc:02580000000"
+    },
+    {
+      "name": "Nymble",
+      "number": "15",
+      "supertype": "Pok\u00e9mon",
+      "subtypes": [
+        "Basic"
+      ],
+      "rarity": "Common",
+      "images": {
+        "small": "https://images.pokemontcg.io/sv7/15.png",
+        "large": "https://images.pokemontcg.io/sv7/15_hires.png"
+      },
+      "market_prices": {
+        "tcgplayer": 0.04,
+        "cardmarket": 0.04,
+        "updated_at": "2025/02/01"
+      },
+      "local_image": "card_images/Stellar-Crown_015.png",
+      "image_hash": "1c060001ffffff12:bf3e14c058696bc5:b06c4d1bd3d2c666:021c0000000"
+    },
+    {
+      "name": "Lokix",
+      "number": "16",
+      "supertype": "Pok\u00e9mon",
+      "subtypes": [
+        "Stage 1"
+      ],
+      "rarity": "Common",
+      "images": {
+        "small": "https://images.pokemontcg.io/sv7/16.png",
+        "large": "https://images.pokemontcg.io/sv7/16_hires.png"
+      },
+      "market_prices": {
+        "tcgplayer": 0.03,
+        "cardmarket": 0.04,
+        "updated_at": "2025/02/01"
+      },
+      "local_image": "card_images/Stellar-Crown_016.png",
+      "image_hash": "f8808081ffffff3f:ea7a5491c666a595:a131454ddbdec6e6:023c0000000"
+    },
+    {
+      "name": "Toedscool",
+      "number": "17",
+      "supertype": "Pok\u00e9mon",
+      "subtypes": [
+        "Basic"
+      ],
+      "rarity": "Common",
+      "images": {
+        "small": "https://images.pokemontcg.io/sv7/17.png",
+        "large": "https://images.pokemontcg.io/sv7/17_hires.png"
+      },
+      "market_prices": {
+        "tcgplayer": 0.05,
+        "cardmarket": 0.04,
+        "updated_at": "2025/02/01"
+      },
+      "local_image": "card_images/Stellar-Crown_017.png",
+      "image_hash": "0c080081ffffff3f:ab7a1495e6662699:9d111147d3dcce66:02380000000"
+    },
+    {
+      "name": "Toedscruel",
+      "number": "18",
+      "supertype": "Pok\u00e9mon",
+      "subtypes": [
+        "Stage 1"
+      ],
+      "rarity": "Uncommon",
+      "images": {
+        "small": "https://images.pokemontcg.io/sv7/18.png",
+        "large": "https://images.pokemontcg.io/sv7/18_hires.png"
+      },
+      "market_prices": {
+        "tcgplayer": 0.05,
+        "cardmarket": 0.03,
+        "updated_at": "2025/02/01"
+      },
+      "local_image": "card_images/Stellar-Crown_018.png",
+      "image_hash": "dc000000ffffffff:ea6ad0919b1e87c5:39154569dbcccee6:021c0000000"
+    },
+    {
+      "name": "Ponyta",
+      "number": "19",
+      "supertype": "Pok\u00e9mon",
+      "subtypes": [
+        "Basic"
+      ],
+      "rarity": "Common",
+      "images": {
+        "small": "https://images.pokemontcg.io/sv7/19.png",
+        "large": "https://images.pokemontcg.io/sv7/19_hires.png"
+      },
+      "market_prices": {
+        "tcgplayer": 0.05,
+        "cardmarket": 0.03,
+        "updated_at": "2025/02/01"
+      },
+      "local_image": "card_images/Stellar-Crown_019.png",
+      "image_hash": "74e01800ffffff00:ca4a54b53c0e9e9d:e5c97171d3d2c666:02e00010000"
+    },
+    {
+      "name": "Rapidash",
+      "number": "20",
+      "supertype": "Pok\u00e9mon",
+      "subtypes": [
+        "Stage 1"
+      ],
+      "rarity": "Uncommon",
+      "images": {
+        "small": "https://images.pokemontcg.io/sv7/20.png",
+        "large": "https://images.pokemontcg.io/sv7/20_hires.png"
+      },
+      "market_prices": {
+        "tcgplayer": 0.04,
+        "cardmarket": 0.03,
+        "updated_at": "2025/02/01"
+      },
+      "local_image": "card_images/Stellar-Crown_020.png",
+      "image_hash": "d88c0c00ffffff3a:9a5ac4e4e52d9d85:31397951cbcfc646:01c00010000"
+    },
+    {
+      "name": "Pansear",
+      "number": "21",
+      "supertype": "Pok\u00e9mon",
+      "subtypes": [
+        "Basic"
+      ],
+      "rarity": "Common",
+      "images": {
+        "small": "https://images.pokemontcg.io/sv7/21.png",
+        "large": "https://images.pokemontcg.io/sv7/21_hires.png"
+      },
+      "market_prices": {
+        "tcgplayer": 0.03,
+        "cardmarket": 0.03,
+        "updated_at": "2025/02/01"
+      },
+      "local_image": "card_images/Stellar-Crown_021.png",
+      "image_hash": "1c001001ffffff10:ae5e54b0d90b8fc4:b5256349ddcfce76:02c00008000"
+    },
+    {
+      "name": "Reshiram",
+      "number": "22",
+      "supertype": "Pok\u00e9mon",
+      "subtypes": [
+        "Basic"
+      ],
+      "rarity": "Uncommon",
+      "images": {
+        "small": "https://images.pokemontcg.io/sv7/22.png",
+        "large": "https://images.pokemontcg.io/sv7/22_hires.png"
+      },
+      "market_prices": {
+        "tcgplayer": 0.08,
+        "cardmarket": 0.03,
+        "updated_at": "2025/02/01"
+      },
+      "local_image": "card_images/Stellar-Crown_022.png",
+      "image_hash": "2074ec23ff7f7f00:c3c654843f35d9d8:ece8994fd3cbc646:03e00010000"
+    },
+    {
+      "name": "Salandit",
+      "number": "23",
+      "supertype": "Pok\u00e9mon",
+      "subtypes": [
+        "Basic"
+      ],
+      "rarity": "Common",
+      "images": {
+        "small": "https://images.pokemontcg.io/sv7/23.png",
+        "large": "https://images.pokemontcg.io/sv7/23_hires.png"
+      },
+      "market_prices": {
+        "tcgplayer": 0.02,
+        "cardmarket": 0.03,
+        "updated_at": "2025/02/01"
+      },
+      "local_image": "card_images/Stellar-Crown_023.png",
+      "image_hash": "7f0f0000ffffff00:af3ec4804c6e6ee1:e45c4d65d9d7c664:03e00010000"
+    },
+    {
+      "name": "Salazzle",
+      "number": "24",
+      "supertype": "Pok\u00e9mon",
+      "subtypes": [
+        "Stage 1"
+      ],
+      "rarity": "Uncommon",
+      "images": {
+        "small": "https://images.pokemontcg.io/sv7/24.png",
+        "large": "https://images.pokemontcg.io/sv7/24_hires.png"
+      },
+      "market_prices": {
+        "tcgplayer": 0.04,
+        "cardmarket": 0.03,
+        "updated_at": "2025/02/01"
+      },
+      "local_image": "card_images/Stellar-Crown_024.png",
+      "image_hash": "fc830381ffff7f10:bf3d44c0ca7236b4:21321f49d7cfcc72:03c00010000"
+    },
+    {
+      "name": "Turtonator",
+      "number": "25",
+      "supertype": "Pok\u00e9mon",
+      "subtypes": [
+        "Basic"
+      ],
+      "rarity": "Common",
+      "images": {
+        "small": "https://images.pokemontcg.io/sv7/25.png",
+        "large": "https://images.pokemontcg.io/sv7/25_hires.png"
+      },
+      "market_prices": {
+        "tcgplayer": 0.04,
+        "cardmarket": 0.03,
+        "updated_at": "2025/02/01"
+      },
+      "local_image": "card_images/Stellar-Crown_025.png",
+      "image_hash": "e0000081ffffff30:eb6b4484d4b49b99:c949514d594dc666:02600010000"
+    },
+    {
+      "name": "Scorbunny",
+      "number": "26",
+      "supertype": "Pok\u00e9mon",
+      "subtypes": [
+        "Basic"
+      ],
+      "rarity": "Common",
+      "images": {
+        "small": "https://images.pokemontcg.io/sv7/26.png",
+        "large": "https://images.pokemontcg.io/sv7/26_hires.png"
+      },
+      "market_prices": {
+        "tcgplayer": 0.07,
+        "cardmarket": 0.04,
+        "updated_at": "2025/02/01"
+      },
+      "local_image": "card_images/Stellar-Crown_026.png",
+      "image_hash": "04198107ffff7f00:ab3c5c92178767c1:2433536ddbcfc666:02c01008040"
+    },
+    {
+      "name": "Raboot",
+      "number": "27",
+      "supertype": "Pok\u00e9mon",
+      "subtypes": [
+        "Stage 1"
+      ],
+      "rarity": "Common",
+      "images": {
+        "small": "https://images.pokemontcg.io/sv7/27.png",
+        "large": "https://images.pokemontcg.io/sv7/27_hires.png"
+      },
+      "market_prices": {
+        "tcgplayer": 0.09,
+        "cardmarket": 0.04,
+        "updated_at": "2025/02/01"
+      },
+      "local_image": "card_images/Stellar-Crown_027.png",
+      "image_hash": "94f84081ff7f7f00:ea7c4c853e3333c1:24b4551dd1ccce66:03e00010000"
+    },
+    {
+      "name": "Cinderace ex",
+      "number": "28",
+      "supertype": "Pok\u00e9mon",
+      "subtypes": [
+        "Stage 2",
+        "Tera",
+        "ex"
+      ],
+      "rarity": "Double Rare",
+      "images": {
+        "small": "https://images.pokemontcg.io/sv7/28.png",
+        "large": "https://images.pokemontcg.io/sv7/28_hires.png"
+      },
+      "market_prices": {
+        "tcgplayer": null,
+        "cardmarket": 1.8,
+        "updated_at": "2025/02/01"
+      },
+      "local_image": "card_images/Stellar-Crown_028.png",
+      "image_hash": "017738287f3fff00:8b48379479595fa4:2dcea951e949514e:07201008000"
+    },
+    {
+      "name": "Charcadet",
+      "number": "29",
+      "supertype": "Pok\u00e9mon",
+      "subtypes": [
+        "Basic"
+      ],
+      "rarity": "Common",
+      "images": {
+        "small": "https://images.pokemontcg.io/sv7/29.png",
+        "large": "https://images.pokemontcg.io/sv7/29_hires.png"
+      },
+      "market_prices": {
+        "tcgplayer": 0.03,
+        "cardmarket": 0.03,
+        "updated_at": "2025/02/01"
+      },
+      "local_image": "card_images/Stellar-Crown_029.png",
+      "image_hash": "76706021ffff7f00:eb6b149416361bcb:a4d34b45d1d2c666:02c00010000"
+    },
+    {
+      "name": "Blastoise ex",
+      "number": "30",
+      "supertype": "Pok\u00e9mon",
+      "subtypes": [
+        "Stage 2",
+        "ex"
+      ],
+      "rarity": "Double Rare",
+      "images": {
+        "small": "https://images.pokemontcg.io/sv7/30.png",
+        "large": "https://images.pokemontcg.io/sv7/30_hires.png"
+      },
+      "market_prices": {
+        "tcgplayer": null,
+        "cardmarket": 1.9,
+        "updated_at": "2025/02/01"
+      },
+      "local_image": "card_images/Stellar-Crown_030.png",
+      "image_hash": "70f8614f8fa0a742:e3cb441e1c2c636f:a4cbcb5b584d6f84:03007000080"
+    },
+    {
+      "name": "Lapras",
+      "number": "31",
+      "supertype": "Pok\u00e9mon",
+      "subtypes": [
+        "Basic"
+      ],
+      "rarity": "Uncommon",
+      "images": {
+        "small": "https://images.pokemontcg.io/sv7/31.png",
+        "large": "https://images.pokemontcg.io/sv7/31_hires.png"
+      },
+      "market_prices": {
+        "tcgplayer": 0.04,
+        "cardmarket": 0.04,
+        "updated_at": "2025/02/01"
+      },
+      "local_image": "card_images/Stellar-Crown_031.png",
+      "image_hash": "70f81001ffff7f00:ea4a44c13f2f1e9c:8581211799d4c626:02007000080"
+    },
+    {
+      "name": "Lapras ex",
+      "number": "32",
+      "supertype": "Pok\u00e9mon",
+      "subtypes": [
+        "Basic",
+        "Tera",
+        "ex"
+      ],
+      "rarity": "Double Rare",
+      "images": {
+        "small": "https://images.pokemontcg.io/sv7/32.png",
+        "large": "https://images.pokemontcg.io/sv7/32_hires.png"
+      },
+      "market_prices": {
+        "tcgplayer": null,
+        "cardmarket": 1.49,
+        "updated_at": "2025/02/01"
+      },
+      "local_image": "card_images/Stellar-Crown_032.png",
+      "image_hash": "016720007ffffe80:a3207f942e4d6e8b:8d8bc3d4cc5c424d:07003000040"
+    },
+    {
+      "name": "Marill",
+      "number": "33",
+      "supertype": "Pok\u00e9mon",
+      "subtypes": [
+        "Basic"
+      ],
+      "rarity": "Common",
+      "images": {
+        "small": "https://images.pokemontcg.io/sv7/33.png",
+        "large": "https://images.pokemontcg.io/sv7/33_hires.png"
+      },
+      "market_prices": {
+        "tcgplayer": 0.04,
+        "cardmarket": 0.03,
+        "updated_at": "2025/02/01"
+      },
+      "local_image": "card_images/Stellar-Crown_033.png",
+      "image_hash": "54f63101ffff7700:ce4e54d07a4e0fa5:a5a465619bd0c626:02006000040"
+    },
+    {
+      "name": "Azumarill",
+      "number": "34",
+      "supertype": "Pok\u00e9mon",
+      "subtypes": [
+        "Stage 1"
+      ],
+      "rarity": "Uncommon",
+      "images": {
+        "small": "https://images.pokemontcg.io/sv7/34.png",
+        "large": "https://images.pokemontcg.io/sv7/34_hires.png"
+      },
+      "market_prices": {
+        "tcgplayer": 0.04,
+        "cardmarket": 0.03,
+        "updated_at": "2025/02/01"
+      },
+      "local_image": "card_images/Stellar-Crown_034.png",
+      "image_hash": "64e3050fff7f7f00:a77744c1191f1e72:c4866d79d3e5e626:03006000040"
+    },
+    {
+      "name": "Finneon",
+      "number": "35",
+      "supertype": "Pok\u00e9mon",
+      "subtypes": [
+        "Basic"
+      ],
+      "rarity": "Common",
+      "images": {
+        "small": "https://images.pokemontcg.io/sv7/35.png",
+        "large": "https://images.pokemontcg.io/sv7/35_hires.png"
+      },
+      "market_prices": {
+        "tcgplayer": 0.05,
+        "cardmarket": 0.03,
+        "updated_at": "2025/02/01"
+      },
+      "local_image": "card_images/Stellar-Crown_035.png",
+      "image_hash": "203c2c39ffff7300:83db45c47e6236b1:e5595d5193c4c636:02006000040"
+    },
+    {
+      "name": "Lumineon",
+      "number": "36",
+      "supertype": "Pok\u00e9mon",
+      "subtypes": [
+        "Stage 1"
+      ],
+      "rarity": "Uncommon",
+      "images": {
+        "small": "https://images.pokemontcg.io/sv7/36.png",
+        "large": "https://images.pokemontcg.io/sv7/36_hires.png"
+      },
+      "market_prices": {
+        "tcgplayer": 0.05,
+        "cardmarket": 0.03,
+        "updated_at": "2025/02/01"
+      },
+      "local_image": "card_images/Stellar-Crown_036.png",
+      "image_hash": "ff1d0001ffff7f00:bb3a44c1e5637a68:8c69395d93d5ce26:03007000040"
+    },
+    {
+      "name": "Tirtouga",
+      "number": "37",
+      "supertype": "Pok\u00e9mon",
+      "subtypes": [
+        "Stage 1"
+      ],
+      "rarity": "Common",
+      "images": {
+        "small": "https://images.pokemontcg.io/sv7/37.png",
+        "large": "https://images.pokemontcg.io/sv7/37_hires.png"
+      },
+      "market_prices": {
+        "tcgplayer": 0.05,
+        "cardmarket": 0.03,
+        "updated_at": "2025/02/01"
+      },
+      "local_image": "card_images/Stellar-Crown_037.png",
+      "image_hash": "26070381ffff7f00:a73754c85a4a7ae1:cc564f49d1c5e636:02006000080"
+    },
+    {
+      "name": "Carracosta",
+      "number": "38",
+      "supertype": "Pok\u00e9mon",
+      "subtypes": [
+        "Stage 2"
+      ],
+      "rarity": "Rare",
+      "images": {
+        "small": "https://images.pokemontcg.io/sv7/38.png",
+        "large": "https://images.pokemontcg.io/sv7/38_hires.png"
+      },
+      "market_prices": {
+        "tcgplayer": null,
+        "cardmarket": 0.06,
+        "updated_at": "2025/02/01"
+      },
+      "local_image": "card_images/Stellar-Crown_038.png",
+      "image_hash": "6c612081bfff7f00:e36351993c2e1ea6:98d9454733d5ce26:02007000040"
+    },
+    {
+      "name": "Froakie",
+      "number": "39",
+      "supertype": "Pok\u00e9mon",
+      "subtypes": [
+        "Basic"
+      ],
+      "rarity": "Common",
+      "images": {
+        "small": "https://images.pokemontcg.io/sv7/39.png",
+        "large": "https://images.pokemontcg.io/sv7/39_hires.png"
+      },
+      "market_prices": {
+        "tcgplayer": 0.05,
+        "cardmarket": 0.03,
+        "updated_at": "2025/02/01"
+      },
+      "local_image": "card_images/Stellar-Crown_039.png",
+      "image_hash": "767f0114ff7f6300:879774c05e4a1f2d:a4ce4b6dc1ccc626:03007000040"
+    },
+    {
+      "name": "Frogadier",
+      "number": "40",
+      "supertype": "Pok\u00e9mon",
+      "subtypes": [
+        "Stage 1"
+      ],
+      "rarity": "Uncommon",
+      "images": {
+        "small": "https://images.pokemontcg.io/sv7/40.png",
+        "large": "https://images.pokemontcg.io/sv7/40_hires.png"
+      },
+      "market_prices": {
+        "tcgplayer": 0.05,
+        "cardmarket": 0.04,
+        "updated_at": "2025/02/01"
+      },
+      "local_image": "card_images/Stellar-Crown_040.png",
+      "image_hash": "700903c7ffff7700:a37945c0deb63625:81db1a1db1ccc626:03007000040"
+    },
+    {
+      "name": "Greninja ex",
+      "number": "41",
+      "supertype": "Pok\u00e9mon",
+      "subtypes": [
+        "Stage 2",
+        "ex"
+      ],
+      "rarity": "Double Rare",
+      "images": {
+        "small": "https://images.pokemontcg.io/sv7/41.png",
+        "large": "https://images.pokemontcg.io/sv7/41_hires.png"
+      },
+      "market_prices": {
+        "tcgplayer": null,
+        "cardmarket": 0.84,
+        "updated_at": "2025/02/01"
+      },
+      "local_image": "card_images/Stellar-Crown_041.png",
+      "image_hash": "ec781800f7ffffe3:c94bd192663e6cac:89db733365591e8e:02006000080"
+    },
+    {
+      "name": "Crabominable",
+      "number": "42",
+      "supertype": "Pok\u00e9mon",
+      "subtypes": [
+        "Stage 1"
+      ],
+      "rarity": "Uncommon",
+      "images": {
+        "small": "https://images.pokemontcg.io/sv7/42.png",
+        "large": "https://images.pokemontcg.io/sv7/42_hires.png"
+      },
+      "market_prices": {
+        "tcgplayer": 0.02,
+        "cardmarket": 0.03,
+        "updated_at": "2025/02/01"
+      },
+      "local_image": "card_images/Stellar-Crown_042.png",
+      "image_hash": "001027efffff7700:a66a48c899a7b735:a9314c4d3bedce26:03007000040"
+    },
+    {
+      "name": "Chewtle",
+      "number": "43",
+      "supertype": "Pok\u00e9mon",
+      "subtypes": [
+        "Basic"
+      ],
+      "rarity": "Common",
+      "images": {
+        "small": "https://images.pokemontcg.io/sv7/43.png",
+        "large": "https://images.pokemontcg.io/sv7/43_hires.png"
+      },
+      "market_prices": {
+        "tcgplayer": 0.09,
+        "cardmarket": 0.05,
+        "updated_at": "2025/02/01"
+      },
+      "local_image": "card_images/Stellar-Crown_043.png",
+      "image_hash": "81101181ffffff93:ae2e44d1f1b1d5c4:15636717f1ccc626:02046000040"
+    },
+    {
+      "name": "Drednaw",
+      "number": "44",
+      "supertype": "Pok\u00e9mon",
+      "subtypes": [
+        "Stage 1"
+      ],
+      "rarity": "Rare",
+      "images": {
+        "small": "https://images.pokemontcg.io/sv7/44.png",
+        "large": "https://images.pokemontcg.io/sv7/44_hires.png"
+      },
+      "market_prices": {
+        "tcgplayer": null,
+        "cardmarket": 0.06,
+        "updated_at": "2025/02/01"
+      },
+      "local_image": "card_images/Stellar-Crown_044.png",
+      "image_hash": "de8d0001ffff7f00:ae5ad4906c6b4f89:b43d716537c5ce26:03006000040"
+    },
+    {
+      "name": "Veluza",
+      "number": "45",
+      "supertype": "Pok\u00e9mon",
+      "subtypes": [
+        "Basic"
+      ],
+      "rarity": "Uncommon",
+      "images": {
+        "small": "https://images.pokemontcg.io/sv7/45.png",
+        "large": "https://images.pokemontcg.io/sv7/45_hires.png"
+      },
+      "market_prices": {
+        "tcgplayer": 0.04,
+        "cardmarket": 0.03,
+        "updated_at": "2025/02/01"
+      },
+      "local_image": "card_images/Stellar-Crown_045.png",
+      "image_hash": "e2c21085ffff7f00:ae6a4481bc0ececf:8616615d3bedce26:03006000080"
+    },
+    {
+      "name": "Electabuzz",
+      "number": "46",
+      "supertype": "Pok\u00e9mon",
+      "subtypes": [
+        "Basic"
+      ],
+      "rarity": "Common",
+      "images": {
+        "small": "https://images.pokemontcg.io/sv7/46.png",
+        "large": "https://images.pokemontcg.io/sv7/46_hires.png"
+      },
+      "market_prices": {
+        "tcgplayer": 0.04,
+        "cardmarket": 0.03,
+        "updated_at": "2025/02/01"
+      },
+      "local_image": "card_images/Stellar-Crown_046.png",
+      "image_hash": "100060f1ffffff3e:ea6a1c9597c69391:2923c3c7dbdcc6e6:02e00010000"
+    },
+    {
+      "name": "Electivire",
+      "number": "47",
+      "supertype": "Pok\u00e9mon",
+      "subtypes": [
+        "Stage 1"
+      ],
+      "rarity": "Uncommon",
+      "images": {
+        "small": "https://images.pokemontcg.io/sv7/47.png",
+        "large": "https://images.pokemontcg.io/sv7/47_hires.png"
+      },
+      "market_prices": {
+        "tcgplayer": 0.03,
+        "cardmarket": 0.03,
+        "updated_at": "2025/02/01"
+      },
+      "local_image": "card_images/Stellar-Crown_047.png",
+      "image_hash": "1c000001ffffff7e:aa7a50919d0d97d3:b10d557399c4c6e4:02e00008000"
+    },
+    {
+      "name": "Chinchou",
+      "number": "48",
+      "supertype": "Pok\u00e9mon",
+      "subtypes": [
+        "Basic"
+      ],
+      "rarity": "Common",
+      "images": {
+        "small": "https://images.pokemontcg.io/sv7/48.png",
+        "large": "https://images.pokemontcg.io/sv7/48_hires.png"
+      },
+      "market_prices": {
+        "tcgplayer": 0.03,
+        "cardmarket": 0.03,
+        "updated_at": "2025/02/01"
+      },
+      "local_image": "card_images/Stellar-Crown_048.png",
+      "image_hash": "04002323ffffff10:a56f50901a9f07dd:9c864667ddc482e6:02c01008000"
+    },
+    {
+      "name": "Lanturn",
+      "number": "49",
+      "supertype": "Pok\u00e9mon",
+      "subtypes": [
+        "Stage 1"
+      ],
+      "rarity": "Uncommon",
+      "images": {
+        "small": "https://images.pokemontcg.io/sv7/49.png",
+        "large": "https://images.pokemontcg.io/sv7/49_hires.png"
+      },
+      "market_prices": {
+        "tcgplayer": 0.05,
+        "cardmarket": 0.03,
+        "updated_at": "2025/02/01"
+      },
+      "local_image": "card_images/Stellar-Crown_049.png",
+      "image_hash": "7f000081ffffff7f:bb3ac4c4c07b4bc3:b13d591fc656c6e6:02600008040"
+    },
+    {
+      "name": "Joltik",
+      "number": "50",
+      "supertype": "Pok\u00e9mon",
+      "subtypes": [
+        "Basic"
+      ],
+      "rarity": "Common",
+      "images": {
+        "small": "https://images.pokemontcg.io/sv7/50.png",
+        "large": "https://images.pokemontcg.io/sv7/50_hires.png"
+      },
+      "market_prices": {
+        "tcgplayer": 0.07,
+        "cardmarket": 0.04,
+        "updated_at": "2025/02/01"
+      },
+      "local_image": "card_images/Stellar-Crown_050.png",
+      "image_hash": "3c000081ffffff36:ab5a1480f4f41edd:a971730fd6cfc6c6:02e00010000"
+    },
+    {
+      "name": "Galvantula ex",
+      "number": "51",
+      "supertype": "Pok\u00e9mon",
+      "subtypes": [
+        "Stage 1",
+        "Tera",
+        "ex"
+      ],
+      "rarity": "Double Rare",
+      "images": {
+        "small": "https://images.pokemontcg.io/sv7/51.png",
+        "large": "https://images.pokemontcg.io/sv7/51_hires.png"
+      },
+      "market_prices": {
+        "tcgplayer": null,
+        "cardmarket": 1.19,
+        "updated_at": "2025/02/01"
+      },
+      "local_image": "card_images/Stellar-Crown_051.png",
+      "image_hash": "1d44c0317fffffe0:e20a778c04af7be2:e9998bd7cd51474c:06200010000"
+    },
+    {
+      "name": "Charjabug",
+      "number": "52",
+      "supertype": "Pok\u00e9mon",
+      "subtypes": [
+        "Stage 1"
+      ],
+      "rarity": "Common",
+      "images": {
+        "small": "https://images.pokemontcg.io/sv7/52.png",
+        "large": "https://images.pokemontcg.io/sv7/52_hires.png"
+      },
+      "market_prices": {
+        "tcgplayer": 0.03,
+        "cardmarket": 0.03,
+        "updated_at": "2025/02/01"
+      },
+      "local_image": "card_images/Stellar-Crown_052.png",
+      "image_hash": "0c00e181ffffff32:e36b14949ca56bc3:f949434b9ec6c6f6:02c40008000"
+    },
+    {
+      "name": "Vikavolt",
+      "number": "53",
+      "supertype": "Pok\u00e9mon",
+      "subtypes": [
+        "Stage 2"
+      ],
+      "rarity": "Uncommon",
+      "images": {
+        "small": "https://images.pokemontcg.io/sv7/53.png",
+        "large": "https://images.pokemontcg.io/sv7/53_hires.png"
+      },
+      "market_prices": {
+        "tcgplayer": 0.05,
+        "cardmarket": 0.03,
+        "updated_at": "2025/02/01"
+      },
+      "local_image": "card_images/Stellar-Crown_053.png",
+      "image_hash": "1800001dffffff3e:ba7a44c0cd9593f1:a9295d7d9bdcc6e6:02c00008000"
+    },
+    {
+      "name": "Togedemaru",
+      "number": "54",
+      "supertype": "Pok\u00e9mon",
+      "subtypes": [
+        "Basic"
+      ],
+      "rarity": "Uncommon",
+      "images": {
+        "small": "https://images.pokemontcg.io/sv7/54.png",
+        "large": "https://images.pokemontcg.io/sv7/54_hires.png"
+      },
+      "market_prices": {
+        "tcgplayer": 0.02,
+        "cardmarket": 0.02,
+        "updated_at": "2025/02/01"
+      },
+      "local_image": "card_images/Stellar-Crown_054.png",
+      "image_hash": "041e3c00ffffff32:9f1f44e0687a5bc1:ed7c797596cecee6:02c08008000"
+    },
+    {
+      "name": "Zeraora",
+      "number": "55",
+      "supertype": "Pok\u00e9mon",
+      "subtypes": [
+        "Basic"
+      ],
+      "rarity": "Rare",
+      "images": {
+        "small": "https://images.pokemontcg.io/sv7/55.png",
+        "large": "https://images.pokemontcg.io/sv7/55_hires.png"
+      },
+      "market_prices": {
+        "tcgplayer": null,
+        "cardmarket": 0.05,
+        "updated_at": "2025/02/01"
+      },
+      "local_image": "card_images/Stellar-Crown_055.png",
+      "image_hash": "7cc00005ffffff3e:ba7ac0c09e1f17c5:a9894d7dc7dc82e6:02c00008000"
+    },
+    {
+      "name": "Pawmi",
+      "number": "56",
+      "supertype": "Pok\u00e9mon",
+      "subtypes": [
+        "Basic"
+      ],
+      "rarity": "Common",
+      "images": {
+        "small": "https://images.pokemontcg.io/sv7/56.png",
+        "large": "https://images.pokemontcg.io/sv7/56_hires.png"
+      },
+      "market_prices": {
+        "tcgplayer": 0.05,
+        "cardmarket": 0.03,
+        "updated_at": "2025/02/01"
+      },
+      "local_image": "card_images/Stellar-Crown_056.png",
+      "image_hash": "34200000ffffff36:af6fc580dc1e1e90:e5476d619ecfc6e6:02600010000"
+    },
+    {
+      "name": "Slowpoke",
+      "number": "57",
+      "supertype": "Pok\u00e9mon",
+      "subtypes": [
+        "Basic"
+      ],
+      "rarity": "Common",
+      "images": {
+        "small": "https://images.pokemontcg.io/sv7/57.png",
+        "large": "https://images.pokemontcg.io/sv7/57_hires.png"
+      },
+      "market_prices": {
+        "tcgplayer": 0.09,
+        "cardmarket": 0.04,
+        "updated_at": "2025/02/01"
+      },
+      "local_image": "card_images/Stellar-Crown_057.png",
+      "image_hash": "2439093fffff6600:8b0f51f0d6a47879:c55b53669999cec4:072012c0000"
+    },
+    {
+      "name": "Slowking",
+      "number": "58",
+      "supertype": "Pok\u00e9mon",
+      "subtypes": [
+        "Stage 1"
+      ],
+      "rarity": "Uncommon",
+      "images": {
+        "small": "https://images.pokemontcg.io/sv7/58.png",
+        "large": "https://images.pokemontcg.io/sv7/58_hires.png"
+      },
+      "market_prices": {
+        "tcgplayer": 0.07,
+        "cardmarket": 0.04,
+        "updated_at": "2025/02/01"
+      },
+      "local_image": "card_images/Stellar-Crown_058.png",
+      "image_hash": "deff1100ffff2700:aecc95b15b5a4ae0:9c8e2171d5c5cc4c:07600280000"
+    },
+    {
+      "name": "Mewtwo",
+      "number": "59",
+      "supertype": "Pok\u00e9mon",
+      "subtypes": [
+        "Basic"
+      ],
+      "rarity": "Uncommon",
+      "images": {
+        "small": "https://images.pokemontcg.io/sv7/59.png",
+        "large": "https://images.pokemontcg.io/sv7/59_hires.png"
+      },
+      "market_prices": {
+        "tcgplayer": 0.12,
+        "cardmarket": 0.05,
+        "updated_at": "2025/02/01"
+      },
+      "local_image": "card_images/Stellar-Crown_059.png",
+      "image_hash": "30041880ffffff26:ca5e1585e168de99:6555715591c5ce4c:070004c0000"
+    },
+    {
+      "name": "Drifloon",
+      "number": "60",
+      "supertype": "Pok\u00e9mon",
+      "subtypes": [
+        "Basic"
+      ],
+      "rarity": "Common",
+      "images": {
+        "small": "https://images.pokemontcg.io/sv7/60.png",
+        "large": "https://images.pokemontcg.io/sv7/60_hires.png"
+      },
+      "market_prices": {
+        "tcgplayer": 0.04,
+        "cardmarket": 0.03,
+        "updated_at": "2025/02/01"
+      },
+      "local_image": "card_images/Stellar-Crown_060.png",
+      "image_hash": "00202185ffffff26:a76f47d8d8989894:614d4d1dd199ce4c:06000288001"
+    },
+    {
+      "name": "Drifblim",
+      "number": "61",
+      "supertype": "Pok\u00e9mon",
+      "subtypes": [
+        "Stage 1"
+      ],
+      "rarity": "Uncommon",
+      "images": {
+        "small": "https://images.pokemontcg.io/sv7/61.png",
+        "large": "https://images.pokemontcg.io/sv7/61_hires.png"
+      },
+      "market_prices": {
+        "tcgplayer": 0.03,
+        "cardmarket": 0.03,
+        "updated_at": "2025/02/01"
+      },
+      "local_image": "card_images/Stellar-Crown_061.png",
+      "image_hash": "d89444d5ffff7f00:ea5a1589d999b1a5:b1258d31d19bcecc:07002280000"
+    },
+    {
+      "name": "Yamask",
+      "number": "62",
+      "supertype": "Pok\u00e9mon",
+      "subtypes": [
+        "Basic"
+      ],
+      "rarity": "Common",
+      "images": {
+        "small": "https://images.pokemontcg.io/sv7/62.png",
+        "large": "https://images.pokemontcg.io/sv7/62_hires.png"
+      },
+      "market_prices": {
+        "tcgplayer": 0.02,
+        "cardmarket": 0.03,
+        "updated_at": "2025/02/01"
+      },
+      "local_image": "card_images/Stellar-Crown_062.png",
+      "image_hash": "37270009ffff7f00:a72704d4d95b4be4:644c697955d5ce4c:060014c0000"
+    },
+    {
+      "name": "Comfey",
+      "number": "63",
+      "supertype": "Pok\u00e9mon",
+      "subtypes": [
+        "Basic"
+      ],
+      "rarity": "Common",
+      "images": {
+        "small": "https://images.pokemontcg.io/sv7/63.png",
+        "large": "https://images.pokemontcg.io/sv7/63_hires.png"
+      },
+      "market_prices": {
+        "tcgplayer": 0.04,
+        "cardmarket": 0.03,
+        "updated_at": "2025/02/01"
+      },
+      "local_image": "card_images/Stellar-Crown_063.png",
+      "image_hash": "307cf5f7ff6f0000:c2c215b13f276e6c:c4aca5ed959dce44:07000280000"
+    },
+    {
+      "name": "Milcery",
+      "number": "64",
+      "supertype": "Pok\u00e9mon",
+      "subtypes": [
+        "Basic"
+      ],
+      "rarity": "Common",
+      "images": {
+        "small": "https://images.pokemontcg.io/sv7/64.png",
+        "large": "https://images.pokemontcg.io/sv7/64_hires.png"
+      },
+      "market_prices": {
+        "tcgplayer": 0.05,
+        "cardmarket": 0.03,
+        "updated_at": "2025/02/01"
+      },
+      "local_image": "card_images/Stellar-Crown_064.png",
+      "image_hash": "107f5f00ff7f0200:808d15b07e6e5edc:a4dab1439199ce44:074002c0000"
+    },
+    {
+      "name": "Alcremie",
+      "number": "65",
+      "supertype": "Pok\u00e9mon",
+      "subtypes": [
+        "Stage 1"
+      ],
+      "rarity": "Rare",
+      "images": {
+        "small": "https://images.pokemontcg.io/sv7/65.png",
+        "large": "https://images.pokemontcg.io/sv7/65_hires.png"
+      },
+      "market_prices": {
+        "tcgplayer": null,
+        "cardmarket": 0.06,
+        "updated_at": "2025/02/01"
+      },
+      "local_image": "card_images/Stellar-Crown_065.png",
+      "image_hash": "007f7f7df3410200:84cc157a7e4f4a71:b0b6f0f1979dce44:070003c0000"
+    },
+    {
+      "name": "Fidough",
+      "number": "66",
+      "supertype": "Pok\u00e9mon",
+      "subtypes": [
+        "Basic"
+      ],
+      "rarity": "Common",
+      "images": {
+        "small": "https://images.pokemontcg.io/sv7/66.png",
+        "large": "https://images.pokemontcg.io/sv7/66_hires.png"
+      },
+      "market_prices": {
+        "tcgplayer": 0.04,
+        "cardmarket": 0.03,
+        "updated_at": "2025/02/01"
+      },
+      "local_image": "card_images/Stellar-Crown_066.png",
+      "image_hash": "0c3e3c3fff6f4200:8b9f54b03d2d4a4e:b468715a959dce54:07600280000"
+    },
+    {
+      "name": "Dachsbun ex",
+      "number": "67",
+      "supertype": "Pok\u00e9mon",
+      "subtypes": [
+        "Stage 1",
+        "ex"
+      ],
+      "rarity": "Double Rare",
+      "images": {
+        "small": "https://images.pokemontcg.io/sv7/67.png",
+        "large": "https://images.pokemontcg.io/sv7/67_hires.png"
+      },
+      "market_prices": {
+        "tcgplayer": null,
+        "cardmarket": 0.83,
+        "updated_at": "2025/02/01"
+      },
+      "local_image": "card_images/Stellar-Crown_067.png",
+      "image_hash": "0283c1839be77f63:ac7c05975793538a:b636333733cecfce:06400018000"
+    },
+    {
+      "name": "Flittle",
+      "number": "68",
+      "supertype": "Pok\u00e9mon",
+      "subtypes": [
+        "Basic"
+      ],
+      "rarity": "Common",
+      "images": {
+        "small": "https://images.pokemontcg.io/sv7/68.png",
+        "large": "https://images.pokemontcg.io/sv7/68_hires.png"
+      },
+      "market_prices": {
+        "tcgplayer": 0.06,
+        "cardmarket": 0.04,
+        "updated_at": "2025/02/01"
+      },
+      "local_image": "card_images/Stellar-Crown_068.png",
+      "image_hash": "3030f880ffff7f00:ca4e05943633d9dd:65615149b190ce4c:06200480000"
+    },
+    {
+      "name": "Espathra",
+      "number": "69",
+      "supertype": "Pok\u00e9mon",
+      "subtypes": [
+        "Stage 1"
+      ],
+      "rarity": "Common",
+      "images": {
+        "small": "https://images.pokemontcg.io/sv7/69.png",
+        "large": "https://images.pokemontcg.io/sv7/69_hires.png"
+      },
+      "market_prices": {
+        "tcgplayer": 0.06,
+        "cardmarket": 0.04,
+        "updated_at": "2025/02/01"
+      },
+      "local_image": "card_images/Stellar-Crown_069.png",
+      "image_hash": "90101f8fffff6700:9a1c4de07eb3928d:3133545db19dce4c:07002280000"
+    },
+    {
+      "name": "Greavard",
+      "number": "70",
+      "supertype": "Pok\u00e9mon",
+      "subtypes": [
+        "Basic"
+      ],
+      "rarity": "Common",
+      "images": {
+        "small": "https://images.pokemontcg.io/sv7/70.png",
+        "large": "https://images.pokemontcg.io/sv7/70_hires.png"
+      },
+      "market_prices": {
+        "tcgplayer": 0.04,
+        "cardmarket": 0.02,
+        "updated_at": "2025/02/01"
+      },
+      "local_image": "card_images/Stellar-Crown_070.png",
+      "image_hash": "00103c31ffff7f00:8e1e50e0e5e7d392:7535696385d4ce44:07600280000"
+    },
+    {
+      "name": "Iron Boulder",
+      "number": "71",
+      "supertype": "Pok\u00e9mon",
+      "subtypes": [
+        "Basic",
+        "Future"
+      ],
+      "rarity": "Rare",
+      "images": {
+        "small": "https://images.pokemontcg.io/sv7/71.png",
+        "large": "https://images.pokemontcg.io/sv7/71_hires.png"
+      },
+      "market_prices": {
+        "tcgplayer": null,
+        "cardmarket": 0.07,
+        "updated_at": "2025/02/01"
+      },
+      "local_image": "card_images/Stellar-Crown_071.png",
+      "image_hash": "fcc08ebcf8f8f8f8:ca3731c88e969fc8:c91b48688181c1d1:06001440000"
+    },
+    {
+      "name": "Cubone",
+      "number": "72",
+      "supertype": "Pok\u00e9mon",
+      "subtypes": [
+        "Basic"
+      ],
+      "rarity": "Common",
+      "images": {
+        "small": "https://images.pokemontcg.io/sv7/72.png",
+        "large": "https://images.pokemontcg.io/sv7/72_hires.png"
+      },
+      "market_prices": {
+        "tcgplayer": 0.06,
+        "cardmarket": 0.03,
+        "updated_at": "2025/02/01"
+      },
+      "local_image": "card_images/Stellar-Crown_072.png",
+      "image_hash": "1c6f470fffff7f00:b3b344cc5e1878e6:b0ccdc19c796e267:02000038000"
+    },
+    {
+      "name": "Marowak",
+      "number": "73",
+      "supertype": "Pok\u00e9mon",
+      "subtypes": [
+        "Stage 1"
+      ],
+      "rarity": "Uncommon",
+      "images": {
+        "small": "https://images.pokemontcg.io/sv7/73.png",
+        "large": "https://images.pokemontcg.io/sv7/73_hires.png"
+      },
+      "market_prices": {
+        "tcgplayer": 0.08,
+        "cardmarket": 0.04,
+        "updated_at": "2025/02/01"
+      },
+      "local_image": "card_images/Stellar-Crown_073.png",
+      "image_hash": "c88001a5ffffff3b:eb6a5c9093b3b185:1931575dd355c666:03201038000"
+    },
+    {
+      "name": "Rhyhorn",
+      "number": "74",
+      "supertype": "Pok\u00e9mon",
+      "subtypes": [
+        "Basic"
+      ],
+      "rarity": "Common",
+      "images": {
+        "small": "https://images.pokemontcg.io/sv7/74.png",
+        "large": "https://images.pokemontcg.io/sv7/74_hires.png"
+      },
+      "market_prices": {
+        "tcgplayer": 0.03,
+        "cardmarket": 0.03,
+        "updated_at": "2025/02/01"
+      },
+      "local_image": "card_images/Stellar-Crown_074.png",
+      "image_hash": "0c0000e3ffff7f00:ea7a1e90b5e14c4e:39594597e9d8e266:03000038000"
+    },
+    {
+      "name": "Rhydon",
+      "number": "75",
+      "supertype": "Pok\u00e9mon",
+      "subtypes": [
+        "Stage 1"
+      ],
+      "rarity": "Common",
+      "images": {
+        "small": "https://images.pokemontcg.io/sv7/75.png",
+        "large": "https://images.pokemontcg.io/sv7/75_hires.png"
+      },
+      "market_prices": {
+        "tcgplayer": 0.07,
+        "cardmarket": 0.04,
+        "updated_at": "2025/02/01"
+      },
+      "local_image": "card_images/Stellar-Crown_075.png",
+      "image_hash": "1677c005ffff7f00:a6b6159c1a5a78e9:3cee8e4d47f5e267:06000030000"
+    },
+    {
+      "name": "Rhyperior",
+      "number": "76",
+      "supertype": "Pok\u00e9mon",
+      "subtypes": [
+        "Stage 2"
+      ],
+      "rarity": "Rare",
+      "images": {
+        "small": "https://images.pokemontcg.io/sv7/76.png",
+        "large": "https://images.pokemontcg.io/sv7/76_hires.png"
+      },
+      "market_prices": {
+        "tcgplayer": null,
+        "cardmarket": 0.06,
+        "updated_at": "2025/02/01"
+      },
+      "local_image": "card_images/Stellar-Crown_076.png",
+      "image_hash": "1861e1e1bfff7f00:e36315981e783cb5:b9cb878769d1c066:03200038000"
+    },
+    {
+      "name": "Meditite",
+      "number": "77",
+      "supertype": "Pok\u00e9mon",
+      "subtypes": [
+        "Basic"
+      ],
+      "rarity": "Common",
+      "images": {
+        "small": "https://images.pokemontcg.io/sv7/77.png",
+        "large": "https://images.pokemontcg.io/sv7/77_hires.png"
+      },
+      "market_prices": {
+        "tcgplayer": 0.05,
+        "cardmarket": 0.04,
+        "updated_at": "2025/02/01"
+      },
+      "local_image": "card_images/Stellar-Crown_077.png",
+      "image_hash": "001c0c1cffffff00:9e1e45e16b7238b4:39693d79a390e266:03000030000"
+    },
+    {
+      "name": "Meditite",
+      "number": "78",
+      "supertype": "Pok\u00e9mon",
+      "subtypes": [
+        "Basic"
+      ],
+      "rarity": "Common",
+      "images": {
+        "small": "https://images.pokemontcg.io/sv7/78.png",
+        "large": "https://images.pokemontcg.io/sv7/78_hires.png"
+      },
+      "market_prices": {
+        "tcgplayer": 0.04,
+        "cardmarket": 0.04,
+        "updated_at": "2025/02/01"
+      },
+      "local_image": "card_images/Stellar-Crown_078.png",
+      "image_hash": "083d1301ffff7f00:8f1f41d0787c34b5:d16b66278bd8d066:02200038000"
+    },
+    {
+      "name": "Medicham",
+      "number": "79",
+      "supertype": "Pok\u00e9mon",
+      "subtypes": [
+        "Stage 1"
+      ],
+      "rarity": "Common",
+      "images": {
+        "small": "https://images.pokemontcg.io/sv7/79.png",
+        "large": "https://images.pokemontcg.io/sv7/79_hires.png"
+      },
+      "market_prices": {
+        "tcgplayer": 0.04,
+        "cardmarket": 0.04,
+        "updated_at": "2025/02/01"
+      },
+      "local_image": "card_images/Stellar-Crown_079.png",
+      "image_hash": "80038787ffffff00:bc3c4dc163b61aca:38363e0ec3d5e266:02400070000"
+    },
+    {
+      "name": "Medicham ex",
+      "number": "80",
+      "supertype": "Pok\u00e9mon",
+      "subtypes": [
+        "Stage 1",
+        "ex"
+      ],
+      "rarity": "Double Rare",
+      "images": {
+        "small": "https://images.pokemontcg.io/sv7/80.png",
+        "large": "https://images.pokemontcg.io/sv7/80_hires.png"
+      },
+      "market_prices": {
+        "tcgplayer": null,
+        "cardmarket": 0.74,
+        "updated_at": "2025/02/01"
+      },
+      "local_image": "card_images/Stellar-Crown_080.png",
+      "image_hash": "919f12007e6fffa3:a51cbed06b6b2b81:b9b6a626d2d8ca47:02c00010000"
+    },
+    {
+      "name": "Riolu",
+      "number": "81",
+      "supertype": "Pok\u00e9mon",
+      "subtypes": [
+        "Basic"
+      ],
+      "rarity": "Common",
+      "images": {
+        "small": "https://images.pokemontcg.io/sv7/81.png",
+        "large": "https://images.pokemontcg.io/sv7/81_hires.png"
+      },
+      "market_prices": {
+        "tcgplayer": 0.05,
+        "cardmarket": 0.04,
+        "updated_at": "2025/02/01"
+      },
+      "local_image": "card_images/Stellar-Crown_081.png",
+      "image_hash": "1ce0c081ffffff00:eb6a16949d6c5cc4:a8c98303d3d0e266:03200038000"
+    },
+    {
+      "name": "Lucario ex",
+      "number": "82",
+      "supertype": "Pok\u00e9mon",
+      "subtypes": [
+        "Stage 1",
+        "ex"
+      ],
+      "rarity": "Double Rare",
+      "images": {
+        "small": "https://images.pokemontcg.io/sv7/82.png",
+        "large": "https://images.pokemontcg.io/sv7/82_hires.png"
+      },
+      "market_prices": {
+        "tcgplayer": null,
+        "cardmarket": 0.87,
+        "updated_at": "2025/02/01"
+      },
+      "local_image": "card_images/Stellar-Crown_082.png",
+      "image_hash": "400d0f00ff7fff82:9b1a74c06d6b95cc:b8397b5bb0dcad0e:02600010000"
+    },
+    {
+      "name": "Mienfoo",
+      "number": "83",
+      "supertype": "Pok\u00e9mon",
+      "subtypes": [
+        "Basic"
+      ],
+      "rarity": "Common",
+      "images": {
+        "small": "https://images.pokemontcg.io/sv7/83.png",
+        "large": "https://images.pokemontcg.io/sv7/83_hires.png"
+      },
+      "market_prices": {
+        "tcgplayer": 0.03,
+        "cardmarket": 0.03,
+        "updated_at": "2025/02/01"
+      },
+      "local_image": "card_images/Stellar-Crown_083.png",
+      "image_hash": "3c781801ffff7f00:c8584597373e3ce1:f4d19135cb93e266:02000038000"
+    },
+    {
+      "name": "Mienshao",
+      "number": "84",
+      "supertype": "Pok\u00e9mon",
+      "subtypes": [
+        "Stage 1"
+      ],
+      "rarity": "Uncommon",
+      "images": {
+        "small": "https://images.pokemontcg.io/sv7/84.png",
+        "large": "https://images.pokemontcg.io/sv7/84_hires.png"
+      },
+      "market_prices": {
+        "tcgplayer": 0.03,
+        "cardmarket": 0.02,
+        "updated_at": "2025/02/01"
+      },
+      "local_image": "card_images/Stellar-Crown_084.png",
+      "image_hash": "de800000ffffff32:be3e51e0ec4e86c1:323975758395e266:03001038000"
+    },
+    {
+      "name": "Pancham",
+      "number": "85",
+      "supertype": "Pok\u00e9mon",
+      "subtypes": [
+        "Basic"
+      ],
+      "rarity": "Common",
+      "images": {
+        "small": "https://images.pokemontcg.io/sv7/85.png",
+        "large": "https://images.pokemontcg.io/sv7/85_hires.png"
+      },
+      "market_prices": {
+        "tcgplayer": 0.05,
+        "cardmarket": 0.02,
+        "updated_at": "2025/02/01"
+      },
+      "local_image": "card_images/Stellar-Crown_085.png",
+      "image_hash": "0c6626ffffff7e00:82b254d859db3e66:98cccd6993d1c867:06000030000"
+    },
+    {
+      "name": "Diancie",
+      "number": "86",
+      "supertype": "Pok\u00e9mon",
+      "subtypes": [
+        "Basic"
+      ],
+      "rarity": "Uncommon",
+      "images": {
+        "small": "https://images.pokemontcg.io/sv7/86.png",
+        "large": "https://images.pokemontcg.io/sv7/86_hires.png"
+      },
+      "market_prices": {
+        "tcgplayer": 0.05,
+        "cardmarket": 0.03,
+        "updated_at": "2025/02/01"
+      },
+      "local_image": "card_images/Stellar-Crown_086.png",
+      "image_hash": "38381001ffffff30:8f4f41f1b4343ed0:6171696597c6c867:03000030000"
+    },
+    {
+      "name": "Crabrawler",
+      "number": "87",
+      "supertype": "Pok\u00e9mon",
+      "subtypes": [
+        "Basic"
+      ],
+      "rarity": "Common",
+      "images": {
+        "small": "https://images.pokemontcg.io/sv7/87.png",
+        "large": "https://images.pokemontcg.io/sv7/87_hires.png"
+      },
+      "market_prices": {
+        "tcgplayer": 0.05,
+        "cardmarket": 0.03,
+        "updated_at": "2025/02/01"
+      },
+      "local_image": "card_images/Stellar-Crown_087.png",
+      "image_hash": "fe4c0081ffffff10:bb3b9190cc6e4ec4:98d95165dbdcc667:02000030000"
+    },
+    {
+      "name": "Falinks",
+      "number": "88",
+      "supertype": "Pok\u00e9mon",
+      "subtypes": [
+        "Basic"
+      ],
+      "rarity": "Common",
+      "images": {
+        "small": "https://images.pokemontcg.io/sv7/88.png",
+        "large": "https://images.pokemontcg.io/sv7/88_hires.png"
+      },
+      "market_prices": {
+        "tcgplayer": 0.06,
+        "cardmarket": 0.04,
+        "updated_at": "2025/02/01"
+      },
+      "local_image": "card_images/Stellar-Crown_088.png",
+      "image_hash": "9c000183ffffff3b:ae7a50d0c5a5adc9:39353707cbcdce66:02200038000"
+    },
+    {
+      "name": "Garganacl ex",
+      "number": "89",
+      "supertype": "Pok\u00e9mon",
+      "subtypes": [
+        "Stage 2",
+        "ex"
+      ],
+      "rarity": "Double Rare",
+      "images": {
+        "small": "https://images.pokemontcg.io/sv7/89.png",
+        "large": "https://images.pokemontcg.io/sv7/89_hires.png"
+      },
+      "market_prices": {
+        "tcgplayer": null,
+        "cardmarket": 0.78,
+        "updated_at": "2025/02/01"
+      },
+      "local_image": "card_images/Stellar-Crown_089.png",
+      "image_hash": "00feb3f14e463f60:c79d5010626f6d9b:b43866469dd4e1c4:06600018000"
+    },
+    {
+      "name": "Koraidon",
+      "number": "90",
+      "supertype": "Pok\u00e9mon",
+      "subtypes": [
+        "Basic"
+      ],
+      "rarity": "Uncommon",
+      "images": {
+        "small": "https://images.pokemontcg.io/sv7/90.png",
+        "large": "https://images.pokemontcg.io/sv7/90_hires.png"
+      },
+      "market_prices": {
+        "tcgplayer": 0.05,
+        "cardmarket": 0.02,
+        "updated_at": "2025/02/01"
+      },
+      "local_image": "card_images/Stellar-Crown_090.png",
+      "image_hash": "0f018081ffffff30:ba3a15858f7a7ac0:7c5b1d6dc3dde267:02000038000"
+    },
+    {
+      "name": "Gulpin",
+      "number": "91",
+      "supertype": "Pok\u00e9mon",
+      "subtypes": [
+        "Basic"
+      ],
+      "rarity": "Common",
+      "images": {
+        "small": "https://images.pokemontcg.io/sv7/91.png",
+        "large": "https://images.pokemontcg.io/sv7/91_hires.png"
+      },
+      "market_prices": {
+        "tcgplayer": 0.08,
+        "cardmarket": 0.04,
+        "updated_at": "2025/02/01"
+      },
+      "local_image": "card_images/Stellar-Crown_091.png",
+      "image_hash": "f7ffffff81000000:ead4442f27e1e86a:c6a4b19b61694d25:02048000180"
+    },
+    {
+      "name": "Swalot",
+      "number": "92",
+      "supertype": "Pok\u00e9mon",
+      "subtypes": [
+        "Stage 1"
+      ],
+      "rarity": "Uncommon",
+      "images": {
+        "small": "https://images.pokemontcg.io/sv7/92.png",
+        "large": "https://images.pokemontcg.io/sv7/92_hires.png"
+      },
+      "market_prices": {
+        "tcgplayer": 0.04,
+        "cardmarket": 0.03,
+        "updated_at": "2025/02/01"
+      },
+      "local_image": "card_images/Stellar-Crown_092.png",
+      "image_hash": "fff7878781010000:beb4c0cbd9684a6a:8eee2d2e79714d25:030000001c0"
+    },
+    {
+      "name": "Pangoro",
+      "number": "93",
+      "supertype": "Pok\u00e9mon",
+      "subtypes": [
+        "Stage 1"
+      ],
+      "rarity": "Uncommon",
+      "images": {
+        "small": "https://images.pokemontcg.io/sv7/93.png",
+        "large": "https://images.pokemontcg.io/sv7/93_hires.png"
+      },
+      "market_prices": {
+        "tcgplayer": 0.03,
+        "cardmarket": 0.03,
+        "updated_at": "2025/02/01"
+      },
+      "local_image": "card_images/Stellar-Crown_093.png",
+      "image_hash": "ff830f8d81810180:bfb5c4e0c2da9906:26267a1965614515:03000000180"
+    },
+    {
+      "name": "Impidimp",
+      "number": "94",
+      "supertype": "Pok\u00e9mon",
+      "subtypes": [
+        "Basic"
+      ],
+      "rarity": "Common",
+      "images": {
+        "small": "https://images.pokemontcg.io/sv7/94.png",
+        "large": "https://images.pokemontcg.io/sv7/94_hires.png"
+      },
+      "market_prices": {
+        "tcgplayer": 0.07,
+        "cardmarket": 0.04,
+        "updated_at": "2025/02/01"
+      },
+      "local_image": "card_images/Stellar-Crown_094.png",
+      "image_hash": "f3ffffff81010080:eec5446ef4a1851e:4663ea1769614d05:02000000180"
+    },
+    {
+      "name": "Morgrem",
+      "number": "95",
+      "supertype": "Pok\u00e9mon",
+      "subtypes": [
+        "Stage 1"
+      ],
+      "rarity": "Common",
+      "images": {
+        "small": "https://images.pokemontcg.io/sv7/95.png",
+        "large": "https://images.pokemontcg.io/sv7/95_hires.png"
+      },
+      "market_prices": {
+        "tcgplayer": 0.06,
+        "cardmarket": 0.04,
+        "updated_at": "2025/02/01"
+      },
+      "local_image": "card_images/Stellar-Crown_095.png",
+      "image_hash": "ff8195ff81810181:eef4d0e9f1858426:2721655521214d35:030000001c0"
+    },
+    {
+      "name": "Grimmsnarl",
+      "number": "96",
+      "supertype": "Pok\u00e9mon",
+      "subtypes": [
+        "Stage 2"
+      ],
+      "rarity": "Rare",
+      "images": {
+        "small": "https://images.pokemontcg.io/sv7/96.png",
+        "large": "https://images.pokemontcg.io/sv7/96_hires.png"
+      },
+      "market_prices": {
+        "tcgplayer": null,
+        "cardmarket": 0.05,
+        "updated_at": "2025/02/01"
+      },
+      "local_image": "card_images/Stellar-Crown_096.png",
+      "image_hash": "ffd1d3e381810180:eee4d4dbb1a19414:2625254f2169490d:02000000180"
+    },
+    {
+      "name": "Bombirdier",
+      "number": "97",
+      "supertype": "Pok\u00e9mon",
+      "subtypes": [
+        "Basic"
+      ],
+      "rarity": "Common",
+      "images": {
+        "small": "https://images.pokemontcg.io/sv7/97.png",
+        "large": "https://images.pokemontcg.io/sv7/97_hires.png"
+      },
+      "market_prices": {
+        "tcgplayer": 0.03,
+        "cardmarket": 0.03,
+        "updated_at": "2025/02/01"
+      },
+      "local_image": "card_images/Stellar-Crown_097.png",
+      "image_hash": "f7dffdff81000000:fb913426e4c4cb4b:8ebad33349694d35:03000000180"
+    },
+    {
+      "name": "Jirachi",
+      "number": "98",
+      "supertype": "Pok\u00e9mon",
+      "subtypes": [
+        "Basic"
+      ],
+      "rarity": "Uncommon",
+      "images": {
+        "small": "https://images.pokemontcg.io/sv7/98.png",
+        "large": "https://images.pokemontcg.io/sv7/98_hires.png"
+      },
+      "market_prices": {
+        "tcgplayer": 0.06,
+        "cardmarket": 0.03,
+        "updated_at": "2025/02/01"
+      },
+      "local_image": "card_images/Stellar-Crown_098.png",
+      "image_hash": "00001c3dffff7f60:9b1e65a4e6c6c7c0:25717171dfd6cecb:06203000080"
+    },
+    {
+      "name": "Klink",
+      "number": "99",
+      "supertype": "Pok\u00e9mon",
+      "subtypes": [
+        "Basic"
+      ],
+      "rarity": "Common",
+      "images": {
+        "small": "https://images.pokemontcg.io/sv7/99.png",
+        "large": "https://images.pokemontcg.io/sv7/99_hires.png"
+      },
+      "market_prices": {
+        "tcgplayer": 0.04,
+        "cardmarket": 0.03,
+        "updated_at": "2025/02/01"
+      },
+      "local_image": "card_images/Stellar-Crown_099.png",
+      "image_hash": "b1000101ffffffff:af3e44c4d13399c5:65675d5dd3d2cecb:07203010000"
+    },
+    {
+      "name": "Klang",
+      "number": "100",
+      "supertype": "Pok\u00e9mon",
+      "subtypes": [
+        "Stage 1"
+      ],
+      "rarity": "Common",
+      "images": {
+        "small": "https://images.pokemontcg.io/sv7/100.png",
+        "large": "https://images.pokemontcg.io/sv7/100_hires.png"
+      },
+      "market_prices": {
+        "tcgplayer": 0.05,
+        "cardmarket": 0.04,
+        "updated_at": "2025/02/01"
+      },
+      "local_image": "card_images/Stellar-Crown_100.png",
+      "image_hash": "31e0e020ffff7f20:e26a199d1f8696d2:e383c5c7dbcececb:07610000000"
+    },
+    {
+      "name": "Klinklang",
+      "number": "101",
+      "supertype": "Pok\u00e9mon",
+      "subtypes": [
+        "Stage 2"
+      ],
+      "rarity": "Rare",
+      "images": {
+        "small": "https://images.pokemontcg.io/sv7/101.png",
+        "large": "https://images.pokemontcg.io/sv7/101_hires.png"
+      },
+      "market_prices": {
+        "tcgplayer": null,
+        "cardmarket": 0.05,
+        "updated_at": "2025/02/01"
+      },
+      "local_image": "card_images/Stellar-Crown_101.png",
+      "image_hash": "78680000fffffff9:ca4ac1a5a53e1eb5:d1d961615bcdccc3:06007000000"
+    },
+    {
+      "name": "Meltan",
+      "number": "102",
+      "supertype": "Pok\u00e9mon",
+      "subtypes": [
+        "Basic"
+      ],
+      "rarity": "Common",
+      "images": {
+        "small": "https://images.pokemontcg.io/sv7/102.png",
+        "large": "https://images.pokemontcg.io/sv7/102_hires.png"
+      },
+      "market_prices": {
+        "tcgplayer": 0.08,
+        "cardmarket": 0.04,
+        "updated_at": "2025/02/01"
+      },
+      "local_image": "card_images/Stellar-Crown_102.png",
+      "image_hash": "100080e0ffffff61:ea7e1d95c2c6c291:653769cddadccecb:07c00010000"
+    },
+    {
+      "name": "Meltan",
+      "number": "103",
+      "supertype": "Pok\u00e9mon",
+      "subtypes": [
+        "Basic"
+      ],
+      "rarity": "Common",
+      "images": {
+        "small": "https://images.pokemontcg.io/sv7/103.png",
+        "large": "https://images.pokemontcg.io/sv7/103_hires.png"
+      },
+      "market_prices": {
+        "tcgplayer": 0.05,
+        "cardmarket": 0.04,
+        "updated_at": "2025/02/01"
+      },
+      "local_image": "card_images/Stellar-Crown_103.png",
+      "image_hash": "d9000889ffffffeb:bb1ac4c4e5b50f86:b139391bc7d2cccb:06400018001"
+    },
+    {
+      "name": "Melmetal",
+      "number": "104",
+      "supertype": "Pok\u00e9mon",
+      "subtypes": [
+        "Stage 1"
+      ],
+      "rarity": "Rare",
+      "images": {
+        "small": "https://images.pokemontcg.io/sv7/104.png",
+        "large": "https://images.pokemontcg.io/sv7/104_hires.png"
+      },
+      "market_prices": {
+        "tcgplayer": null,
+        "cardmarket": 0.05,
+        "updated_at": "2025/02/01"
+      },
+      "local_image": "card_images/Stellar-Crown_104.png",
+      "image_hash": "7c0100e5ffff7f60:e23e0d95c3c2c3cd:b133558ddbcdcecb:07206008000"
+    },
+    {
+      "name": "Melmetal ex",
+      "number": "105",
+      "supertype": "Pok\u00e9mon",
+      "subtypes": [
+        "Stage 1",
+        "ex"
+      ],
+      "rarity": "Double Rare",
+      "images": {
+        "small": "https://images.pokemontcg.io/sv7/105.png",
+        "large": "https://images.pokemontcg.io/sv7/105_hires.png"
+      },
+      "market_prices": {
+        "tcgplayer": null,
+        "cardmarket": 0.75,
+        "updated_at": "2025/02/01"
+      },
+      "local_image": "card_images/Stellar-Crown_105.png",
+      "image_hash": "60c833038fffff63:a54dc1d83626c7cb:aa12e22e1c9acfce:06c01008000"
+    },
+    {
+      "name": "Duraludon",
+      "number": "106",
+      "supertype": "Pok\u00e9mon",
+      "subtypes": [
+        "Basic"
+      ],
+      "rarity": "Common",
+      "images": {
+        "small": "https://images.pokemontcg.io/sv7/106.png",
+        "large": "https://images.pokemontcg.io/sv7/106_hires.png"
+      },
+      "market_prices": {
+        "tcgplayer": 0.13,
+        "cardmarket": 0.08,
+        "updated_at": "2025/02/01"
+      },
+      "local_image": "card_images/Stellar-Crown_106.png",
+      "image_hash": "000c0405ffffff60:b71e49c9e062e6c5:517d6d4ddadccecb:06e00000000"
+    },
+    {
+      "name": "Archaludon",
+      "number": "107",
+      "supertype": "Pok\u00e9mon",
+      "subtypes": [
+        "Stage 1"
+      ],
+      "rarity": "Rare",
+      "images": {
+        "small": "https://images.pokemontcg.io/sv7/107.png",
+        "large": "https://images.pokemontcg.io/sv7/107_hires.png"
+      },
+      "market_prices": {
+        "tcgplayer": null,
+        "cardmarket": 28.76,
+        "updated_at": "2025/02/01"
+      },
+      "local_image": "card_images/Stellar-Crown_107.png",
+      "image_hash": "00003127ffff7f60:a66e41b93b8687c9:8245656d3bcececb:06003200040"
+    },
+    {
+      "name": "Varoom",
+      "number": "108",
+      "supertype": "Pok\u00e9mon",
+      "subtypes": [
+        "Basic"
+      ],
+      "rarity": "Common",
+      "images": {
+        "small": "https://images.pokemontcg.io/sv7/108.png",
+        "large": "https://images.pokemontcg.io/sv7/108_hires.png"
+      },
+      "market_prices": {
+        "tcgplayer": 0.07,
+        "cardmarket": 0.03,
+        "updated_at": "2025/02/01"
+      },
+      "local_image": "card_images/Stellar-Crown_108.png",
+      "image_hash": "32000001ffffff61:af3f5090cd65e4d0:c5694f67d1d2cecb:06403200000"
+    },
+    {
+      "name": "Revavroom",
+      "number": "109",
+      "supertype": "Pok\u00e9mon",
+      "subtypes": [
+        "Stage 1"
+      ],
+      "rarity": "Uncommon",
+      "images": {
+        "small": "https://images.pokemontcg.io/sv7/109.png",
+        "large": "https://images.pokemontcg.io/sv7/109_hires.png"
+      },
+      "market_prices": {
+        "tcgplayer": 0.03,
+        "cardmarket": 0.03,
+        "updated_at": "2025/02/01"
+      },
+      "local_image": "card_images/Stellar-Crown_109.png",
+      "image_hash": "34074101ffffff60:a33a5494ce4d69d9:e50c9b27d1c6cecb:06c00000000"
+    },
+    {
+      "name": "Orthworm ex",
+      "number": "110",
+      "supertype": "Pok\u00e9mon",
+      "subtypes": [
+        "Basic",
+        "ex"
+      ],
+      "rarity": "Double Rare",
+      "images": {
+        "small": "https://images.pokemontcg.io/sv7/110.png",
+        "large": "https://images.pokemontcg.io/sv7/110_hires.png"
+      },
+      "market_prices": {
+        "tcgplayer": null,
+        "cardmarket": 0.68,
+        "updated_at": "2025/02/01"
+      },
+      "local_image": "card_images/Stellar-Crown_110.png",
+      "image_hash": "7814340107ffffe2:821ed5c96941dde6:e26de5dbaf99cc4e:07201080000"
+    },
+    {
+      "name": "Raging Bolt",
+      "number": "111",
+      "supertype": "Pok\u00e9mon",
+      "subtypes": [
+        "Basic",
+        "Ancient"
+      ],
+      "rarity": "Rare",
+      "images": {
+        "small": "https://images.pokemontcg.io/sv7/111.png",
+        "large": "https://images.pokemontcg.io/sv7/111_hires.png"
+      },
+      "market_prices": {
+        "tcgplayer": null,
+        "cardmarket": 12.12,
+        "updated_at": "2025/02/01"
+      },
+      "local_image": "card_images/Stellar-Crown_111.png",
+      "image_hash": "00003830fdff7f2a:cf0f35f0c2c2c8d9:6d77736551c5c4da:06e01008000"
+    },
+    {
+      "name": "Tauros",
+      "number": "112",
+      "supertype": "Pok\u00e9mon",
+      "subtypes": [
+        "Basic"
+      ],
+      "rarity": "Common",
+      "images": {
+        "small": "https://images.pokemontcg.io/sv7/112.png",
+        "large": "https://images.pokemontcg.io/sv7/112_hires.png"
+      },
+      "market_prices": {
+        "tcgplayer": 0.04,
+        "cardmarket": 0.03,
+        "updated_at": "2025/02/01"
+      },
+      "local_image": "card_images/Stellar-Crown_112.png",
+      "image_hash": "54800081ffffff7e:ee6e509093b127cd:a927470fd0c6cae4:06c00000040"
+    },
+    {
+      "name": "Eevee",
+      "number": "113",
+      "supertype": "Pok\u00e9mon",
+      "subtypes": [
+        "Basic"
+      ],
+      "rarity": "Common",
+      "images": {
+        "small": "https://images.pokemontcg.io/sv7/113.png",
+        "large": "https://images.pokemontcg.io/sv7/113_hires.png"
+      },
+      "market_prices": {
+        "tcgplayer": 0.09,
+        "cardmarket": 0.04,
+        "updated_at": "2025/02/01"
+      },
+      "local_image": "card_images/Stellar-Crown_113.png",
+      "image_hash": "1c030001ffffff3e:b73f14904acbdac4:bc6e4d5bceded6c4:072c0008000"
+    },
+    {
+      "name": "Hoothoot",
+      "number": "114",
+      "supertype": "Pok\u00e9mon",
+      "subtypes": [
+        "Basic"
+      ],
+      "rarity": "Common",
+      "images": {
+        "small": "https://images.pokemontcg.io/sv7/114.png",
+        "large": "https://images.pokemontcg.io/sv7/114_hires.png"
+      },
+      "market_prices": {
+        "tcgplayer": 0.17,
+        "cardmarket": 0.09,
+        "updated_at": "2025/02/01"
+      },
+      "local_image": "card_images/Stellar-Crown_114.png",
+      "image_hash": "4e800000ffffff7e:eb7ac4819f1a9ac1:94075171dadecee4:06c01000000"
+    },
+    {
+      "name": "Noctowl",
+      "number": "115",
+      "supertype": "Pok\u00e9mon",
+      "subtypes": [
+        "Stage 1"
+      ],
+      "rarity": "Rare",
+      "images": {
+        "small": "https://images.pokemontcg.io/sv7/115.png",
+        "large": "https://images.pokemontcg.io/sv7/115_hires.png"
+      },
+      "market_prices": {
+        "tcgplayer": null,
+        "cardmarket": 0.21,
+        "updated_at": "2025/02/01"
+      },
+      "local_image": "card_images/Stellar-Crown_115.png",
+      "image_hash": "d80000a0ffffffff:ea7e9591c9c1c195:b12d45416edecccc:06e00000000"
+    },
+    {
+      "name": "Glameow",
+      "number": "116",
+      "supertype": "Pok\u00e9mon",
+      "subtypes": [
+        "Basic"
+      ],
+      "rarity": "Common",
+      "images": {
+        "small": "https://images.pokemontcg.io/sv7/116.png",
+        "large": "https://images.pokemontcg.io/sv7/116_hires.png"
+      },
+      "market_prices": {
+        "tcgplayer": 0.03,
+        "cardmarket": 0.03,
+        "updated_at": "2025/02/01"
+      },
+      "local_image": "card_images/Stellar-Crown_116.png",
+      "image_hash": "14100082ffffff3e:8e7e5491c0e2d3d9:ac23696dd2d2cee4:06006000040"
+    },
+    {
+      "name": "Purugly",
+      "number": "117",
+      "supertype": "Pok\u00e9mon",
+      "subtypes": [
+        "Stage 1"
+      ],
+      "rarity": "Common",
+      "images": {
+        "small": "https://images.pokemontcg.io/sv7/117.png",
+        "large": "https://images.pokemontcg.io/sv7/117_hires.png"
+      },
+      "market_prices": {
+        "tcgplayer": 0.02,
+        "cardmarket": 0.03,
+        "updated_at": "2025/02/01"
+      },
+      "local_image": "card_images/Stellar-Crown_117.png",
+      "image_hash": "18080000ffffff7e:cb7bd091b42e2e91:b1514963d8dac6e4:0700e000000"
+    },
+    {
+      "name": "Fan Rotom",
+      "number": "118",
+      "supertype": "Pok\u00e9mon",
+      "subtypes": [
+        "Basic"
+      ],
+      "rarity": "Common",
+      "images": {
+        "small": "https://images.pokemontcg.io/sv7/118.png",
+        "large": "https://images.pokemontcg.io/sv7/118_hires.png"
+      },
+      "market_prices": {
+        "tcgplayer": 0.12,
+        "cardmarket": 0.08,
+        "updated_at": "2025/02/01"
+      },
+      "local_image": "card_images/Stellar-Crown_118.png",
+      "image_hash": "0cc3c3c1bfffff3e:b172458d9bd8ca95:980e8e1d7bc6cecc:06e01000000"
+    },
+    {
+      "name": "Bouffalant",
+      "number": "119",
+      "supertype": "Pok\u00e9mon",
+      "subtypes": [
+        "Basic"
+      ],
+      "rarity": "Rare",
+      "images": {
+        "small": "https://images.pokemontcg.io/sv7/119.png",
+        "large": "https://images.pokemontcg.io/sv7/119_hires.png"
+      },
+      "market_prices": {
+        "tcgplayer": null,
+        "cardmarket": 0.08,
+        "updated_at": "2025/02/01"
+      },
+      "local_image": "card_images/Stellar-Crown_119.png",
+      "image_hash": "79818081ffffff7f:ee6ec4919b111a97:91270f1d7bc7cee4:07c00000000"
+    },
+    {
+      "name": "Tornadus",
+      "number": "120",
+      "supertype": "Pok\u00e9mon",
+      "subtypes": [
+        "Basic"
+      ],
+      "rarity": "Uncommon",
+      "images": {
+        "small": "https://images.pokemontcg.io/sv7/120.png",
+        "large": "https://images.pokemontcg.io/sv7/120_hires.png"
+      },
+      "market_prices": {
+        "tcgplayer": 0.04,
+        "cardmarket": 0.03,
+        "updated_at": "2025/02/01"
+      },
+      "local_image": "card_images/Stellar-Crown_120.png",
+      "image_hash": "5c800019ffffff7e:ef7a5090958547e5:98316373dccccacc:06049200200"
+    },
+    {
+      "name": "Fletchling",
+      "number": "121",
+      "supertype": "Pok\u00e9mon",
+      "subtypes": [
+        "Basic"
+      ],
+      "rarity": "Common",
+      "images": {
+        "small": "https://images.pokemontcg.io/sv7/121.png",
+        "large": "https://images.pokemontcg.io/sv7/121_hires.png"
+      },
+      "market_prices": {
+        "tcgplayer": 0.03,
+        "cardmarket": 0.03,
+        "updated_at": "2025/02/01"
+      },
+      "local_image": "card_images/Stellar-Crown_121.png",
+      "image_hash": "0c000000ffffff7e:eb7b40909c3e96d1:9d4b4961dadececc:06007000080"
+    },
+    {
+      "name": "Fletchinder",
+      "number": "122",
+      "supertype": "Pok\u00e9mon",
+      "subtypes": [
+        "Stage 1"
+      ],
+      "rarity": "Common",
+      "images": {
+        "small": "https://images.pokemontcg.io/sv7/122.png",
+        "large": "https://images.pokemontcg.io/sv7/122_hires.png"
+      },
+      "market_prices": {
+        "tcgplayer": 0.05,
+        "cardmarket": 0.04,
+        "updated_at": "2025/02/01"
+      },
+      "local_image": "card_images/Stellar-Crown_122.png",
+      "image_hash": "0c000080ffffff7e:bb3a1181c6e68d9d:b919176dd2dccecc:070000100c0"
+    },
+    {
+      "name": "Talonflame",
+      "number": "123",
+      "supertype": "Pok\u00e9mon",
+      "subtypes": [
+        "Stage 2"
+      ],
+      "rarity": "Uncommon",
+      "images": {
+        "small": "https://images.pokemontcg.io/sv7/123.png",
+        "large": "https://images.pokemontcg.io/sv7/123_hires.png"
+      },
+      "market_prices": {
+        "tcgplayer": 0.04,
+        "cardmarket": 0.03,
+        "updated_at": "2025/02/01"
+      },
+      "local_image": "card_images/Stellar-Crown_123.png",
+      "image_hash": "08000081ffffff7e:a16b41919e3c4ed7:d98b0737d8ca8ecc:07206008000"
+    },
+    {
+      "name": "Wooloo",
+      "number": "124",
+      "supertype": "Pok\u00e9mon",
+      "subtypes": [
+        "Basic"
+      ],
+      "rarity": "Common",
+      "images": {
+        "small": "https://images.pokemontcg.io/sv7/124.png",
+        "large": "https://images.pokemontcg.io/sv7/124_hires.png"
+      },
+      "market_prices": {
+        "tcgplayer": 0.03,
+        "cardmarket": 0.03,
+        "updated_at": "2025/02/01"
+      },
+      "local_image": "card_images/Stellar-Crown_124.png",
+      "image_hash": "00002280ffffff3e:933a19994ce4c7d5:71394c47d8dec6e4:06007000040"
+    },
+    {
+      "name": "Dubwool",
+      "number": "125",
+      "supertype": "Pok\u00e9mon",
+      "subtypes": [
+        "Stage 1"
+      ],
+      "rarity": "Uncommon",
+      "images": {
+        "small": "https://images.pokemontcg.io/sv7/125.png",
+        "large": "https://images.pokemontcg.io/sv7/125_hires.png"
+      },
+      "market_prices": {
+        "tcgplayer": 0.05,
+        "cardmarket": 0.03,
+        "updated_at": "2025/02/01"
+      },
+      "local_image": "card_images/Stellar-Crown_125.png",
+      "image_hash": "0c03c707bfffff3e:b73241cb1f9894cd:b9ce8e1d7bdccee4:06087000000"
+    },
+    {
+      "name": "Lechonk",
+      "number": "126",
+      "supertype": "Pok\u00e9mon",
+      "subtypes": [
+        "Basic"
+      ],
+      "rarity": "Common",
+      "images": {
+        "small": "https://images.pokemontcg.io/sv7/126.png",
+        "large": "https://images.pokemontcg.io/sv7/126_hires.png"
+      },
+      "market_prices": {
+        "tcgplayer": 0.04,
+        "cardmarket": 0.03,
+        "updated_at": "2025/02/01"
+      },
+      "local_image": "card_images/Stellar-Crown_126.png",
+      "image_hash": "0c000000ffffff7e:9b7b9484e462d999:dd795949dadac6e4:06780000000"
+    },
+    {
+      "name": "Cyclizar",
+      "number": "127",
+      "supertype": "Pok\u00e9mon",
+      "subtypes": [
+        "Basic"
+      ],
+      "rarity": "Common",
+      "images": {
+        "small": "https://images.pokemontcg.io/sv7/127.png",
+        "large": "https://images.pokemontcg.io/sv7/127_hires.png"
+      },
+      "market_prices": {
+        "tcgplayer": 0.02,
+        "cardmarket": 0.03,
+        "updated_at": "2025/02/01"
+      },
+      "local_image": "card_images/Stellar-Crown_127.png",
+      "image_hash": "1c08c081ffffff7e:f97a16978f24a4c4:79199713d8dccee4:06082000000"
+    },
+    {
+      "name": "Terapagos ex",
+      "number": "128",
+      "supertype": "Pok\u00e9mon",
+      "subtypes": [
+        "Basic",
+        "Tera",
+        "ex"
+      ],
+      "rarity": "Double Rare",
+      "images": {
+        "small": "https://images.pokemontcg.io/sv7/128.png",
+        "large": "https://images.pokemontcg.io/sv7/128_hires.png"
+      },
+      "market_prices": {
+        "tcgplayer": null,
+        "cardmarket": 5.79,
+        "updated_at": "2025/02/01"
+      },
+      "local_image": "card_images/Stellar-Crown_128.png",
+      "image_hash": "6d62e001f6fffea0:e7289f90393a6ac6:d986cf9bc64c444e:07202040000"
+    },
+    {
+      "name": "Antique Cover Fossil",
+      "number": "129",
+      "supertype": "Trainer",
+      "subtypes": [
+        "Item"
+      ],
+      "rarity": "Common",
+      "images": {
+        "small": "https://images.pokemontcg.io/sv7/129.png",
+        "large": "https://images.pokemontcg.io/sv7/129_hires.png"
+      },
+      "market_prices": {
+        "tcgplayer": 0.08,
+        "cardmarket": 0.05,
+        "updated_at": "2025/02/01"
+      },
+      "local_image": "card_images/Stellar-Crown_129.png",
+      "image_hash": "fe000801ffffff7f:8f7ad094a5cddac0:e879717367f4e0c8:07001000180"
+    },
+    {
+      "name": "Antique Root Fossil",
+      "number": "130",
+      "supertype": "Trainer",
+      "subtypes": [
+        "Item"
+      ],
+      "rarity": "Common",
+      "images": {
+        "small": "https://images.pokemontcg.io/sv7/130.png",
+        "large": "https://images.pokemontcg.io/sv7/130_hires.png"
+      },
+      "market_prices": {
+        "tcgplayer": 0.1,
+        "cardmarket": 0.06,
+        "updated_at": "2025/02/01"
+      },
+      "local_image": "card_images/Stellar-Crown_130.png",
+      "image_hash": "fe000801ffffff7f:9b7bd0c4e5899ad0:f879794b43f8eac8:070c0008000"
+    },
+    {
+      "name": "Area Zero Underdepths",
+      "number": "131",
+      "supertype": "Trainer",
+      "subtypes": [
+        "Stadium"
+      ],
+      "rarity": "Uncommon",
+      "images": {
+        "small": "https://images.pokemontcg.io/sv7/131.png",
+        "large": "https://images.pokemontcg.io/sv7/131_hires.png"
+      },
+      "market_prices": {
+        "tcgplayer": 0.36,
+        "cardmarket": 0.17,
+        "updated_at": "2025/02/01"
+      },
+      "local_image": "card_images/Stellar-Crown_131.png",
+      "image_hash": "7e000080ffffff7c:cb3f1194e6c4c999:e2757363d9f0f0ca:07006000080"
+    },
+    {
+      "name": "Briar",
+      "number": "132",
+      "supertype": "Trainer",
+      "subtypes": [
+        "Supporter"
+      ],
+      "rarity": "Uncommon",
+      "images": {
+        "small": "https://images.pokemontcg.io/sv7/132.png",
+        "large": "https://images.pokemontcg.io/sv7/132_hires.png"
+      },
+      "market_prices": {
+        "tcgplayer": 0.11,
+        "cardmarket": 0.11,
+        "updated_at": "2025/02/01"
+      },
+      "local_image": "card_images/Stellar-Crown_132.png",
+      "image_hash": "7e080000ffffff7e:9b3e8584636397d4:f0313951e1f0c8c8:07203000040"
+    },
+    {
+      "name": "Crispin",
+      "number": "133",
+      "supertype": "Trainer",
+      "subtypes": [
+        "Supporter"
+      ],
+      "rarity": "Uncommon",
+      "images": {
+        "small": "https://images.pokemontcg.io/sv7/133.png",
+        "large": "https://images.pokemontcg.io/sv7/133_hires.png"
+      },
+      "market_prices": {
+        "tcgplayer": 0.26,
+        "cardmarket": 0.17,
+        "updated_at": "2025/02/01"
+      },
+      "local_image": "card_images/Stellar-Crown_133.png",
+      "image_hash": "3c00001bffffff60:893e43c6c78593d3:e0331377f0f0c0c8:07401000040"
+    },
+    {
+      "name": "Deluxe Bomb",
+      "number": "134",
+      "supertype": "Trainer",
+      "subtypes": [
+        "Pok\u00e9mon Tool",
+        "ACE SPEC"
+      ],
+      "rarity": "ACE SPEC Rare",
+      "images": {
+        "small": "https://images.pokemontcg.io/sv7/134.png",
+        "large": "https://images.pokemontcg.io/sv7/134_hires.png"
+      },
+      "market_prices": {
+        "tcgplayer": null,
+        "cardmarket": 0.47,
+        "updated_at": "2025/02/01"
+      },
+      "local_image": "card_images/Stellar-Crown_134.png",
+      "image_hash": "597e73760001000f:84c51b3b1be6652d:b3ccc6cc6987637c:01000000006"
+    },
+    {
+      "name": "Glass Trumpet",
+      "number": "135",
+      "supertype": "Trainer",
+      "subtypes": [
+        "Item"
+      ],
+      "rarity": "Uncommon",
+      "images": {
+        "small": "https://images.pokemontcg.io/sv7/135.png",
+        "large": "https://images.pokemontcg.io/sv7/135_hires.png"
+      },
+      "market_prices": {
+        "tcgplayer": 0.19,
+        "cardmarket": 0.11,
+        "updated_at": "2025/02/01"
+      },
+      "local_image": "card_images/Stellar-Crown_135.png",
+      "image_hash": "3c000000ffffff7e:9f3e51c0c787b1d0:f871516571f0e0d8:070030000c0"
+    },
+    {
+      "name": "Grand Tree",
+      "number": "136",
+      "supertype": "Trainer",
+      "subtypes": [
+        "Stadium",
+        "ACE SPEC"
+      ],
+      "rarity": "ACE SPEC Rare",
+      "images": {
+        "small": "https://images.pokemontcg.io/sv7/136.png",
+        "large": "https://images.pokemontcg.io/sv7/136_hires.png"
+      },
+      "market_prices": {
+        "tcgplayer": null,
+        "cardmarket": 0.71,
+        "updated_at": "2025/02/01"
+      },
+      "local_image": "card_images/Stellar-Crown_136.png",
+      "image_hash": "ff297c420125011f:81e19d6a34f4d29b:935ad98413cd73f6:01000000003"
+    },
+    {
+      "name": "Gravity Gemstone",
+      "number": "137",
+      "supertype": "Trainer",
+      "subtypes": [
+        "Pok\u00e9mon Tool"
+      ],
+      "rarity": "Uncommon",
+      "images": {
+        "small": "https://images.pokemontcg.io/sv7/137.png",
+        "large": "https://images.pokemontcg.io/sv7/137_hires.png"
+      },
+      "market_prices": {
+        "tcgplayer": 0.05,
+        "cardmarket": 0.06,
+        "updated_at": "2025/02/01"
+      },
+      "local_image": "card_images/Stellar-Crown_137.png",
+      "image_hash": "3e008181ffffff60:e73f959072602d8d:f867070fc9f0c0c9:06c00000000"
+    },
+    {
+      "name": "Kofu",
+      "number": "138",
+      "supertype": "Trainer",
+      "subtypes": [
+        "Supporter"
+      ],
+      "rarity": "Uncommon",
+      "images": {
+        "small": "https://images.pokemontcg.io/sv7/138.png",
+        "large": "https://images.pokemontcg.io/sv7/138_hires.png"
+      },
+      "market_prices": {
+        "tcgplayer": 0.07,
+        "cardmarket": 0.04,
+        "updated_at": "2025/02/01"
+      },
+      "local_image": "card_images/Stellar-Crown_138.png",
+      "image_hash": "7e0000c0ffffff7e:933bccc4e1b193ca:f071690ed4f0c0c8:06203000040"
+    },
+    {
+      "name": "Lacey",
+      "number": "139",
+      "supertype": "Trainer",
+      "subtypes": [
+        "Supporter"
+      ],
+      "rarity": "Uncommon",
+      "images": {
+        "small": "https://images.pokemontcg.io/sv7/139.png",
+        "large": "https://images.pokemontcg.io/sv7/139_hires.png"
+      },
+      "market_prices": {
+        "tcgplayer": 0.09,
+        "cardmarket": 0.04,
+        "updated_at": "2025/02/01"
+      },
+      "local_image": "card_images/Stellar-Crown_139.png",
+      "image_hash": "3c360000ffff7f20:c36f94944b5939e1:f06c5351c9f0e0c8:06202000000"
+    },
+    {
+      "name": "Occa Berry",
+      "number": "140",
+      "supertype": "Trainer",
+      "subtypes": [
+        "Pok\u00e9mon Tool"
+      ],
+      "rarity": "Uncommon",
+      "images": {
+        "small": "https://images.pokemontcg.io/sv7/140.png",
+        "large": "https://images.pokemontcg.io/sv7/140_hires.png"
+      },
+      "market_prices": {
+        "tcgplayer": 0.07,
+        "cardmarket": 0.03,
+        "updated_at": "2025/02/01"
+      },
+      "local_image": "card_images/Stellar-Crown_140.png",
+      "image_hash": "181c0000ffff7f20:c33f199c6a6463d1:f0795545f1f0c0c9:07400030000"
+    },
+    {
+      "name": "Payapa Berry",
+      "number": "141",
+      "supertype": "Trainer",
+      "subtypes": [
+        "Pok\u00e9mon Tool"
+      ],
+      "rarity": "Uncommon",
+      "images": {
+        "small": "https://images.pokemontcg.io/sv7/141.png",
+        "large": "https://images.pokemontcg.io/sv7/141_hires.png"
+      },
+      "market_prices": {
+        "tcgplayer": 0.03,
+        "cardmarket": 0.03,
+        "updated_at": "2025/02/01"
+      },
+      "local_image": "card_images/Stellar-Crown_141.png",
+      "image_hash": "3c000004ffffff60:9f3ec1913a3264e5:f0616d6d59e0c0c9:07000180001"
+    },
+    {
+      "name": "Sparkling Crystal",
+      "number": "142",
+      "supertype": "Trainer",
+      "subtypes": [
+        "Pok\u00e9mon Tool",
+        "ACE SPEC"
+      ],
+      "rarity": "ACE SPEC Rare",
+      "images": {
+        "small": "https://images.pokemontcg.io/sv7/142.png",
+        "large": "https://images.pokemontcg.io/sv7/142_hires.png"
+      },
+      "market_prices": {
+        "tcgplayer": null,
+        "cardmarket": 1.01,
+        "updated_at": "2025/02/01"
+      },
+      "local_image": "card_images/Stellar-Crown_142.png",
+      "image_hash": "793c7e7e0001011f:86c13b3ae4e4a43f:9359c4c44d0b7374:02001000046"
+    },
+    {
+      "name": "Bulbasaur",
+      "number": "143",
+      "supertype": "Pok\u00e9mon",
+      "subtypes": [
+        "Basic"
+      ],
+      "rarity": "Illustration Rare",
+      "images": {
+        "small": "https://images.pokemontcg.io/sv7/143.png",
+        "large": "https://images.pokemontcg.io/sv7/143_hires.png"
+      },
+      "market_prices": {
+        "tcgplayer": null,
+        "cardmarket": 48.28,
+        "updated_at": "2025/02/01"
+      },
+      "local_image": "card_images/Stellar-Crown_143.png",
+      "image_hash": "f8f87cedacc0400f:caca0c6cb7609b97:a3e1d9895d11877e:06201080000"
+    },
+    {
+      "name": "Ledian",
+      "number": "144",
+      "supertype": "Pok\u00e9mon",
+      "subtypes": [
+        "Stage 1"
+      ],
+      "rarity": "Illustration Rare",
+      "images": {
+        "small": "https://images.pokemontcg.io/sv7/144.png",
+        "large": "https://images.pokemontcg.io/sv7/144_hires.png"
+      },
+      "market_prices": {
+        "tcgplayer": null,
+        "cardmarket": 3.03,
+        "updated_at": "2025/02/01"
+      },
+      "local_image": "card_images/Stellar-Crown_144.png",
+      "image_hash": "fd8001b9bfc18004:fade70e09968a196:31257d7179252559:0201e000000"
+    },
+    {
+      "name": "Lileep",
+      "number": "145",
+      "supertype": "Pok\u00e9mon",
+      "subtypes": [
+        "Stage 1"
+      ],
+      "rarity": "Illustration Rare",
+      "images": {
+        "small": "https://images.pokemontcg.io/sv7/145.png",
+        "large": "https://images.pokemontcg.io/sv7/145_hires.png"
+      },
+      "market_prices": {
+        "tcgplayer": null,
+        "cardmarket": 2.68,
+        "updated_at": "2025/02/01"
+      },
+      "local_image": "card_images/Stellar-Crown_145.png",
+      "image_hash": "fdfcbcbd9921008f:dad6f569b032a434:296965797969491d:030001c0000"
+    },
+    {
+      "name": "Turtonator",
+      "number": "146",
+      "supertype": "Pok\u00e9mon",
+      "subtypes": [
+        "Basic"
+      ],
+      "rarity": "Illustration Rare",
+      "images": {
+        "small": "https://images.pokemontcg.io/sv7/146.png",
+        "large": "https://images.pokemontcg.io/sv7/146_hires.png"
+      },
+      "market_prices": {
+        "tcgplayer": null,
+        "cardmarket": 2.22,
+        "updated_at": "2025/02/01"
+      },
+      "local_image": "card_images/Stellar-Crown_146.png",
+      "image_hash": "ff43859191f99dff:be3481c38f5ad0ba:de963d3523913938:0be40000000"
+    },
+    {
+      "name": "Raboot",
+      "number": "147",
+      "supertype": "Pok\u00e9mon",
+      "subtypes": [
+        "Stage 1"
+      ],
+      "rarity": "Illustration Rare",
+      "images": {
+        "small": "https://images.pokemontcg.io/sv7/147.png",
+        "large": "https://images.pokemontcg.io/sv7/147_hires.png"
+      },
+      "market_prices": {
+        "tcgplayer": null,
+        "cardmarket": 4.11,
+        "updated_at": "2025/02/01"
+      },
+      "local_image": "card_images/Stellar-Crown_147.png",
+      "image_hash": "0c3efcf3d3646800:c69c1b367cd89a45:30e4a12726ecc8d0:06407000000"
+    },
+    {
+      "name": "Squirtle",
+      "number": "148",
+      "supertype": "Pok\u00e9mon",
+      "subtypes": [
+        "Basic"
+      ],
+      "rarity": "Illustration Rare",
+      "images": {
+        "small": "https://images.pokemontcg.io/sv7/148.png",
+        "large": "https://images.pokemontcg.io/sv7/148_hires.png"
+      },
+      "market_prices": {
+        "tcgplayer": null,
+        "cardmarket": 52.02,
+        "updated_at": "2025/02/01"
+      },
+      "local_image": "card_images/Stellar-Crown_148.png",
+      "image_hash": "fd41f981fcfcf0fc:ea2b90d29f6f90d0:59d19b6359712351:06201200040"
+    },
+    {
+      "name": "Crabominable",
+      "number": "149",
+      "supertype": "Pok\u00e9mon",
+      "subtypes": [
+        "Stage 1"
+      ],
+      "rarity": "Illustration Rare",
+      "images": {
+        "small": "https://images.pokemontcg.io/sv7/149.png",
+        "large": "https://images.pokemontcg.io/sv7/149_hires.png"
+      },
+      "market_prices": {
+        "tcgplayer": null,
+        "cardmarket": 2.53,
+        "updated_at": "2025/02/01"
+      },
+      "local_image": "card_images/Stellar-Crown_149.png",
+      "image_hash": "003fe3e3877f7f38:8537111a7ae85e7c:f8cec6872fecc0e0:07002000042"
+    },
+    {
+      "name": "Joltik",
+      "number": "150",
+      "supertype": "Pok\u00e9mon",
+      "subtypes": [
+        "Basic"
+      ],
+      "rarity": "Illustration Rare",
+      "images": {
+        "small": "https://images.pokemontcg.io/sv7/150.png",
+        "large": "https://images.pokemontcg.io/sv7/150_hires.png"
+      },
+      "market_prices": {
+        "tcgplayer": null,
+        "cardmarket": 3.16,
+        "updated_at": "2025/02/01"
+      },
+      "local_image": "card_images/Stellar-Crown_150.png",
+      "image_hash": "00223b7fee057e3e:852c0d7a1bca3de5:abe656684c55e4f2:06c00010000"
+    },
+    {
+      "name": "Zeraora",
+      "number": "151",
+      "supertype": "Pok\u00e9mon",
+      "subtypes": [
+        "Basic"
+      ],
+      "rarity": "Illustration Rare",
+      "images": {
+        "small": "https://images.pokemontcg.io/sv7/151.png",
+        "large": "https://images.pokemontcg.io/sv7/151_hires.png"
+      },
+      "market_prices": {
+        "tcgplayer": null,
+        "cardmarket": 7.1,
+        "updated_at": "2025/02/01"
+      },
+      "local_image": "card_images/Stellar-Crown_151.png",
+      "image_hash": "84002580cdfdffff:ba7291d8bcccce81:39996d253be19266:02001008040"
+    },
+    {
+      "name": "Milcery",
+      "number": "152",
+      "supertype": "Pok\u00e9mon",
+      "subtypes": [
+        "Basic"
+      ],
+      "rarity": "Illustration Rare",
+      "images": {
+        "small": "https://images.pokemontcg.io/sv7/152.png",
+        "large": "https://images.pokemontcg.io/sv7/152_hires.png"
+      },
+      "market_prices": {
+        "tcgplayer": null,
+        "cardmarket": 2.81,
+        "updated_at": "2025/02/01"
+      },
+      "local_image": "card_images/Stellar-Crown_152.png",
+      "image_hash": "7e7ffffdfd000000:9a90113ede6e1ed8:fcf8d061755d2dd8:07200180000"
+    },
+    {
+      "name": "Meditite",
+      "number": "153",
+      "supertype": "Pok\u00e9mon",
+      "subtypes": [
+        "Basic"
+      ],
+      "rarity": "Illustration Rare",
+      "images": {
+        "small": "https://images.pokemontcg.io/sv7/153.png",
+        "large": "https://images.pokemontcg.io/sv7/153_hires.png"
+      },
+      "market_prices": {
+        "tcgplayer": null,
+        "cardmarket": 2.99,
+        "updated_at": "2025/02/01"
+      },
+      "local_image": "card_images/Stellar-Crown_153.png",
+      "image_hash": "e0f0fcb80d01011f:eec461339d6a129b:05a72165791d0b73:03291000000"
+    },
+    {
+      "name": "Gulpin",
+      "number": "154",
+      "supertype": "Pok\u00e9mon",
+      "subtypes": [
+        "Basic"
+      ],
+      "rarity": "Illustration Rare",
+      "images": {
+        "small": "https://images.pokemontcg.io/sv7/154.png",
+        "large": "https://images.pokemontcg.io/sv7/154_hires.png"
+      },
+      "market_prices": {
+        "tcgplayer": null,
+        "cardmarket": 2.81,
+        "updated_at": "2025/02/01"
+      },
+      "local_image": "card_images/Stellar-Crown_154.png",
+      "image_hash": "00003c7cfc00f0ff:cb1f3468c3ca1ee4:213661c9c14181c0:03048000081"
+    },
+    {
+      "name": "Archaludon",
+      "number": "155",
+      "supertype": "Pok\u00e9mon",
+      "subtypes": [
+        "Stage 1"
+      ],
+      "rarity": "Illustration Rare",
+      "images": {
+        "small": "https://images.pokemontcg.io/sv7/155.png",
+        "large": "https://images.pokemontcg.io/sv7/155_hires.png"
+      },
+      "market_prices": {
+        "tcgplayer": null,
+        "cardmarket": 2.17,
+        "updated_at": "2025/02/01"
+      },
+      "local_image": "card_images/Stellar-Crown_155.png",
+      "image_hash": "fd800183a7b998cf:ea68d1cea5adc990:332913776d2135d8:03e00008000"
+    },
+    {
+      "name": "Hydrapple ex",
+      "number": "156",
+      "supertype": "Pok\u00e9mon",
+      "subtypes": [
+        "Stage 2",
+        "ex"
+      ],
+      "rarity": "Ultra Rare",
+      "images": {
+        "small": "https://images.pokemontcg.io/sv7/156.png",
+        "large": "https://images.pokemontcg.io/sv7/156_hires.png"
+      },
+      "market_prices": {
+        "tcgplayer": null,
+        "cardmarket": 2.37,
+        "updated_at": "2025/02/01"
+      },
+      "local_image": "card_images/Stellar-Crown_156.png",
+      "image_hash": "1c737aff4dc34360:e19c453e1a795953:b0c692f59d9686ce:02400010200"
+    },
+    {
+      "name": "Cinderace ex",
+      "number": "157",
+      "supertype": "Pok\u00e9mon",
+      "subtypes": [
+        "Stage 2",
+        "Tera",
+        "ex"
+      ],
+      "rarity": "Ultra Rare",
+      "images": {
+        "small": "https://images.pokemontcg.io/sv7/157.png",
+        "large": "https://images.pokemontcg.io/sv7/157_hires.png"
+      },
+      "market_prices": {
+        "tcgplayer": null,
+        "cardmarket": 3.37,
+        "updated_at": "2025/02/01"
+      },
+      "local_image": "card_images/Stellar-Crown_157.png",
+      "image_hash": "0027e3e7e7e7dbc0:a10a4c1373fc667b:a9dd0f9ec84c1646:07001048000"
+    },
+    {
+      "name": "Lapras ex",
+      "number": "158",
+      "supertype": "Pok\u00e9mon",
+      "subtypes": [
+        "Basic",
+        "Tera",
+        "ex"
+      ],
+      "rarity": "Ultra Rare",
+      "images": {
+        "small": "https://images.pokemontcg.io/sv7/158.png",
+        "large": "https://images.pokemontcg.io/sv7/158_hires.png"
+      },
+      "market_prices": {
+        "tcgplayer": null,
+        "cardmarket": 4.89,
+        "updated_at": "2025/02/01"
+      },
+      "local_image": "card_images/Stellar-Crown_158.png",
+      "image_hash": "40c7f3f3c7858fa0:e4e81b1a438f6e3c:9996a7c68d0d3e4e:07201048040"
+    },
+    {
+      "name": "Galvantula ex",
+      "number": "159",
+      "supertype": "Pok\u00e9mon",
+      "subtypes": [
+        "Stage 1",
+        "Tera",
+        "ex"
+      ],
+      "rarity": "Ultra Rare",
+      "images": {
+        "small": "https://images.pokemontcg.io/sv7/159.png",
+        "large": "https://images.pokemontcg.io/sv7/159_hires.png"
+      },
+      "market_prices": {
+        "tcgplayer": null,
+        "cardmarket": 2.8,
+        "updated_at": "2025/02/01"
+      },
+      "local_image": "card_images/Stellar-Crown_159.png",
+      "image_hash": "016fe1c305f9ffe0:e320439b76cc6f16:d99d0f8f8d534a4e:06200050000"
+    },
+    {
+      "name": "Dachsbun ex",
+      "number": "160",
+      "supertype": "Pok\u00e9mon",
+      "subtypes": [
+        "Stage 1",
+        "ex"
+      ],
+      "rarity": "Ultra Rare",
+      "images": {
+        "small": "https://images.pokemontcg.io/sv7/160.png",
+        "large": "https://images.pokemontcg.io/sv7/160_hires.png"
+      },
+      "market_prices": {
+        "tcgplayer": null,
+        "cardmarket": 1.74,
+        "updated_at": "2025/02/01"
+      },
+      "local_image": "card_images/Stellar-Crown_160.png",
+      "image_hash": "787f02131fcff700:954e40d81b6d7b1e:f2ec2e67389a86cc:030000d0000"
+    },
+    {
+      "name": "Medicham ex",
+      "number": "161",
+      "supertype": "Pok\u00e9mon",
+      "subtypes": [
+        "Stage 1",
+        "ex"
+      ],
+      "rarity": "Ultra Rare",
+      "images": {
+        "small": "https://images.pokemontcg.io/sv7/161.png",
+        "large": "https://images.pokemontcg.io/sv7/161_hires.png"
+      },
+      "market_prices": {
+        "tcgplayer": null,
+        "cardmarket": 1.58,
+        "updated_at": "2025/02/01"
+      },
+      "local_image": "card_images/Stellar-Crown_161.png",
+      "image_hash": "80007c7fc77e0002:915b6f6cb4c1c236:3138d8d8acca86dc:02400000003"
+    },
+    {
+      "name": "Orthworm ex",
+      "number": "162",
+      "supertype": "Pok\u00e9mon",
+      "subtypes": [
+        "Basic",
+        "ex"
+      ],
+      "rarity": "Ultra Rare",
+      "images": {
+        "small": "https://images.pokemontcg.io/sv7/162.png",
+        "large": "https://images.pokemontcg.io/sv7/162_hires.png"
+      },
+      "market_prices": {
+        "tcgplayer": null,
+        "cardmarket": 1.43,
+        "updated_at": "2025/02/01"
+      },
+      "local_image": "card_images/Stellar-Crown_162.png",
+      "image_hash": "5e13133e7e54e460:85ad71d2d252596d:d6e6f6d4e8ac8cc6:06018000400"
+    },
+    {
+      "name": "Briar",
+      "number": "163",
+      "supertype": "Trainer",
+      "subtypes": [
+        "Supporter"
+      ],
+      "rarity": "Ultra Rare",
+      "images": {
+        "small": "https://images.pokemontcg.io/sv7/163.png",
+        "large": "https://images.pokemontcg.io/sv7/163_hires.png"
+      },
+      "market_prices": {
+        "tcgplayer": null,
+        "cardmarket": 3.34,
+        "updated_at": "2025/02/01"
+      },
+      "local_image": "card_images/Stellar-Crown_163.png",
+      "image_hash": "ff7efec00101001f:cad0942db95a963d:f0c4cc9d5b673130:03201200040"
+    },
+    {
+      "name": "Crispin",
+      "number": "164",
+      "supertype": "Trainer",
+      "subtypes": [
+        "Supporter"
+      ],
+      "rarity": "Ultra Rare",
+      "images": {
+        "small": "https://images.pokemontcg.io/sv7/164.png",
+        "large": "https://images.pokemontcg.io/sv7/164_hires.png"
+      },
+      "market_prices": {
+        "tcgplayer": null,
+        "cardmarket": 4.87,
+        "updated_at": "2025/02/01"
+      },
+      "local_image": "card_images/Stellar-Crown_164.png",
+      "image_hash": "ff81092e069c3c3f:9f28c0d696c7d932:703393486c30614a:06400000040"
+    },
+    {
+      "name": "Kofu",
+      "number": "165",
+      "supertype": "Trainer",
+      "subtypes": [
+        "Supporter"
+      ],
+      "rarity": "Ultra Rare",
+      "images": {
+        "small": "https://images.pokemontcg.io/sv7/165.png",
+        "large": "https://images.pokemontcg.io/sv7/165_hires.png"
+      },
+      "market_prices": {
+        "tcgplayer": null,
+        "cardmarket": 1.58,
+        "updated_at": "2025/02/01"
+      },
+      "local_image": "card_images/Stellar-Crown_165.png",
+      "image_hash": "fffff4b6a381001f:aec291298e5ada6b:e0cecc6466033339:06202000040"
+    },
+    {
+      "name": "Lacey",
+      "number": "166",
+      "supertype": "Trainer",
+      "subtypes": [
+        "Supporter"
+      ],
+      "rarity": "Ultra Rare",
+      "images": {
+        "small": "https://images.pokemontcg.io/sv7/166.png",
+        "large": "https://images.pokemontcg.io/sv7/166_hires.png"
+      },
+      "market_prices": {
+        "tcgplayer": null,
+        "cardmarket": 2.69,
+        "updated_at": "2025/02/01"
+      },
+      "local_image": "card_images/Stellar-Crown_166.png",
+      "image_hash": "ff6f8b9bb118c08f:bd9592c6cc799960:f0dc1a3375578f38:06200040200"
+    },
+    {
+      "name": "Hydrapple ex",
+      "number": "167",
+      "supertype": "Pok\u00e9mon",
+      "subtypes": [
+        "Stage 2",
+        "ex"
+      ],
+      "rarity": "Special Illustration Rare",
+      "images": {
+        "small": "https://images.pokemontcg.io/sv7/167.png",
+        "large": "https://images.pokemontcg.io/sv7/167_hires.png"
+      },
+      "market_prices": {
+        "tcgplayer": null,
+        "cardmarket": 27.82,
+        "updated_at": "2025/02/01"
+      },
+      "local_image": "card_images/Stellar-Crown_167.png",
+      "image_hash": "9e3e7cfef6e0c006:d29f3c68976ac990:3aa8e868c48585ce:03c00008000"
+    },
+    {
+      "name": "Galvantula ex",
+      "number": "168",
+      "supertype": "Pok\u00e9mon",
+      "subtypes": [
+        "Stage 1",
+        "Tera",
+        "ex"
+      ],
+      "rarity": "Special Illustration Rare",
+      "images": {
+        "small": "https://images.pokemontcg.io/sv7/168.png",
+        "large": "https://images.pokemontcg.io/sv7/168_hires.png"
+      },
+      "market_prices": {
+        "tcgplayer": null,
+        "cardmarket": 26.15,
+        "updated_at": "2025/02/01"
+      },
+      "local_image": "card_images/Stellar-Crown_168.png",
+      "image_hash": "017d677fff2eff60:83026b9c69bd73d2:91e9ccd6a9cc7047:06400010000"
+    },
+    {
+      "name": "Dachsbun ex",
+      "number": "169",
+      "supertype": "Pok\u00e9mon",
+      "subtypes": [
+        "Stage 1",
+        "ex"
+      ],
+      "rarity": "Special Illustration Rare",
+      "images": {
+        "small": "https://images.pokemontcg.io/sv7/169.png",
+        "large": "https://images.pokemontcg.io/sv7/169_hires.png"
+      },
+      "market_prices": {
+        "tcgplayer": null,
+        "cardmarket": 26.57,
+        "updated_at": "2025/02/01"
+      },
+      "local_image": "card_images/Stellar-Crown_169.png",
+      "image_hash": "1f0303c7fb9e5022:adad42d8d3521f85:baa7761fb226a446:03400038000"
+    },
+    {
+      "name": "Terapagos ex",
+      "number": "170",
+      "supertype": "Pok\u00e9mon",
+      "subtypes": [
+        "Basic",
+        "Tera",
+        "ex"
+      ],
+      "rarity": "Special Illustration Rare",
+      "images": {
+        "small": "https://images.pokemontcg.io/sv7/170.png",
+        "large": "https://images.pokemontcg.io/sv7/170_hires.png"
+      },
+      "market_prices": {
+        "tcgplayer": null,
+        "cardmarket": 71.06,
+        "updated_at": "2025/02/01"
+      },
+      "local_image": "card_images/Stellar-Crown_170.png",
+      "image_hash": "0d3c3cfff7e00000:8f883f70b462633e:797171c40649616d:03006000040"
+    },
+    {
+      "name": "Briar",
+      "number": "171",
+      "supertype": "Trainer",
+      "subtypes": [
+        "Supporter"
+      ],
+      "rarity": "Special Illustration Rare",
+      "images": {
+        "small": "https://images.pokemontcg.io/sv7/171.png",
+        "large": "https://images.pokemontcg.io/sv7/171_hires.png"
+      },
+      "market_prices": {
+        "tcgplayer": null,
+        "cardmarket": 20.93,
+        "updated_at": "2025/02/01"
+      },
+      "local_image": "card_images/Stellar-Crown_171.png",
+      "image_hash": "ff3f1f1f0d00081e:9b95c56b9c486639:f0fc7d3d394b3178:06c00080000"
+    },
+    {
+      "name": "Lacey",
+      "number": "172",
+      "supertype": "Trainer",
+      "subtypes": [
+        "Supporter"
+      ],
+      "rarity": "Special Illustration Rare",
+      "images": {
+        "small": "https://images.pokemontcg.io/sv7/172.png",
+        "large": "https://images.pokemontcg.io/sv7/172_hires.png"
+      },
+      "market_prices": {
+        "tcgplayer": null,
+        "cardmarket": 25.72,
+        "updated_at": "2025/02/01"
+      },
+      "local_image": "card_images/Stellar-Crown_172.png",
+      "image_hash": "7e3c28f9e61c3202:ced905d4a9c31a67:f07155532e2c646e:07401040000"
+    },
+    {
+      "name": "Terapagos ex",
+      "number": "173",
+      "supertype": "Pok\u00e9mon",
+      "subtypes": [
+        "Basic",
+        "Tera",
+        "ex"
+      ],
+      "rarity": "Hyper Rare",
+      "images": {
+        "small": "https://images.pokemontcg.io/sv7/173.png",
+        "large": "https://images.pokemontcg.io/sv7/173_hires.png"
+      },
+      "market_prices": {
+        "tcgplayer": null,
+        "cardmarket": 22.16,
+        "updated_at": "2025/02/01"
+      },
+      "local_image": "card_images/Stellar-Crown_173.png",
+      "image_hash": "fd66019fe37f4001:b79a40e1bf188f64:b98c75704ece9645:02200030000"
+    },
+    {
+      "name": "Area Zero Underdepths",
+      "number": "174",
+      "supertype": "Trainer",
+      "subtypes": [
+        "Stadium"
+      ],
+      "rarity": "Hyper Rare",
+      "images": {
+        "small": "https://images.pokemontcg.io/sv7/174.png",
+        "large": "https://images.pokemontcg.io/sv7/174_hires.png"
+      },
+      "market_prices": {
+        "tcgplayer": null,
+        "cardmarket": 15.99,
+        "updated_at": "2025/02/01"
+      },
+      "local_image": "card_images/Stellar-Crown_174.png",
+      "image_hash": "ff03189cbf7f0011:9bc904e0cbdad92e:f07671516bd82173:01001010080"
+    },
+    {
+      "name": "Bravery Charm",
+      "number": "175",
+      "supertype": "Trainer",
+      "subtypes": [
+        "Pok\u00e9mon Tool"
+      ],
+      "rarity": "Hyper Rare",
+      "images": {
+        "small": "https://images.pokemontcg.io/sv7/175.png",
+        "large": "https://images.pokemontcg.io/sv7/175_hires.png"
+      },
+      "market_prices": {
+        "tcgplayer": null,
+        "cardmarket": 11.84,
+        "updated_at": "2025/02/01"
+      },
+      "local_image": "card_images/Stellar-Crown_175.png",
+      "image_hash": "3f0e3effe6f81800:c5911fe9e0cdc236:f85cfc9684e1626d:01400030000"
+    }
+  ]
+}
