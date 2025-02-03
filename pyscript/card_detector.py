@@ -97,8 +97,8 @@ class CardDetector:
             ], dtype="float32")
 
             # Warp perspective to get straight-on view
-            M = cv2.getPerspectiveTransform(ordered_corners, dst)
-            card_img = cv2.warpPerspective(img, M, (self.card_width, self.card_height))
+            matrix = cv2.getPerspectiveTransform(ordered_corners, dst)
+            card_img = cv2.warpPerspective(img, matrix, (self.card_width, self.card_height))
 
             if debug_callback: debug_callback("Card successfully extracted")
             return True, debug_img, card_img
