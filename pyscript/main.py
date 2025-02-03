@@ -1,10 +1,10 @@
+import asyncio
 import js
 import numpy as np
 import cv2
-from pyodide.ffi import create_proxy
+from pyodide.ffi import create_proxy, to_js
 from js import Uint8Array, Uint8ClampedArray, ImageData, Object
 
-# Global variables
 active_stream = None
 available_cameras = []
 current_camera_index = 0
@@ -84,6 +84,42 @@ async def switch_camera(e):
     except Exception as e:
         js.console.log(f"Error switching camera: {str(e)}")
 
+def process_match_result(match_result):
+    print("Processing match result:", match_result)  # Debug print
+
+    if match_result:
+        # Ensure subtypes is a list
+        subtypes = match_result.get("subtypes", [])
+        if isinstance(subtypes, str):
+            subtypes = [subtypes]
+
+        # Prepare market prices
+        market_prices = match_result.get("market_prices", {})
+        if isinstance(market_prices, str):
+            market_prices = {"error": market_prices}
+
+        # Prepare the data dictionary
+        data = {
+            "number": match_result.get("number", ""),
+            "supertype": match_result.get("supertype", ""),
+            "rarity": match_result.get("rarity", ""),
+            "subtypes": subtypes,
+            "images": match_result.get("images", {}),
+            "market_prices": market_prices,
+            "confidence": float(match_result.get("confidence", 0)),
+            "match_quality": match_result.get("match_quality", "")
+        }
+
+        js.console.log("Pokemon card detected! ✅")
+
+        print("Processed data:", data)
+        js_data = to_js(data, dict_converter=js.Object.fromEntries)
+        js.showResultScreen(
+            str(match_result.get("name", "")),
+            js_data
+        )
+    else:
+        print("No match result to process")
 
 def click_button_click(e):
     """Handle the capture button click"""
@@ -139,26 +175,8 @@ def click_button_click(e):
 
             matcher = CardMatcher(js.console.log)
             match_result = matcher.find_matching_card(card_img)
+            process_match_result(match_result)
 
-            if match_result:
-                js.console.log("Pokemon card detected! ✅")
-                js.showResultScreen(
-                    str(match_result["name"]),
-                    {
-                        "number": str(match_result["number"]),
-                        "supertype": str(match_result["supertype"]),
-                        "rarity": str(match_result["rarity"]),
-                        "subtypes": match_result["subtypes"],
-                        "images": match_result["images"],
-                        "market_prices": match_result["market_prices"],
-                        "confidence": float(match_result["confidence"]),
-                        "match_quality": str(match_result["match_quality"]),
-                    },
-                )
-            else:
-                js.console.log(
-                    '<span style="color: red; font-size: 20px;">Card not recognized ❌</span>'
-                )
         else:
             js.console.log(
                 '<span style="color: red; font-size: 20px;">No Pokemon card found ❌</span>'
@@ -207,9 +225,5 @@ async def init():
     js.document.getElementById("loading-screen").style.display = "none"
     js.document.getElementById("main-container").style.display = "block"
     js.console.log("Initialization complete")
-
-
-# Initialize everything
-import asyncio
 
 asyncio.ensure_future(init())

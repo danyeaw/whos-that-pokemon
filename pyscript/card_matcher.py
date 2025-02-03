@@ -1,9 +1,9 @@
 import cv2
 import numpy as np
-import imagehash
-from PIL import Image
 import json
 from pathlib import Path
+
+HASH_SIZE = 8
 
 class CardMatcher:
     def __init__(self, debug_log):
@@ -40,72 +40,106 @@ class CardMatcher:
             self.debug_log(f"Error loading database: {str(e)}")
             return False
 
-    def compute_image_hash(self, img_array):
-        """Compute hash string for a cv2/numpy image array"""
+    def compute_average_hash(self, image):
+        """Compute average hash using OpenCV"""
         try:
-            # Convert BGR to RGB
-            img_rgb = cv2.cvtColor(img_array, cv2.COLOR_BGR2RGB)
-            pil_image = Image.fromarray(img_rgb)
+            # Convert to grayscale and resize
+            gray = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
+            resized = cv2.resize(gray, (HASH_SIZE, HASH_SIZE))
 
-            # Use the same hash size as in database
-            avg_hash = str(imagehash.average_hash(pil_image))
-            phash = str(imagehash.phash(pil_image))
-            dhash = str(imagehash.dhash(pil_image))
-            colorhash = str(imagehash.colorhash(pil_image))
+            # Calculate average pixel value
+            avg_pixel = np.mean(resized)
 
-            # Return hash string in same format as database
-            return f"{avg_hash}:{phash}:{dhash}:{colorhash}"
+            # Convert to binary hash string
+            diff = resized > avg_pixel
+            # Convert boolean array to hash string
+            hash_str = ''.join(['1' if b else '0' for b in diff.flatten()])
+
+            # Convert binary string to hexadecimal
+            hash_hex = hex(int(hash_str, 2))[2:].zfill(16)
+
+            return hash_hex
+
+        except Exception as e:
+            self.debug_log(f"Error computing average hash: {str(e)}")
+            return None
+
+    def compute_difference_hash(self, image):
+        """Compute difference hash using OpenCV"""
+        try:
+            # Convert to grayscale and resize
+            gray = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
+            resized = cv2.resize(gray, (HASH_SIZE + 1, HASH_SIZE))
+
+            # Compute differences
+            diff = resized[:, 1:] > resized[:, :-1]
+
+            # Convert to hash string
+            hash_str = ''.join(['1' if b else '0' for b in diff.flatten()])
+
+            # Convert binary string to hexadecimal
+            hash_hex = hex(int(hash_str, 2))[2:].zfill(16)
+
+            return hash_hex
+
+        except Exception as e:
+            self.debug_log(f"Error computing difference hash: {str(e)}")
+            return None
+
+    def compute_image_hash(self, img_array):
+        """Compute both average and difference hashes for an image"""
+        try:
+            avg_hash = self.compute_average_hash(img_array)
+            dhash = self.compute_difference_hash(img_array)
+
+            if avg_hash is None or dhash is None:
+                return None
+
+            return f"{avg_hash}:{dhash}"
 
         except Exception as e:
             self.debug_log(f"Error computing hash: {str(e)}")
             return None
 
-    def safe_hex_to_hash(self, hex_str):
-        """Safely convert hex string to hash object"""
+    def hamming_distance(self, hash1_hex, hash2_hex):
+        """Calculate Hamming distance between two hex hashes"""
         try:
-            return imagehash.hex_to_hash(hex_str)
+            # Convert hex strings to binary strings
+            hash1_bin = bin(int(hash1_hex, 16))[2:].zfill(64)
+            hash2_bin = bin(int(hash2_hex, 16))[2:].zfill(64)
+
+            # Calculate Hamming distance
+            return sum(c1 != c2 for c1, c2 in zip(hash1_bin, hash2_bin))
+
         except Exception as e:
-            self.debug_log(f"Error converting hash {hex_str}: {str(e)}")
-            return None
+            self.debug_log(f"Error calculating Hamming distance: {str(e)}")
+            return float('inf')
 
     def hash_difference(self, hash1, hash2):
-        """Compare two hash strings with weights for all four hash types"""
+        """Compare two hash strings with weights for average and difference hashes"""
         try:
             # Split the hashes
             h1_parts = hash1.split(':')
             h2_parts = hash2.split(':')
 
-            # Verify we have all four hash parts
-            if len(h1_parts) != 4 or len(h2_parts) != 4:
+            # Verify we have both hash parts
+            if len(h1_parts) != 2 or len(h2_parts) != 2:
                 self.debug_log(f"Hash format mismatch: {len(h1_parts)} vs {len(h2_parts)} parts")
                 return float('inf')
 
             # Weights for each hash type
             weights = {
-                'average': 0.40,    # Overall structure
-                'perceptual': 0.35, # Fine details
-                'difference': 0.25, # Gradients
-                'color': 0       # Color information
+                'average': 0.6,     # Overall structure
+                'difference': 0.4    # Gradients
             }
 
-            # Calculate weighted differences
-            total_diff = 0
+            # Calculate weighted Hamming distances
+            avg_dist = self.hamming_distance(h1_parts[0], h2_parts[0])
+            diff_dist = self.hamming_distance(h1_parts[1], h2_parts[1])
 
-            # Handle first three hashes (average, perceptual, difference)
-            for i in range(3):
-                hash1_obj = imagehash.hex_to_hash(h1_parts[i])
-                hash2_obj = imagehash.hex_to_hash(h2_parts[i])
-                diff = float(hash1_obj - hash2_obj)
-                hash_type = ['average', 'perceptual', 'difference'][i]
-                weighted_diff = diff * weights[hash_type]
-                total_diff += weighted_diff
-
-            # Handle colorhash separately
-            color_diff = float(abs(int(h1_parts[3], 16) - int(h2_parts[3], 16)))
-            # Normalize color difference to be in similar range as other diffs
-            color_diff = color_diff / (2**32) * 64.0  # Scale to roughly 0-64 range
-            weighted_color_diff = color_diff * weights['color']
-            total_diff += weighted_color_diff
+            # Combine weighted distances
+            total_diff = (avg_dist * weights['average'] +
+                          diff_dist * weights['difference'])
 
             return total_diff
 
@@ -115,7 +149,7 @@ class CardMatcher:
             self.debug_log(traceback.format_exc())
             return float('inf')
 
-    def find_matching_card(self, img_array, threshold=15.0):
+    def find_matching_card(self, img_array, threshold=24.0):
         """Find best matching card"""
         try:
             if not self.cards:
@@ -149,6 +183,7 @@ class CardMatcher:
                 self.debug_log(f"{card['name']} (#{card['number']}): diff = {diff:.2f}")
 
             if best_match:
+                # Return to original confidence calculation
                 confidence = max(0, min(1.0, 1.0 - (min_diff / threshold)))
                 match_quality = "High" if min_diff < threshold else "Low"
 

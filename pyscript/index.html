@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Pokemon Card Detector</title>
+    <link rel="stylesheet" href="https://pyscript.net/releases/2024.11.1/core.css">
+    <script type="module" src="https://pyscript.net/releases/2024.11.1/core.js"></script>
+    <style>
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: Helvetica, Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        background: linear-gradient(135deg, #1e90ff, #00bfff);
+        color: #333;
+      }
+
+      input, textarea {
+        font-size: 16px;
+      }
+
+      .loading-screen {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(135deg, #ffde00, #ffaa00);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        z-index: 1000;
+        padding: 20px;
+        text-align: center;
+      }
+
+      .loading-title {
+        font-size: clamp(32px, 8vw, 48px);
+        margin: 0 auto 20px;
+        color: #1a1a1a;
+        text-shadow: 2px 2px 0 #3b4cca,
+                     -2px -2px 0 #3b4cca,
+                     2px -2px 0 #3b4cca,
+                     -2px 2px 0 #3b4cca;
+        letter-spacing: 2px;
+        width: 100%;
+        text-align: center;
+      }
+
+      .loading-background {
+        width: 100%;
+        max-width: 500px;
+        aspect-ratio: 16/9;
+        background-image: url('whos-that-pokemon.jpg');
+        background-size: contain;
+        background-position: center;
+        background-repeat: no-repeat;
+        margin: 20px auto;
+      }
+
+      .spinner {
+        width: 80px;
+        height: 80px;
+        margin: 20px auto;
+        position: relative;
+        animation: pokeball-spin 2s infinite linear;
+        border: 4px solid #000;
+        border-radius: 50%;
+        background: linear-gradient(to bottom,
+          #ff0000 0%,
+          #ff0000 48%,
+          #000 48%,
+          #000 52%,
+          #fff 52%,
+          #fff 100%
+        );
+      }
+
+      .spinner::after {
+        content: '';
+        position: absolute;
+        width: 24px;
+        height: 24px;
+        background: #fff;
+        border: 4px solid #000;
+        border-radius: 50%;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+      }
+
+      @keyframes pokeball-spin {
+        0% { transform: rotate(0deg); }
+        100% { transform: rotate(360deg); }
+      }
+
+      .camera-screen {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(135deg, #3b4cca, #2a3799);
+        display: none;
+      }
+
+      .camera-container {
+        position: relative;
+        width: 100%;
+        height: 100vh;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .camera-controls {
+        position: fixed;
+        top: 20px;
+        right: 20px;
+        display: flex;
+        gap: 10px;
+        z-index: 1000;
+      }
+
+      .camera-button {
+        background: rgba(0, 0, 0, 0.6);
+        color: white;
+        border: 2px solid white;
+        border-radius: 50%;
+        width: 50px;
+        height: 50px;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 24px;
+        transition: all 0.3s ease;
+      }
+
+      .camera-button:hover {
+        background: rgba(0, 0, 0, 0.8);
+        transform: scale(1.1);
+      }
+
+      #video {
+        width: 100%;
+        height: 100vh;
+        object-fit: cover;
+      }
+
+      #canvas {
+        display: none;
+      }
+
+      .capture-button {
+        position: fixed;
+        bottom: 40px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 80px;
+        height: 80px;
+        background: linear-gradient(145deg, #ff0000, #cc0000);
+        border: 4px solid white;
+        border-radius: 50%;
+        cursor: pointer;
+        transition: transform 0.3s, box-shadow 0.3s;
+        box-shadow: 0 4px 15px rgba(204, 0, 0, 0.3);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        animation: pulse 2s infinite;
+      }
+
+      .capture-button::before {
+        content: '📸';
+        font-size: 32px;
+      }
+
+      .capture-button:hover {
+        transform: translateX(-50%) scale(1.1);
+        box-shadow: 0 6px 20px rgba(204, 0, 0, 0.4);
+      }
+
+      @keyframes pulse {
+        0% { transform: translateX(-50%) scale(1); }
+        50% { transform: translateX(-50%) scale(1.05); }
+        100% { transform: translateX(-50%) scale(1); }
+      }
+
+      .result-screen {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(135deg, #3b4cca, #2a3799);
+        z-index: 900;
+        padding: 20px;
+        overflow-y: auto;
+        color: white;
+      }
+
+      .result-screen.active {
+        display: block;
+      }
+
+      .result-title {
+        text-align: center;
+        font-size: clamp(32px, 6vw, 48px);
+        margin: 30px 0;
+        color: #ffde00;
+        text-shadow: 3px 3px 0 #3b4cca,
+                     -2px -2px 0 #3b4cca,
+                     2px -2px 0 #3b4cca,
+                     -2px 2px 0 #3b4cca;
+        animation: pop-in 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+      }
+
+      .result-content {
+        max-width: 800px;
+        margin: 0 auto;
+        background: rgba(255, 255, 255, 0.95);
+        padding: 30px;
+        border-radius: 20px;
+        box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+        color: #333;
+      }
+
+      .pokemon-card-display {
+        text-align: center;
+      }
+
+      .pokemon-card-display {
+        display: flex;
+        justify-content: center;
+      }
+
+      .pokemon-card-display img {
+        max-width: 100%;
+        width: 300px;
+        height: auto;
+        border-radius: 15px;
+        margin-bottom: 20px;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      }
+
+      .try-again-button {
+        display: block;
+        width: fit-content;
+        margin: 20px auto;
+        padding: 15px 30px;
+        background: linear-gradient(145deg, #ff0000, #cc0000);
+        color: white;
+        border: none;
+        border-radius: 30px;
+        cursor: pointer;
+        font-size: 18px;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        transition: transform 0.2s, box-shadow 0.2s;
+        box-shadow: 0 4px 15px rgba(204, 0, 0, 0.3);
+      }
+
+      .try-again-button:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 6px 20px rgba(204, 0, 0, 0.4);
+      }
+
+      @keyframes pop-in {
+        0% { transform: scale(0); }
+        70% { transform: scale(1.1); }
+        100% { transform: scale(1); }
+      }
+
+      @media (max-width: 480px) {
+        .loading-title {
+          font-size: 32px;
+          padding: 0 15px;
+        }
+
+        .spinner {
+          width: 60px;
+          height: 60px;
+        }
+
+        .spinner::after {
+          width: 18px;
+          height: 18px;
+        }
+
+        .loading-background {
+          margin: 10px auto;
+        }
+
+        .result-content {
+          padding: 20px;
+        }
+
+        .try-again-button {
+          padding: 12px 24px;
+          font-size: 16px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div id="loading-screen" class="loading-screen">
+      <h1 class="loading-title">Who's That Pokemon?</h1>
+      <div class="loading-background"></div>
+      <div class="spinner"></div>
+    </div>
+
+    <div class="camera-screen" id="main-container">
+      <script type="py" src="./main.py" config="./pyscript.toml"></script>
+
+      <div class="camera-container">
+        <div class="camera-controls">
+          <button id="camera-toggle" class="camera-button" aria-label="Toggle camera">📷</button>
+          <button id="camera-switch" class="camera-button" aria-label="Switch camera">🔄</button>
+        </div>
+        <video id="video" autoplay playsinline></video>
+        <canvas id="canvas"></canvas>
+        <button id="click-photo" class="capture-button" aria-label="Take picture"></button>
+      </div>
+
+      <div id="result" style="display: none;">Initializing...</div>
+    </div>
+
+    <div id="result-screen" class="result-screen">
+      <h1 class="result-title">It's... <span id="pokemon-name"></span>!</h1>
+      <div class="result-content">
+        <div class="pokemon-card-display">
+          <img id="pokemon-image" src="" alt="Pokemon Card">
+        </div>
+        <div class="pokemon-info">
+          <h2 style="color: #3b4cca; margin-bottom: 15px;">Card Details</h2>
+          <p><strong>Card Number:</strong> <span id="card-number"></span></p>
+          <p><strong>Type:</strong> <span id="card-type"></span></p>
+          <p><strong>Rarity:</strong> <span id="card-rarity"></span></p>
+          <p><strong>Subtypes:</strong> <span id="card-subtypes"></span></p>
+
+          <h2 style="color: #2e7d32; margin: 25px 0 15px;">Market Prices</h2>
+          <p><strong>TCGPlayer:</strong> <span id="tcg-price"></span></p>
+          <p><strong>Cardmarket:</strong> <span id="cardmarket-price"></span></p>
+          <p class="text-sm" style="color: #666; margin-top: 5px;">Last updated: <span id="price-date"></span></p>
+
+          <div class="match-quality" style="margin-top: 25px;">
+            <p><strong>Match Confidence:</strong> <span id="match-confidence"></span></p>
+            <p><strong>Match Quality:</strong> <span id="match-quality"></span></p>
+          </div>
+        </div>
+        <button class="try-again-button" onclick="document.getElementById('result-screen').classList.remove('active');document.getElementById('main-container').style.display='block';">
+          🔄 Try Another Card
+        </button>
+      </div>
+    </div>
+
+    <script>
+      function showResultScreen(name, data) {
+        if (!name || !data) {
+          console.error('Invalid input parameters')
+          return
+        }
+
+        try {
+          console.log('Showing result for:', name)
+          console.log('Data:', data)
+
+          document.getElementById('pokemon-name').textContent = name
+          document.getElementById('card-number').textContent = data.number || 'N/A'
+          document.getElementById('card-type').textContent = data.supertype || 'N/A'
+          document.getElementById('card-rarity').textContent = data.rarity || 'N/A'
+          document.getElementById('card-subtypes').textContent = data.subtypes?.join(', ') || 'N/A'
+
+          const imageUrl = data.images?.large || data.images?.small
+          if (imageUrl) {
+            document.getElementById('pokemon-image').src = imageUrl
+          }
+
+          if (data.market_prices) {
+            document.getElementById('tcg-price').textContent =
+              data.market_prices.tcgplayer ? `$${data.market_prices.tcgplayer.toFixed(2)}` : 'N/A'
+            document.getElementById('cardmarket-price').textContent =
+              data.market_prices.cardmarket ? `€${data.market_prices.cardmarket.toFixed(2)}` : 'N/A'
+            document.getElementById('price-date').textContent = data.market_prices.updated_at || 'N/A'
+          }
+
+          document.getElementById('match-confidence').textContent =
+            `${Math.round((data.confidence || 0) * 100)}%`
+          document.getElementById('match-quality').textContent = data.match_quality || 'N/A'
+
+          document.getElementById('result-screen').classList.add('active')
+          document.getElementById('main-container').style.display = 'none'
+
+        } catch (error) {
+          console.error('Error showing result screen:', error)
+          console.log('Failed data:', { name, data, error: error.message })
+        }
+      }
+    </script>
+  </body>
+</html>

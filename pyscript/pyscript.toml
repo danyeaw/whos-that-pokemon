@@ -1,0 +1,5 @@
+packages = [ "opencv-python", "numpy" ]
+name = "Pokemon Card Finder"
+
+[[fetch]]
+files = [ "card_detector.py", "card_matcher.py", "pokemon_cards.json" ]

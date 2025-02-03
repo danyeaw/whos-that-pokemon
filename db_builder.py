@@ -5,6 +5,8 @@ import json
 import cv2
 import numpy as np
 
+from pyscript.card_matcher import HASH_SIZE
+
 
 class PokemonTCGDatabase:
     def __init__(self, api_key: str | None):
@@ -23,8 +25,53 @@ class PokemonTCGDatabase:
             data = response.json()
             return data["data"]
 
+    def compute_average_hash(self, image) -> str | None:
+        """Compute average hash using OpenCV"""
+        try:
+            # Convert to grayscale and resize
+            gray = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
+            resized = cv2.resize(gray, (HASH_SIZE, HASH_SIZE))
+
+            # Calculate average pixel value
+            avg_pixel = np.mean(resized)
+
+            # Convert to binary hash string
+            diff = resized > avg_pixel
+            hash_str = ''.join(['1' if b else '0' for b in diff.flatten()])
+
+            # Convert binary string to hexadecimal
+            hash_hex = hex(int(hash_str, 2))[2:].zfill(16)
+
+            return hash_hex
+
+        except Exception as e:
+            print(f"Error computing average hash: {str(e)}")
+            return None
+
+    def compute_difference_hash(self, image) -> str | None:
+        """Compute difference hash using OpenCV"""
+        try:
+            # Convert to grayscale and resize
+            gray = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
+            resized = cv2.resize(gray, (HASH_SIZE + 1, HASH_SIZE))
+
+            # Compute differences
+            diff = resized[:, 1:] > resized[:, :-1]
+
+            # Convert to hash string
+            hash_str = ''.join(['1' if b else '0' for b in diff.flatten()])
+
+            # Convert binary string to hexadecimal
+            hash_hex = hex(int(hash_str, 2))[2:].zfill(16)
+
+            return hash_hex
+
+        except Exception as e:
+            print(f"Error computing difference hash: {str(e)}")
+            return None
+
     def compute_image_hash(self, img_path: Path) -> str | None:
-        """Compute perceptual hash using DCT"""
+        """Compute both average and difference hashes for an image"""
         try:
             # Read image
             img = cv2.imread(str(img_path))
@@ -32,25 +79,15 @@ class PokemonTCGDatabase:
                 print(f"Failed to read image: {img_path}")
                 return None
 
-            # Convert to grayscale
-            gray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
+            # Compute both hashes
+            avg_hash = self.compute_average_hash(img)
+            dhash = self.compute_difference_hash(img)
 
-            # Resize to 32x32 and compute DCT
-            size = 32
-            gray_resized = cv2.resize(gray, (size, size))
-            dct = cv2.dct(np.float32(gray_resized))
+            if avg_hash is None or dhash is None:
+                return None
 
-            # Use top-left 8x8 of DCT
-            dct_low = dct[:8, :8]
-            avg_dct = dct_low.mean()
-
-            # Convert to binary string first
-            binary_hash = "".join(
-                ["1" if c >= avg_dct else "0" for c in dct_low.flatten()]
-            )
-            # Convert to hexadecimal
-            hex_hash = hex(int(binary_hash, 2))[2:].zfill(16)  # 64 bits = 16 hex chars
-            return hex_hash
+            # Return combined hash string
+            return f"{avg_hash}:{dhash}"
 
         except Exception as e:
             print(f"Error computing hash for {img_path}: {str(e)}")
@@ -126,7 +163,7 @@ class PokemonTCGDatabase:
                         card.get("tcgplayer", {}).get("updatedAt", ""),
                         card.get("cardmarket", {}).get("updatedAt", ""),
                     )
-                    or None,
+                                  or None,
                 },
             }
 
@@ -155,7 +192,7 @@ class PokemonTCGDatabase:
                 c
                 for c in database["cards"]
                 if c["market_prices"]["tcgplayer"] is not None
-                or c["market_prices"]["cardmarket"] is not None
+                   or c["market_prices"]["cardmarket"] is not None
             ]
         )
 
@@ -181,7 +218,7 @@ async def main():
 
     try:
         # Initialize database builder
-        builder = PokemonTCGDatabase()
+        builder = PokemonTCGDatabase(None)  # Pass your API key here if needed
 
         # Get card data from Pokemon TCG API
         print("Fetching card data from Pokemon TCG API...")
@@ -200,7 +237,6 @@ async def main():
     except Exception as e:
         print(f"Error building database: {str(e)}")
         import traceback
-
         print(traceback.format_exc())
 
 
