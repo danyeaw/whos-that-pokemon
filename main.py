@@ -1,216 +1,215 @@
+import js
 import numpy as np
 import cv2
+from pyodide.ffi import create_proxy
+from js import Uint8Array, Uint8ClampedArray, ImageData, Object
+
+# Global variables
+active_stream = None
+available_cameras = []
+current_camera_index = 0
 
 
-WIDTH, HEIGHT = 330, 440
-
-cap = cv2.VideoCapture(0)
-if not cap.isOpened():
-    print("Cannot open camera")
-    video = False
-else:
-    video = True
-
-
-def stack_images(image_array, labels: list[str]):
-    rows = len(image_array)  # Get number of rows of images
-    cols = len(image_array[0])  # Get numbers of images in a row
-
-    # Loop through the images
-    # OpenCV stores grayscale images as 2D arrays, so we need to convert them to 3D arrays to be able to combine them
-    # with the colored images
-    for x in range(0, rows):
-        for y in range(0, cols):
-            if len(image_array[x][y].shape) == 2:
-                image_array[x][y] = cv2.cvtColor(image_array[x][y], cv2.COLOR_GRAY2BGR)
-
-    # Create a black image
-    black_image = np.zeros((WIDTH, HEIGHT, 3), np.uint8)
-
-    # Stack the images
-    hor = [black_image] * rows
-    for row in range(0, rows):
-        hor[row] = np.hstack(image_array[row])
-    stacked = np.vstack(hor)
-
-    # Add labels via white rectangles and text
-    for d in range(0, rows):
-        for c in range(0, cols):
-            cv2.rectangle(
-                stacked,
-                (c * WIDTH, d * HEIGHT),
-                (c * WIDTH + WIDTH, d * HEIGHT + 32),
-                (255, 255, 255),
-                cv2.FILLED,
-            )
-            cv2.putText(
-                stacked,
-                labels[d][c],
-                (WIDTH * c + 10, HEIGHT * d + 23),
-                cv2.FONT_HERSHEY_DUPLEX,
-                1,
-                (0, 0, 0),
-                2,
-            )
-
-    return stacked
+async def stop_camera():
+    """Stop the current camera stream"""
+    global active_stream
+    if active_stream:
+        tracks = active_stream.getTracks()
+        for track in tracks:
+            track.stop()
+        active_stream = None
+        if video:
+            video.srcObject = None
 
 
-while True:
-    if not video:
-        # Step 1: Load the image
-        orig_image = cv2.imread("test_images/tiltleft2.jpg")
-        orig_image_rgb = cv2.cvtColor(orig_image, cv2.COLOR_BGR2RGB)
-    else:
-        # Capture frame-by-frame
-        ret, orig_image = cap.read()
-        orig_image_rgb = orig_image
-        if not ret:
-            print("Can't receive frame (stream end?). Exiting ...")
-            break
-        if cv2.waitKey(1) == ord("q"):
-            break
+async def start_camera(camera_id=None):
+    """Start the camera with optional camera_id"""
+    try:
+        global active_stream
+        await stop_camera()
 
-    # Step 2: Convert to grayscale
-    gray = cv2.cvtColor(orig_image, cv2.COLOR_BGR2GRAY)
-    blurred = cv2.GaussianBlur(src=gray, ksize=(3, 3), sigmaX=0)
+        # Set up constraints
+        constraints = Object.new()
+        constraints.audio = False
+        video_constraints = Object.new()
 
-    # Step 3: Edge detection
-    edges = cv2.Canny(blurred, 140, 250)
-    kernel = np.ones(shape=(5, 5))
-    frame_dial = cv2.dilate(edges, kernel, iterations=2)
-    frame_threshold = cv2.erode(frame_dial, kernel, iterations=1)
-
-    contours, _ = cv2.findContours(
-        frame_threshold, cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_SIMPLE
-    )
-    contour_image = orig_image.copy()
-    cv2.drawContours(
-        image=contour_image,
-        contours=contours,
-        contourIdx=-1,
-        color=(0, 255, 0),
-        thickness=2,
-    )
-    if not video:
-        contour_image_rgb = cv2.cvtColor(contour_image, cv2.COLOR_BGR2RGB)
-    else:
-        contour_image_rgb = contour_image
-
-    # Step 4: Find contours
-
-    best_contour = None
-    best_approx = None
-
-    for contour in contours:
-        # Approximate the contour
-        perimeter = cv2.arcLength(contour, True)
-        epsilon = 0.05 * perimeter
-        approx = cv2.approxPolyDP(contour, epsilon, True)
-        if len(approx) == 4 and 300 < perimeter < 2000:
-            if best_contour is None or cv2.contourArea(contour) > cv2.contourArea(
-                best_contour
-            ):
-                best_contour = contour
-                best_approx = approx
-                print(perimeter)
-    if best_contour is not None:
-        print("Found a 4 Sided Contour")
-    else:
-        print("No 4 Sided Contour Found")
-
-    # Step 5: Draw the 4 Sided Card Approximation
-    if best_contour is not None:
-        approx_image = orig_image.copy()
-
-        for point in best_approx:
-            x, y = point[0]
-            cv2.circle(approx_image, (x, y), 3, (0, 255, 0), 2)
-
-        cv2.drawContours(approx_image, [best_approx], -1, (0, 255, 0), 1)
-        if not video:
-            approx_image_rgb = cv2.cvtColor(approx_image, cv2.COLOR_BGR2RGB)
+        if camera_id:
+            video_constraints.deviceId = camera_id
         else:
-            approx_image_rgb = approx_image
+            video_constraints.facingMode = "environment"
 
-    # Step 5: Reorder the corners
+        constraints.video = video_constraints
 
-    # Order needs to be top-left, top-right, bottom-right, bottom-left
+        # Get camera stream
+        stream = await js.navigator.mediaDevices.getUserMedia(constraints)
+        active_stream = stream
+        if video:
+            video.srcObject = stream
+            video.style.display = "block"
 
-    if best_approx is not None and len(best_approx) > 1:
-        corners = np.array(best_approx).reshape(4, 2)
+        js.console.log("Camera started successfully")
+    except Exception as e:
+        js.console.log(f"Camera error: {str(e)}")
+        import traceback
+
+        js.console.log(traceback.format_exc())
+
+
+async def toggle_camera(e):
+    """Toggle the camera on/off"""
+    if active_stream:
+        await stop_camera()
+        if camera_toggle:
+            camera_toggle.innerHTML = "📷"
     else:
-        continue
+        await start_camera()
+        if camera_toggle:
+            camera_toggle.innerHTML = "⏹️"
 
-    # Calculate the sum of each corner's coordinates along axis 1
-    sums = corners.sum(axis=1)
 
-    # Get the indices that would sort the sums
-    sorted_idx = np.argsort(sums)
+async def switch_camera(e):
+    """Switch between available cameras"""
+    global current_camera_index, available_cameras
 
-    if corners[sorted_idx[1]][1] > corners[sorted_idx[2]][1]:  # Tilted Right
+    try:
+        # Get list of cameras if we haven't already
+        if not available_cameras:
+            devices = await js.navigator.mediaDevices.enumerateDevices()
+            available_cameras = [d for d in devices if d.kind == "videoinput"]
+            js.console.log(f"Found {len(available_cameras)} cameras")
 
-        ordered_corners = np.array(
-            [
-                corners[sorted_idx[0]],
-                corners[sorted_idx[2]],
-                corners[sorted_idx[3]],
-                corners[sorted_idx[1]],
-            ],
-            dtype="float32",
-        )
+        if len(available_cameras) > 1:
+            current_camera_index = (current_camera_index + 1) % len(available_cameras)
+            await start_camera(available_cameras[current_camera_index].deviceId)
+    except Exception as e:
+        js.console.log(f"Error switching camera: {str(e)}")
 
-    else:  # Tilted Left
-        ordered_corners = np.array(
-            [
-                corners[sorted_idx[0]],
-                corners[sorted_idx[1]],
-                corners[sorted_idx[3]],
-                corners[sorted_idx[2]],
-            ],
-            dtype="float32",
-        )
 
-    # Step 6: Warp the image to a Rectangle
+def click_button_click(e):
+    """Handle the capture button click"""
+    try:
+        js.console.log("Processing image...")
 
-    dst = np.array([[0, 0], [WIDTH, 0], [WIDTH, HEIGHT], [0, HEIGHT]], dtype="float32")
+        if not video or not canvas:
+            js.console.log("Video or canvas not ready")
+            return
 
-    # Get the perspective transform matrix
-    M = cv2.getPerspectiveTransform(ordered_corners, dst)
-    warped = cv2.warpPerspective(orig_image, M, (WIDTH, HEIGHT))
+        # Update canvas size to match video
+        canvas.width = video.videoWidth
+        canvas.height = video.videoHeight
 
-    if not video:
-        warped_rgb = cv2.cvtColor(warped, cv2.COLOR_BGR2RGB)
-    else:
-        warped_rgb = warped
+        # Get the canvas context and draw video frame
+        ctx = canvas.getContext("2d")
+        ctx.drawImage(video, 0, 0, canvas.width, canvas.height)
 
-    # Step 7: Resize and Display Images
-    orig_image_rgb = cv2.resize(orig_image_rgb, (WIDTH, HEIGHT))
-    gray = cv2.resize(gray, (WIDTH, HEIGHT))
-    blurred = cv2.resize(blurred, (WIDTH, HEIGHT))
-    contour_image_rgb = cv2.resize(contour_image_rgb, (WIDTH, HEIGHT))
-    approx_image_rgb = cv2.resize(approx_image_rgb, (WIDTH, HEIGHT))
-    warped_rgb = cv2.resize(warped_rgb, (WIDTH, HEIGHT))
+        # Get image data
+        image_data = ctx.getImageData(0, 0, canvas.width, canvas.height)
+        js.console.log("Got image data")
 
-    images = (
-        [orig_image_rgb, gray, blurred],
-        [contour_image_rgb, approx_image_rgb, warped],
-    )
-    labels = (["Original", "Gray", "Blurred"], ["Contours", "Approximate", "Warped"])
+        # Convert image data to bytes
+        js_array = Uint8Array.new(image_data.data)
+        bytes_data = js_array.to_bytes()
+        js.console.log("Converted to bytes")
 
-    image_stack = stack_images(images, labels)
+        # Convert to numpy array
+        pixels_flat = np.frombuffer(bytes_data, dtype=np.uint8)
+        js.console.log(f"Converted to array with shape: {pixels_flat.shape}")
 
-    # Display the result using Matplotlib
-    cv2.imshow("Card Finder", image_stack)
+        # Reshape the array
+        try:
+            frame = pixels_flat.reshape((canvas.height, canvas.width, 4))
+            js.console.log(f"Reshaped array to: {frame.shape}")
+        except Exception as e:
+            js.console.log(f"Reshape error: {str(e)}")
+            return
 
-    if not video:  # If reading image file, display image until key is pressed
-        cv2.waitKey(0)  # Keeps window open until any key is pressed
-        break
-    elif cv2.waitKey(1) & 0xFF == ord(
-        "q"
-    ):  # If reading from video, quit if 'q' is pressed
-        break
+        # Convert RGBA to BGR for OpenCV
+        frame_bgr = cv2.cvtColor(frame, cv2.COLOR_BGR2RGBA)
+        js.console.log("Converted to BGR")
 
-# When everything done, release the capture
-cap.release()
-cv2.destroyAllWindows()
+        # Initialize detector and find card
+        from card_detector import CardDetector
+
+        detector = CardDetector(canvas.width, canvas.height)
+        card_found, debug_img, card_img = detector.detect(frame_bgr, js.console.log)
+
+        if card_found and card_img is not None:
+            # Initialize matcher and find matching card
+            from card_matcher import CardMatcher
+
+            matcher = CardMatcher(js.console.log)
+            match_result = matcher.find_matching_card(card_img)
+
+            if match_result:
+                js.console.log("Pokemon card detected! ✅")
+                js.showResultScreen(
+                    str(match_result["name"]),
+                    {
+                        "number": str(match_result["number"]),
+                        "supertype": str(match_result["supertype"]),
+                        "rarity": str(match_result["rarity"]),
+                        "subtypes": match_result["subtypes"],
+                        "images": match_result["images"],
+                        "market_prices": match_result["market_prices"],
+                        "confidence": float(match_result["confidence"]),
+                        "match_quality": str(match_result["match_quality"]),
+                    },
+                )
+            else:
+                js.console.log(
+                    '<span style="color: red; font-size: 20px;">Card not recognized ❌</span>'
+                )
+        else:
+            js.console.log(
+                '<span style="color: red; font-size: 20px;">No Pokemon card found ❌</span>'
+            )
+
+    except Exception as e:
+        js.console.log(f"Error processing frame: {str(e)}")
+        import traceback
+
+        js.console.log(traceback.format_exc())
+
+
+def click_handler(e):
+    """Handler for the click photo button"""
+    js.console.log("Capture button clicked!")
+    click_button_click(e)
+
+
+async def init():
+    """Initialize the app after DOM is ready"""
+    global video, click_button, camera_toggle, camera_switch, canvas, result_div, match_info
+
+    # Get DOM elements
+    video = js.document.querySelector("#video")
+    click_button = js.document.querySelector("#click-photo")
+    camera_toggle = js.document.querySelector("#camera-toggle")
+    camera_switch = js.document.querySelector("#camera-switch")
+    canvas = js.document.querySelector("#canvas")
+    result_div = js.document.querySelector("#result")
+    match_info = js.document.querySelector("#match-info")
+
+    js.console.log("DOM elements found")
+
+    # Set up event listeners
+    if click_button:
+        proxy = create_proxy(click_handler)
+        click_button.addEventListener("click", proxy)
+        js.console.log("Click handler attached")
+    if camera_toggle:
+        camera_toggle.addEventListener("click", create_proxy(toggle_camera))
+    if camera_switch:
+        camera_switch.addEventListener("click", create_proxy(switch_camera))
+
+    # Start camera and show main screen
+    await start_camera()
+    js.document.getElementById("loading-screen").style.display = "none"
+    js.document.getElementById("main-container").style.display = "block"
+    js.console.log("Initialization complete")
+
+
+# Initialize everything
+import asyncio
+
+asyncio.ensure_future(init())
