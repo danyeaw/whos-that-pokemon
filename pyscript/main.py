@@ -84,6 +84,7 @@ async def switch_camera(e):
     except Exception as e:
         js.console.log(f"Error switching camera: {str(e)}")
 
+
 def process_match_result(match_result):
     print("Processing match result:", match_result)  # Debug print
 
@@ -107,19 +108,17 @@ def process_match_result(match_result):
             "images": match_result.get("images", {}),
             "market_prices": market_prices,
             "confidence": float(match_result.get("confidence", 0)),
-            "match_quality": match_result.get("match_quality", "")
+            "match_quality": match_result.get("match_quality", ""),
         }
 
         js.console.log("Pokemon card detected! ✅")
 
         print("Processed data:", data)
         js_data = to_js(data, dict_converter=js.Object.fromEntries)
-        js.showResultScreen(
-            str(match_result.get("name", "")),
-            js_data
-        )
+        js.showResultScreen(str(match_result.get("name", "")), js_data)
     else:
         print("No match result to process")
+
 
 def click_button_click(e):
     """Handle the capture button click"""
@@ -225,5 +224,6 @@ async def init():
     js.document.getElementById("loading-screen").style.display = "none"
     js.document.getElementById("main-container").style.display = "block"
     js.console.log("Initialization complete")
+
 
 asyncio.ensure_future(init())

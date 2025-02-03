@@ -1,11 +1,12 @@
 import cv2
 import numpy as np
 
+
 class CardDetector:
     def __init__(self, canvas_width, canvas_height):
         self.canvas_width = canvas_width
         self.canvas_height = canvas_height
-        self.card_ratio = 2.5/3.5  # Pokemon card ratio
+        self.card_ratio = 2.5 / 3.5  # Pokemon card ratio
 
         # Calculate card dimensions
         self.card_height = int(canvas_height * 0.8)  # 80% of canvas height
@@ -20,7 +21,8 @@ class CardDetector:
             # Convert to grayscale and blur
             gray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
             blurred = cv2.GaussianBlur(src=gray, ksize=(3, 3), sigmaX=0)
-            if debug_callback: debug_callback("Image preprocessed")
+            if debug_callback:
+                debug_callback("Image preprocessed")
 
             # Edge detection and contour preparation
             edges = cv2.Canny(blurred, 140, 250)
@@ -32,7 +34,8 @@ class CardDetector:
             contours, _ = cv2.findContours(
                 frame_threshold, cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_SIMPLE
             )
-            if debug_callback: debug_callback(f"Found {len(contours)} contours")
+            if debug_callback:
+                debug_callback(f"Found {len(contours)} contours")
 
             # Find best card contour
             best_contour = None
@@ -45,13 +48,19 @@ class CardDetector:
 
                 # Look for card-sized 4-sided shapes
                 if len(approx) == 4 and 300 < perimeter < 2000:
-                    if best_contour is None or cv2.contourArea(contour) > cv2.contourArea(best_contour):
+                    if best_contour is None or cv2.contourArea(
+                        contour
+                    ) > cv2.contourArea(best_contour):
                         best_contour = contour
                         best_approx = approx
-                        if debug_callback: debug_callback(f"Found potential card (perimeter: {perimeter:.1f})")
+                        if debug_callback:
+                            debug_callback(
+                                f"Found potential card (perimeter: {perimeter:.1f})"
+                            )
 
             if best_contour is None:
-                if debug_callback: debug_callback("No card detected")
+                if debug_callback:
+                    debug_callback("No card detected")
                 return False, img, None
 
             # Draw card outline on the debug image
@@ -89,20 +98,27 @@ class CardDetector:
                 )
 
             # Create destination points for the card
-            dst = np.array([
-                [0, 0],
-                [self.card_width, 0],
-                [self.card_width, self.card_height],
-                [0, self.card_height]
-            ], dtype="float32")
+            dst = np.array(
+                [
+                    [0, 0],
+                    [self.card_width, 0],
+                    [self.card_width, self.card_height],
+                    [0, self.card_height],
+                ],
+                dtype="float32",
+            )
 
             # Warp perspective to get straight-on view
             matrix = cv2.getPerspectiveTransform(ordered_corners, dst)
-            card_img = cv2.warpPerspective(img, matrix, (self.card_width, self.card_height))
+            card_img = cv2.warpPerspective(
+                img, matrix, (self.card_width, self.card_height)
+            )
 
-            if debug_callback: debug_callback("Card successfully extracted")
+            if debug_callback:
+                debug_callback("Card successfully extracted")
             return True, debug_img, card_img
 
         except Exception as e:
-            if debug_callback: debug_callback(f"Detection error: {str(e)}")
+            if debug_callback:
+                debug_callback(f"Detection error: {str(e)}")
             return False, img, None
