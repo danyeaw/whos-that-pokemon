@@ -63,7 +63,7 @@ class CardMatcher:
     def load_database(self):
         """Load and validate the database"""
         try:
-            db_path = Path("pokemon_cards.json")
+            db_path = Path("pokemon_cards.min.json")
             if not db_path.exists():
                 self.debug_log(f"Error: Database file not found at {db_path}")
                 return False
