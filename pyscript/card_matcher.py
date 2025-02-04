@@ -121,7 +121,7 @@ class CardMatcher:
             self.debug_log(f"{card['name']} (#{card['number']}): diff = {diff:.2f}")
 
         if best_match:
-            confidence = max(0, int(min(1.0, 1.0 - (min_diff / threshold))))
+            confidence = max(0.0, min(1.0, 1.0 - (min_diff / threshold)))
             match_quality = "High" if min_diff < threshold else "Low"
 
             return {
