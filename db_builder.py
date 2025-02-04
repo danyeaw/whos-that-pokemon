@@ -37,7 +37,7 @@ class PokemonTCGDatabase:
 
             # Convert to binary hash string
             diff = resized > avg_pixel
-            hash_str = ''.join(['1' if b else '0' for b in diff.flatten()])
+            hash_str = "".join(["1" if b else "0" for b in diff.flatten()])
 
             # Convert binary string to hexadecimal
             hash_hex = hex(int(hash_str, 2))[2:].zfill(16)
@@ -59,7 +59,7 @@ class PokemonTCGDatabase:
             diff = resized[:, 1:] > resized[:, :-1]
 
             # Convert to hash string
-            hash_str = ''.join(['1' if b else '0' for b in diff.flatten()])
+            hash_str = "".join(["1" if b else "0" for b in diff.flatten()])
 
             # Convert binary string to hexadecimal
             hash_hex = hex(int(hash_str, 2))[2:].zfill(16)
@@ -163,7 +163,7 @@ class PokemonTCGDatabase:
                         card.get("tcgplayer", {}).get("updatedAt", ""),
                         card.get("cardmarket", {}).get("updatedAt", ""),
                     )
-                                  or None,
+                    or None,
                 },
             }
 
@@ -192,7 +192,7 @@ class PokemonTCGDatabase:
                 c
                 for c in database["cards"]
                 if c["market_prices"]["tcgplayer"] is not None
-                   or c["market_prices"]["cardmarket"] is not None
+                or c["market_prices"]["cardmarket"] is not None
             ]
         )
 
@@ -237,6 +237,7 @@ async def main():
     except Exception as e:
         print(f"Error building database: {str(e)}")
         import traceback
+
         print(traceback.format_exc())
 
 

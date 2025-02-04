@@ -3,7 +3,7 @@ import js
 import numpy as np
 import cv2
 from pyodide.ffi import create_proxy, to_js
-from js import Uint8Array, Uint8ClampedArray, ImageData, Object
+from js import Uint8Array, Object
 
 active_stream = None
 available_cameras = []
@@ -196,7 +196,14 @@ def click_handler(e):
 
 async def init():
     """Initialize the app after DOM is ready"""
-    global video, click_button, camera_toggle, camera_switch, canvas, result_div, match_info
+    global \
+        video, \
+        click_button, \
+        camera_toggle, \
+        camera_switch, \
+        canvas, \
+        result_div, \
+        match_info
 
     # Get DOM elements
     video = js.document.querySelector("#video")
