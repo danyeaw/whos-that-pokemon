@@ -36,6 +36,6 @@ $ pip install -r requirements.txt
 #### Conda
 
 ```
-$ conda create -n pokemon opencv httpx
+$ conda env create -f environment.yml 
 $ conda activate pokemon
 ```
