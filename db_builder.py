@@ -177,6 +177,10 @@ class PokemonTCGDatabase:
         with open(output_path, "w", encoding="utf-8") as f:
             json.dump(database, f, indent=2)
 
+        minified_output = output_path.with_suffix(".min.json")
+        with open(minified_output, "w", encoding="utf-8") as f:
+            json.dump(database, f, separators=(',', ':'))
+
         # Print statistics
         total_cards = len(cards)
         cards_with_local = len([c for c in database["cards"] if "local_image" in c])
@@ -216,29 +220,22 @@ async def main():
         print("Error: card_images directory not found!")
         return
 
-    try:
-        # Initialize database builder
-        builder = PokemonTCGDatabase(None)  # Pass your API key here if needed
+    # Initialize database builder
+    builder = PokemonTCGDatabase(None)  # Pass your API key here if needed
 
-        # Get card data from Pokemon TCG API
-        print("Fetching card data from Pokemon TCG API...")
-        cards = await builder.get_stellar_crown_data()
+    # Get card data from Pokemon TCG API
+    print("Fetching card data from Pokemon TCG API...")
+    cards = await builder.get_stellar_crown_data()
 
-        # Match with local images and compute hashes
-        print("Matching with downloaded card images...")
-        cards = builder.match_local_images(cards, images_dir)
+    # Match with local images and compute hashes
+    print("Matching with downloaded card images...")
+    cards = builder.match_local_images(cards, images_dir)
 
-        # Create database file
-        print("Creating database file...")
-        builder.create_database(cards, output_path)
+    # Create database file
+    print("Creating database file...")
+    builder.create_database(cards, output_path)
 
-        print(f"\nDatabase created successfully at {output_path}")
-
-    except Exception as e:
-        print(f"Error building database: {str(e)}")
-        import traceback
-
-        print(traceback.format_exc())
+    print(f"\nDatabase created successfully at {output_path}")
 
 
 if __name__ == "__main__":
