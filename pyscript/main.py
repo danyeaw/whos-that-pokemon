@@ -2,12 +2,21 @@ import asyncio
 import js
 import numpy as np
 import cv2
-from pyodide.ffi import create_proxy, to_js
+from pyodide.ffi import to_js
 from js import Uint8Array, Object
+from js.ffi.wrappers import add_event_listeners
 
 active_stream = None
 available_cameras = []
 current_camera_index = 0
+
+video = js.document.querySelector("#video")
+click_button = js.document.querySelector("#click-photo")
+camera_toggle = js.document.querySelector("#camera-toggle")
+camera_switch = js.document.querySelector("#camera-switch")
+canvas = js.document.querySelector("#canvas")
+result_div = js.document.querySelector("#result")
+match_info = js.document.querySelector("#match-info")
 
 
 async def stop_camera():
@@ -188,49 +197,13 @@ def click_button_click(e):
         js.console.log(traceback.format_exc())
 
 
-def click_handler(e):
-    """Handler for the click photo button"""
-    js.console.log("Capture button clicked!")
-    click_button_click(e)
+# Set up event listeners
+add_event_listeners(click_button, "click", click_button_click)
+add_event_listeners(camera_toggle, "click", toggle_camera)
+add_event_listeners(camera_switch, "click", switch_camera)
 
-
-async def init():
-    """Initialize the app after DOM is ready"""
-    global \
-        video, \
-        click_button, \
-        camera_toggle, \
-        camera_switch, \
-        canvas, \
-        result_div, \
-        match_info
-
-    # Get DOM elements
-    video = js.document.querySelector("#video")
-    click_button = js.document.querySelector("#click-photo")
-    camera_toggle = js.document.querySelector("#camera-toggle")
-    camera_switch = js.document.querySelector("#camera-switch")
-    canvas = js.document.querySelector("#canvas")
-    result_div = js.document.querySelector("#result")
-    match_info = js.document.querySelector("#match-info")
-
-    js.console.log("DOM elements found")
-
-    # Set up event listeners
-    if click_button:
-        proxy = create_proxy(click_handler)
-        click_button.addEventListener("click", proxy)
-        js.console.log("Click handler attached")
-    if camera_toggle:
-        camera_toggle.addEventListener("click", create_proxy(toggle_camera))
-    if camera_switch:
-        camera_switch.addEventListener("click", create_proxy(switch_camera))
-
-    # Start camera and show main screen
-    await start_camera()
-    js.document.getElementById("loading-screen").style.display = "none"
-    js.document.getElementById("main-container").style.display = "block"
-    js.console.log("Initialization complete")
-
-
-asyncio.ensure_future(init())
+# Start camera and show main screen
+start_camera()
+js.document.getElementById("loading-screen").style.display = "none"
+js.document.getElementById("main-container").style.display = "block"
+js.console.log("Initialization complete")
