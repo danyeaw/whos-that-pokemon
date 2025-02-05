@@ -1,9 +1,9 @@
 import cv2
 import numpy as np
-from typing import Tuple, Optional, Callable
+from typing import Callable
 
 
-def calculate_card_dimensions(canvas_height: int) -> Tuple[int, int]:
+def calculate_card_dimensions(canvas_height: int) -> tuple[int, int]:
     """Calculate the target dimensions for the card based on canvas height.
 
     Args:
@@ -48,7 +48,9 @@ def detect_edges(img: np.ndarray) -> np.ndarray:
     return frame_threshold
 
 
-def find_card_contour(frame_threshold: np.ndarray, debug_callback: Optional[Callable] = None) -> Tuple[Optional[np.ndarray], Optional[np.ndarray]]:
+def find_card_contour(
+    frame_threshold: np.ndarray, debug_callback: Callable | None = None
+) -> tuple[np.ndarray | None, np.ndarray | None]:
     """Find the best card contour in the image.
 
     Args:
@@ -74,7 +76,9 @@ def find_card_contour(frame_threshold: np.ndarray, debug_callback: Optional[Call
         approx = cv2.approxPolyDP(contour, epsilon, True)
 
         if len(approx) == 4 and 300 < perimeter < 2000:
-            if best_contour is None or cv2.contourArea(contour) > cv2.contourArea(best_contour):
+            if best_contour is None or cv2.contourArea(contour) > cv2.contourArea(
+                best_contour
+            ):
                 best_contour = contour
                 best_approx = approx
                 if debug_callback:
@@ -115,22 +119,30 @@ def order_corners(corners: np.ndarray) -> np.ndarray:
 
     # Handle different card orientations
     if corners[sorted_idx[1]][1] > corners[sorted_idx[2]][1]:  # Tilted Right
-        return np.array([
-            corners[sorted_idx[0]],  # Top-left
-            corners[sorted_idx[2]],  # Top-right
-            corners[sorted_idx[3]],  # Bottom-right
-            corners[sorted_idx[1]],  # Bottom-left
-        ], dtype="float32")
+        return np.array(
+            [
+                corners[sorted_idx[0]],  # Top-left
+                corners[sorted_idx[2]],  # Top-right
+                corners[sorted_idx[3]],  # Bottom-right
+                corners[sorted_idx[1]],  # Bottom-left
+            ],
+            dtype="float32",
+        )
     else:  # Tilted Left
-        return np.array([
-            corners[sorted_idx[0]],  # Top-left
-            corners[sorted_idx[1]],  # Top-right
-            corners[sorted_idx[3]],  # Bottom-right
-            corners[sorted_idx[2]],  # Bottom-left
-        ], dtype="float32")
+        return np.array(
+            [
+                corners[sorted_idx[0]],  # Top-left
+                corners[sorted_idx[1]],  # Top-right
+                corners[sorted_idx[3]],  # Bottom-right
+                corners[sorted_idx[2]],  # Bottom-left
+            ],
+            dtype="float32",
+        )
 
 
-def detect_card(img: np.ndarray, canvas_height: int, debug_callback: Optional[Callable] = None) -> Tuple[bool, np.ndarray, Optional[np.ndarray]]:
+def detect_card(
+    img: np.ndarray, canvas_height: int, debug_callback: Callable | None = None
+) -> tuple[bool, np.ndarray, np.ndarray | None]:
     """Detect and extract Pokemon card from image.
 
     Args:
@@ -167,12 +179,10 @@ def detect_card(img: np.ndarray, canvas_height: int, debug_callback: Optional[Ca
     corners = np.array(best_approx).reshape(4, 2)
     ordered_corners = order_corners(corners)
 
-    dst = np.array([
-        [0, 0],
-        [card_width, 0],
-        [card_width, card_height],
-        [0, card_height]
-    ], dtype="float32")
+    dst = np.array(
+        [[0, 0], [card_width, 0], [card_width, card_height], [0, card_height]],
+        dtype="float32",
+    )
 
     # Warp perspective to get straight-on view
     matrix = cv2.getPerspectiveTransform(ordered_corners, dst)
