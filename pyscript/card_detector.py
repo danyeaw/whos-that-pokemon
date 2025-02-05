@@ -123,30 +123,31 @@ def order_corners(corners: np.ndarray) -> np.ndarray:
     Returns:
         np.ndarray: Ordered corner points
     """
-    sums = corners.sum(axis=1)
-    sorted_idx = np.argsort(sums)
+    # Calculate the sum of each corner's coordinates along axis 1
+    coord_sums = corners.sum(axis=1)
 
-    # Handle different card orientations
-    if corners[sorted_idx[1]][1] > corners[sorted_idx[2]][1]:  # Tilted Right
-        return np.array(
-            [
-                corners[sorted_idx[0]],  # Top-left
-                corners[sorted_idx[2]],  # Top-right
-                corners[sorted_idx[3]],  # Bottom-right
-                corners[sorted_idx[1]],  # Bottom-left
-            ],
-            dtype="float32",
-        )
-    else:  # Tilted Left
-        return np.array(
-            [
-                corners[sorted_idx[0]],  # Top-left
-                corners[sorted_idx[1]],  # Top-right
-                corners[sorted_idx[3]],  # Bottom-right
-                corners[sorted_idx[2]],  # Bottom-left
-            ],
-            dtype="float32",
-        )
+    # Get the indices that would sort the coordinate sums
+    sorted_indices = np.argsort(coord_sums)
+
+    top_left = corners[sorted_indices[0]]
+    bottom_right = corners[sorted_indices[3]]
+
+    is_titled_right = corners[sorted_indices[1]][1] > corners[sorted_indices[2]][1]
+    if is_titled_right:
+        top_right = corners[sorted_indices[2]]
+        bottom_left = corners[sorted_indices[1]]
+    else:
+        top_right = corners[sorted_indices[1]]
+        bottom_left = corners[sorted_indices[2]]
+    return np.array(
+        [
+            top_left,
+            top_right,
+            bottom_right,
+            bottom_left,
+        ],
+        dtype="float32",
+    )
 
 
 def detect_card(
