@@ -1,10 +1,9 @@
-from typing import Callable
-
 import cv2
 import numpy as np
+from typing import Tuple, Optional, Callable
 
 
-def calculate_card_dimensions(canvas_height: int) -> tuple[int, int]:
+def calculate_card_dimensions(canvas_height: int) -> Tuple[int, int]:
     """Calculate the target dimensions for the card based on canvas height.
 
     Args:
@@ -19,29 +18,37 @@ def calculate_card_dimensions(canvas_height: int) -> tuple[int, int]:
     return card_width, card_height
 
 
-def preprocess_image(img: np.ndarray) -> tuple[np.ndarray, np.ndarray]:
-    """Preprocess the image for contour detection.
+def preprocess_image(img: np.ndarray) -> np.ndarray:
+    """Basic image preprocessing for better edge detection.
 
     Args:
         img: Source image in RGBA format
 
     Returns:
-        tuple: (edges, blurred) preprocessed images
+        np.ndarray: Preprocessed grayscale image
     """
     gray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
     blurred = cv2.GaussianBlur(src=gray, ksize=(3, 3), sigmaX=0)
+    return blurred
 
-    edges = cv2.Canny(blurred, 140, 250)
+
+def detect_edges(img: np.ndarray) -> np.ndarray:
+    """Detect and enhance edges in the image.
+
+    Args:
+        img: Preprocessed grayscale image
+
+    Returns:
+        np.ndarray: Binary image with enhanced edges
+    """
+    edges = cv2.Canny(img, 140, 250)
     kernel = np.ones(shape=(5, 5))
     frame_dial = cv2.dilate(edges, kernel, iterations=2)
     frame_threshold = cv2.erode(frame_dial, kernel, iterations=1)
+    return frame_threshold
 
-    return frame_threshold, blurred
 
-
-def find_card_contour(
-    frame_threshold: np.ndarray, debug_callback: Callable | None = None
-) -> tuple[np.ndarray | None, np.ndarray | None]:
+def find_card_contour(frame_threshold: np.ndarray, debug_callback: Optional[Callable] = None) -> Tuple[Optional[np.ndarray], Optional[np.ndarray]]:
     """Find the best card contour in the image.
 
     Args:
@@ -67,9 +74,7 @@ def find_card_contour(
         approx = cv2.approxPolyDP(contour, epsilon, True)
 
         if len(approx) == 4 and 300 < perimeter < 2000:
-            if best_contour is None or cv2.contourArea(contour) > cv2.contourArea(
-                best_contour
-            ):
+            if best_contour is None or cv2.contourArea(contour) > cv2.contourArea(best_contour):
                 best_contour = contour
                 best_approx = approx
                 if debug_callback:
@@ -110,30 +115,22 @@ def order_corners(corners: np.ndarray) -> np.ndarray:
 
     # Handle different card orientations
     if corners[sorted_idx[1]][1] > corners[sorted_idx[2]][1]:  # Tilted Right
-        return np.array(
-            [
-                corners[sorted_idx[0]],  # Top-left
-                corners[sorted_idx[2]],  # Top-right
-                corners[sorted_idx[3]],  # Bottom-right
-                corners[sorted_idx[1]],  # Bottom-left
-            ],
-            dtype="float32",
-        )
+        return np.array([
+            corners[sorted_idx[0]],  # Top-left
+            corners[sorted_idx[2]],  # Top-right
+            corners[sorted_idx[3]],  # Bottom-right
+            corners[sorted_idx[1]],  # Bottom-left
+        ], dtype="float32")
     else:  # Tilted Left
-        return np.array(
-            [
-                corners[sorted_idx[0]],  # Top-left
-                corners[sorted_idx[1]],  # Top-right
-                corners[sorted_idx[3]],  # Bottom-right
-                corners[sorted_idx[2]],  # Bottom-left
-            ],
-            dtype="float32",
-        )
+        return np.array([
+            corners[sorted_idx[0]],  # Top-left
+            corners[sorted_idx[1]],  # Top-right
+            corners[sorted_idx[3]],  # Bottom-right
+            corners[sorted_idx[2]],  # Bottom-left
+        ], dtype="float32")
 
 
-def detect_card(
-    img: np.ndarray, canvas_height: int, debug_callback: Callable | None = None
-) -> tuple[bool, np.ndarray, np.ndarray | None]:
+def detect_card(img: np.ndarray, canvas_height: int, debug_callback: Optional[Callable] = None) -> Tuple[bool, np.ndarray, Optional[np.ndarray]]:
     """Detect and extract Pokemon card from image.
 
     Args:
@@ -149,7 +146,8 @@ def detect_card(
     """
     # Calculate dimensions and preprocess image
     card_width, card_height = calculate_card_dimensions(canvas_height)
-    frame_threshold, _ = preprocess_image(img)
+    preprocessed = preprocess_image(img)
+    frame_threshold = detect_edges(preprocessed)
 
     if debug_callback:
         debug_callback("Image preprocessed")
@@ -169,10 +167,12 @@ def detect_card(
     corners = np.array(best_approx).reshape(4, 2)
     ordered_corners = order_corners(corners)
 
-    dst = np.array(
-        [[0, 0], [card_width, 0], [card_width, card_height], [0, card_height]],
-        dtype="float32",
-    )
+    dst = np.array([
+        [0, 0],
+        [card_width, 0],
+        [card_width, card_height],
+        [0, card_height]
+    ], dtype="float32")
 
     # Warp perspective to get straight-on view
     matrix = cv2.getPerspectiveTransform(ordered_corners, dst)
