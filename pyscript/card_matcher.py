@@ -123,7 +123,7 @@ class CardMatcher:
 
         if best_match:
             confidence = max(0.0, min(1.0, 1.0 - (min_diff / threshold)))
-            match_quality = "High" if min_diff < threshold else "Low"
+            match_quality = "High" if confidence > 0.5 else "Low"
 
             return {
                 "name": best_match["name"],
