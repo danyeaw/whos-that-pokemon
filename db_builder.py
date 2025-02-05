@@ -1,17 +1,17 @@
-import httpx
 import asyncio
-from pathlib import Path
 import json
+from pathlib import Path
+
 import cv2
+import httpx
 import numpy as np
-from typing import Optional
 
 from pyscript.card_matcher import HASH_SIZE
 
 BASE_URL = "https://api.pokemontcg.io/v2"
 
 
-async def get_stellar_crown_data(api_key: Optional[str] = None) -> list[dict]:
+async def get_stellar_crown_data(api_key: str | None = None) -> list[dict]:
     """Get all cards from Stellar Crown set (SV07)"""
     headers = {"X-Api-Key": api_key} if api_key else {}
     async with httpx.AsyncClient(headers=headers) as client:
@@ -24,7 +24,7 @@ async def get_stellar_crown_data(api_key: Optional[str] = None) -> list[dict]:
         return data["data"]
 
 
-def compute_average_hash(image) -> Optional[str]:
+def compute_average_hash(image) -> str:
     """Compute average hash using OpenCV"""
     gray = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
     resized = cv2.resize(gray, (HASH_SIZE, HASH_SIZE))
@@ -34,7 +34,7 @@ def compute_average_hash(image) -> Optional[str]:
     return hex(int(hash_str, 2))[2:].zfill(16)
 
 
-def compute_difference_hash(image) -> Optional[str]:
+def compute_difference_hash(image) -> str:
     """Compute difference hash using OpenCV"""
     gray = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
     resized = cv2.resize(gray, (HASH_SIZE + 1, HASH_SIZE))
@@ -43,7 +43,7 @@ def compute_difference_hash(image) -> Optional[str]:
     return hex(int(hash_str, 2))[2:].zfill(16)
 
 
-def compute_image_hash(img_path: Path) -> Optional[str]:
+def compute_image_hash(img_path: Path) -> str | None:
     """Compute both average and difference hashes for an image"""
     try:
         img = cv2.imread(str(img_path))

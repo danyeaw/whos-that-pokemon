@@ -1,6 +1,7 @@
-import httpx
-from pathlib import Path
 import asyncio
+from pathlib import Path
+
+import httpx
 
 BASE_URL = "https://dz3we2x72f7ol.cloudfront.net/expansions/stellar-crown/en-us/"
 MAX_CARD_NUMBER = 175

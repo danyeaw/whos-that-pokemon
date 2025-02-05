@@ -1,9 +1,12 @@
+import asyncio
+
+import cv2
 import js
 import numpy as np
-import cv2
-import asyncio
+from card_detector import CardDetector
+from card_matcher import CardMatcher
+from js import Object, Uint8Array
 from pyodide.ffi import to_js
-from js import Uint8Array, Object
 from pyodide.ffi.wrappers import add_event_listener
 
 
@@ -42,27 +45,26 @@ class PokemonCardApp:
         if self.video:
             self.video.srcObject = None
 
-
-async def start_camera(self, camera_id=None):
-    try:
-        if self.active_stream:
-            await self.stop_camera()
-        constraints = Object.new()
-        constraints.audio = False
-        video_constraints = Object.new()
-        if camera_id:
-            video_constraints.deviceId = camera_id
-        else:
-            video_constraints.facingMode = "environment"
-        constraints.video = video_constraints
-        stream = await js.navigator.mediaDevices.getUserMedia(constraints)
-        self.active_stream = stream
-        if self.video:
-            self.video.srcObject = stream
-            self.video.style.display = "block"
-        js.console.log("Camera started successfully")
-    except Exception as e:
-        js.console.log(f"Camera error: {str(e)}")
+    async def start_camera(self, camera_id=None):
+        try:
+            if self.active_stream:
+                await self.stop_camera()
+            constraints = Object.new()
+            constraints.audio = False
+            video_constraints = Object.new()
+            if camera_id:
+                video_constraints.deviceId = camera_id
+            else:
+                video_constraints.facingMode = "environment"
+            constraints.video = video_constraints
+            stream = await js.navigator.mediaDevices.getUserMedia(constraints)
+            self.active_stream = stream
+            if self.video:
+                self.video.srcObject = stream
+                self.video.style.display = "block"
+            js.console.log("Camera started successfully")
+        except Exception as e:
+            js.console.log(f"Camera error: {str(e)}")
 
     async def toggle_camera(self, e):
         if self.active_stream:
@@ -134,14 +136,10 @@ async def start_camera(self, camera_id=None):
         frame = pixels_flat.reshape((self.canvas.height, self.canvas.width, 4))
         frame_bgr = cv2.cvtColor(frame, cv2.COLOR_BGR2RGBA)
 
-        from card_detector import CardDetector
-
         detector = CardDetector(self.canvas.width, self.canvas.height)
         card_found, debug_img, card_img = detector.detect(frame_bgr, js.console.log)
 
         if card_found and card_img is not None:
-            from card_matcher import CardMatcher
-
             matcher = CardMatcher(js.console.log)
             match_result = matcher.find_matching_card(card_img)
             self.process_match_result(match_result)
