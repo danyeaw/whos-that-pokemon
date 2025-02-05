@@ -3,7 +3,7 @@ import asyncio
 import cv2
 import js
 import numpy as np
-from card_detector import CardDetector
+from card_detector import detect_card
 from card_matcher import CardMatcher
 from pyodide.ffi import to_js
 from pyodide.ffi.wrappers import add_event_listener
@@ -129,10 +129,11 @@ class PokemonCardApp:
         image_data = ctx.getImageData(0, 0, width, height).data
 
         frame = np.asarray(image_data, dtype=np.uint8).reshape((height, width, 4))
-        frame_bgr = cv2.cvtColor(frame, cv2.COLOR_BGR2RGBA)
+        frame_rgba = cv2.cvtColor(frame, cv2.COLOR_BGR2RGBA)
 
-        detector = CardDetector(width, height)
-        card_found, debug_img, card_img = detector.detect(frame_bgr, js.console.log)
+        card_found, debug_img, card_img = detect_card(
+            frame_rgba, height, js.console.log
+        )
         if card_found and card_img is not None:
             matcher = CardMatcher(js.console.log)
             match_result = matcher.find_matching_card(card_img)
