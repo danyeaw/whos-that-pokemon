@@ -6,6 +6,7 @@ from pyodide.ffi import to_js
 from js import Uint8Array, Object
 from pyodide.ffi.wrappers import add_event_listener
 
+
 class PokemonCardApp:
     def __init__(self):
         self.active_stream = None
@@ -34,38 +35,34 @@ class PokemonCardApp:
         asyncio.create_task(self.start_camera())
 
     async def stop_camera(self):
+        tracks = self.active_stream.getTracks()
+        for track in tracks:
+            track.stop()
+        self.active_stream = None
+        if self.video:
+            self.video.srcObject = None
+
+
+async def start_camera(self, camera_id=None):
+    try:
         if self.active_stream:
-            tracks = self.active_stream.getTracks()
-            for track in tracks:
-                track.stop()
-            self.active_stream = None
-            if self.video:
-                self.video.srcObject = None
-
-    async def start_camera(self, camera_id=None):
-        try:
             await self.stop_camera()
-
-            constraints = Object.new()
-            constraints.audio = False
-            video_constraints = Object.new()
-
-            if camera_id:
-                video_constraints.deviceId = camera_id
-            else:
-                video_constraints.facingMode = "environment"
-
-            constraints.video = video_constraints
-
-            stream = await js.navigator.mediaDevices.getUserMedia(constraints)
-            self.active_stream = stream
-            if self.video:
-                self.video.srcObject = stream
-                self.video.style.display = "block"
-
-            js.console.log("Camera started successfully")
-        except Exception as e:
-            js.console.log(f"Camera error: {str(e)}")
+        constraints = Object.new()
+        constraints.audio = False
+        video_constraints = Object.new()
+        if camera_id:
+            video_constraints.deviceId = camera_id
+        else:
+            video_constraints.facingMode = "environment"
+        constraints.video = video_constraints
+        stream = await js.navigator.mediaDevices.getUserMedia(constraints)
+        self.active_stream = stream
+        if self.video:
+            self.video.srcObject = stream
+            self.video.style.display = "block"
+        js.console.log("Camera started successfully")
+    except Exception as e:
+        js.console.log(f"Camera error: {str(e)}")
 
     async def toggle_camera(self, e):
         if self.active_stream:
@@ -85,8 +82,12 @@ class PokemonCardApp:
                 js.console.log(f"Found {len(self.available_cameras)} cameras")
 
             if len(self.available_cameras) > 1:
-                self.current_camera_index = (self.current_camera_index + 1) % len(self.available_cameras)
-                await self.start_camera(self.available_cameras[self.current_camera_index].deviceId)
+                self.current_camera_index = (self.current_camera_index + 1) % len(
+                    self.available_cameras
+                )
+                await self.start_camera(
+                    self.available_cameras[self.current_camera_index].deviceId
+                )
         except Exception as e:
             js.console.log(f"Error switching camera: {str(e)}")
 
@@ -134,16 +135,21 @@ class PokemonCardApp:
         frame_bgr = cv2.cvtColor(frame, cv2.COLOR_BGR2RGBA)
 
         from card_detector import CardDetector
+
         detector = CardDetector(self.canvas.width, self.canvas.height)
         card_found, debug_img, card_img = detector.detect(frame_bgr, js.console.log)
 
         if card_found and card_img is not None:
             from card_matcher import CardMatcher
+
             matcher = CardMatcher(js.console.log)
             match_result = matcher.find_matching_card(card_img)
             self.process_match_result(match_result)
         else:
-            js.console.log('<span style="color: red; font-size: 20px;">No Pokemon card found ❌</span>')
+            js.console.log(
+                '<span style="color: red; font-size: 20px;">No Pokemon card found ❌</span>'
+            )
+
 
 # Initialize the app
 app = PokemonCardApp()
