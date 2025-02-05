@@ -5,7 +5,6 @@ import js
 import numpy as np
 from card_detector import CardDetector
 from card_matcher import CardMatcher
-from js import Object, Uint8Array
 from pyodide.ffi import to_js
 from pyodide.ffi.wrappers import add_event_listener
 
@@ -21,7 +20,6 @@ class PokemonCardApp:
         self.click_button = js.document.querySelector("#click-photo")
         self.camera_toggle = js.document.querySelector("#camera-toggle")
         self.camera_switch = js.document.querySelector("#camera-switch")
-        self.canvas = js.document.querySelector("#canvas")
         self.result_div = js.document.querySelector("#result")
         self.match_info = js.document.querySelector("#match-info")
 
@@ -49,9 +47,9 @@ class PokemonCardApp:
         try:
             if self.active_stream:
                 await self.stop_camera()
-            constraints = Object.new()
+            constraints = js.Object.new()
             constraints.audio = False
-            video_constraints = Object.new()
+            video_constraints = js.Object.new()
             if camera_id:
                 video_constraints.deviceId = camera_id
             else:
@@ -122,23 +120,19 @@ class PokemonCardApp:
         js.showResultScreen(str(match_result.get("name", "")), js_data)
 
     def click_button_click(self, e):
-        self.canvas.width = self.video.videoWidth
-        self.canvas.height = self.video.videoHeight
+        width = self.video.videoWidth
+        height = self.video.videoHeight
+        canvas = js.OffscreenCanvas.new(width, height)
+        ctx = canvas.getContext("2d")
 
-        ctx = self.canvas.getContext("2d")
-        ctx.drawImage(self.video, 0, 0, self.canvas.width, self.canvas.height)
+        ctx.drawImage(self.video, 0, 0, width, height)
+        image_data = ctx.getImageData(0, 0, width, height).data
 
-        image_data = ctx.getImageData(0, 0, self.canvas.width, self.canvas.height)
-        js_array = Uint8Array.new(image_data.data)
-        bytes_data = js_array.to_bytes()
-
-        pixels_flat = np.frombuffer(bytes_data, dtype=np.uint8)
-        frame = pixels_flat.reshape((self.canvas.height, self.canvas.width, 4))
+        frame = np.asarray(image_data, dtype=np.uint8).reshape((height, width, 4))
         frame_bgr = cv2.cvtColor(frame, cv2.COLOR_BGR2RGBA)
 
-        detector = CardDetector(self.canvas.width, self.canvas.height)
+        detector = CardDetector(width, height)
         card_found, debug_img, card_img = detector.detect(frame_bgr, js.console.log)
-
         if card_found and card_img is not None:
             matcher = CardMatcher(js.console.log)
             match_result = matcher.find_matching_card(card_img)
