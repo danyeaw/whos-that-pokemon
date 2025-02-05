@@ -1,4 +1,5 @@
 name: pokemon
 dependencies:
+  - python=3.12
   - opencv
   - httpx
