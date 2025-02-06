@@ -99,9 +99,6 @@ def match_local_images(cards: list[dict], images_dir: Path) -> list[dict]:
     return cards
 
 
-# ... rest of the code remains the same ...
-
-
 def create_database(cards: list[dict], output_path: Path):
     """Create the final database file"""
     database = {
