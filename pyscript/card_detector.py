@@ -27,8 +27,8 @@ def preprocess_image(img: np.ndarray) -> np.ndarray:
     Returns:
         np.ndarray: Preprocessed grayscale image
     """
-    gray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
-    blurred = cv2.GaussianBlur(src=gray, ksize=(9, 9), sigmaX=0)
+    gray = cv2.cvtColor(src=img, code=cv2.COLOR_BGR2GRAY)
+    blurred = cv2.GaussianBlur(src=gray, ksize=(3, 3), sigmaX=0)
     return blurred
 
 
@@ -41,27 +41,27 @@ def detect_edges(img: np.ndarray) -> np.ndarray:
     Returns:
         np.ndarray: Binary image with enhanced edges
     """
-    kernel = np.ones(shape=(11, 11))
-    morph = cv2.morphologyEx(img, cv2.MORPH_CLOSE, kernel)
-    edges = cv2.Canny(morph, 100, 200)
-    enhanced_edges = cv2.morphologyEx(edges, cv2.MORPH_CLOSE, kernel)
-    return enhanced_edges
+    edges = cv2.Canny(image=img, threshold1=100, threshold2=200)
+    kernel = np.ones(shape=(5, 5))
+    dilated = cv2.dilate(src=edges, kernel=kernel, iterations=2)
+    closed_edges = cv2.erode(src=dilated, kernel=kernel, iterations=1)
+    return closed_edges
 
 
 def find_card_contour(
-    enhanced_img: np.ndarray, debug_callback: Callable | None = None
+    enhanced_edges: np.ndarray, debug_callback: Callable | None = None
 ) -> tuple[np.ndarray | None, np.ndarray | None]:
     """Find the best card contour in the image.
 
     Args:
-        enhanced_img: Image with enhanced edges
+        enhanced_edges: Preprocessed image
         debug_callback: Optional callback function for debug information
 
     Returns:
         tuple: (best_contour, best_approx) or (None, None) if no card found
     """
     contours, _ = cv2.findContours(
-        image=enhanced_img, mode=cv2.RETR_EXTERNAL, method=cv2.CHAIN_APPROX_SIMPLE
+        image=enhanced_edges, mode=cv2.RETR_EXTERNAL, method=cv2.CHAIN_APPROX_SIMPLE
     )
 
     if debug_callback:
@@ -69,29 +69,20 @@ def find_card_contour(
 
     best_contour = None
     best_approx = None
-    min_area = enhanced_img.shape[0] * enhanced_img.shape[1] * 0.10  # 10% of image area
-    max_area = enhanced_img.shape[0] * enhanced_img.shape[1] * 0.95  # 95% of image area
 
-    # Loop through contours to find the largest one with 4 sides
     for contour in contours:
-        area = cv2.contourArea(contour)
-        if min_area < area < max_area:
-            # Approximate the contour
-            perimeter = cv2.arcLength(contour, True)
-            epsilon = 0.1 * perimeter
-            approx = cv2.approxPolyDP(contour, epsilon, True)
+        perimeter = cv2.arcLength(contour, True)
+        epsilon = 0.05 * perimeter
+        approx = cv2.approxPolyDP(contour, epsilon, True)
 
-            # Check if the approximated contour has 4 vertices
-            if len(approx) == 4:
-                if best_contour is None or cv2.contourArea(contour) > cv2.contourArea(
-                    best_contour
-                ):
-                    best_contour = contour
-                    best_approx = approx
-                    if debug_callback:
-                        debug_callback(
-                            f"Found potential card (perimeter: {perimeter:.1f})"
-                        )
+        if len(approx) == 4:
+            if best_contour is None or cv2.contourArea(contour) > cv2.contourArea(
+                best_contour
+            ):
+                best_contour = contour
+                best_approx = approx
+                if debug_callback:
+                    debug_callback(f"Found potential card (perimeter: {perimeter:.1f})")
 
     return best_contour, best_approx
 
