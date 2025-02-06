@@ -83,7 +83,10 @@ class CardMatcher:
         h1_parts = hash1.split(":")
         h2_parts = hash2.split(":")
 
-        weights = {"average": 0.5, "difference": 0.5}  # Overall structure  # Gradients
+        weights = {
+            "average": 0.8,  # Overall structure
+            "difference": 0.2,  # Gradients
+        }
 
         # Calculate weighted Hamming distances
         avg_dist = hamming_distance(h1_parts[0], h2_parts[0])

@@ -39,3 +39,11 @@ $ pip install -r requirements.txt
 $ conda env create -f environment.yml 
 $ conda activate pokemon
 ```
+
+## Credit
+
+OpenCV Card Scanning ideas partially based on:
+https://github.com/NolanAmblard/Pokemon-Card-Scanner
+
+Image Hashing algorithms partially based on:
+https://github.com/JohannesBuchner/imagehash
