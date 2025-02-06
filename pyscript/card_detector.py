@@ -61,7 +61,7 @@ def find_card_contour(
         tuple: (best_contour, best_approx) or (None, None) if no card found
     """
     contours, _ = cv2.findContours(
-        enhanced_img, cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_SIMPLE
+        image=enhanced_img, mode=cv2.RETR_EXTERNAL, method=cv2.CHAIN_APPROX_SIMPLE
     )
 
     if debug_callback:
