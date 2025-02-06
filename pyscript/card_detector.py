@@ -2,6 +2,8 @@ import cv2
 import numpy as np
 from typing import Callable
 
+EXPECTED_ASPECT_RATIO = 2.5 / 3.5
+
 
 def calculate_card_dimensions(canvas_height: int) -> tuple[int, int]:
     """Calculate the target dimensions for the card based on canvas height.
@@ -12,9 +14,8 @@ def calculate_card_dimensions(canvas_height: int) -> tuple[int, int]:
     Returns:
         tuple: (card_width, card_height)
     """
-    card_ratio = 2.5 / 3.5  # Pokemon card ratio
     card_height = int(canvas_height * 0.8)
-    card_width = int(card_height * card_ratio)
+    card_width = int(card_height * EXPECTED_ASPECT_RATIO)
     return card_width, card_height
 
 
@@ -64,11 +65,18 @@ def find_card_contour(
         image=enhanced_edges, mode=cv2.RETR_EXTERNAL, method=cv2.CHAIN_APPROX_SIMPLE
     )
 
-    if debug_callback:
-        debug_callback(f"Found {len(contours)} contours")
-
     best_contour = None
     best_approx = None
+
+    ASPECT_RATIO_TOLERANCE = 0.2  # Allow 20% deviation from perfect ratio
+
+    # Card should typically occupy between 10-50% of the image
+    MIN_CARD_AREA_PERCENT = 0.10  # 10% of image area
+    MAX_CARD_AREA_PERCENT = 0.50  # 50% of image area
+
+    image_area = enhanced_edges.shape[0] * enhanced_edges.shape[1]
+    min_card_area = image_area * MIN_CARD_AREA_PERCENT
+    max_card_area = image_area * MAX_CARD_AREA_PERCENT
 
     for contour in contours:
         perimeter = cv2.arcLength(contour, True)
@@ -76,13 +84,39 @@ def find_card_contour(
         approx = cv2.approxPolyDP(contour, epsilon, True)
 
         if len(approx) == 4:
-            if best_contour is None or cv2.contourArea(contour) > cv2.contourArea(
-                best_contour
-            ):
+            area = cv2.contourArea(contour)
+            area_percentage = area / image_area
+
+            # Check if area percentage is within expected range
+            if area < min_card_area or area > max_card_area:
+                if debug_callback:
+                    debug_callback(
+                        f"Rejected contour - area {area_percentage:.1%} of image outside expected range"
+                    )
+                continue
+
+            # Check aspect ratio
+            rect = cv2.minAreaRect(contour)
+            width, height = rect[1]
+            if width == 0 or height == 0:  # Avoid division by zero
+                continue
+            aspect_ratio = min(width, height) / max(width, height)
+            expected_ratio = min(EXPECTED_ASPECT_RATIO, 1 / EXPECTED_ASPECT_RATIO)
+
+            if abs(aspect_ratio - expected_ratio) > ASPECT_RATIO_TOLERANCE:
+                if debug_callback:
+                    debug_callback(
+                        f"Rejected contour - aspect ratio {aspect_ratio:.2f} outside tolerance"
+                    )
+                continue
+
+            if best_contour is None or area > cv2.contourArea(best_contour):
                 best_contour = contour
                 best_approx = approx
                 if debug_callback:
-                    debug_callback(f"Found potential card (perimeter: {perimeter:.1f})")
+                    debug_callback(
+                        f"Found potential card (area: {area_percentage:.1%} of image, aspect ratio: {aspect_ratio:.2f})"
+                    )
 
     return best_contour, best_approx
 
