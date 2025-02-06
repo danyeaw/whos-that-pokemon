@@ -7,13 +7,6 @@ import numpy as np
 HASH_SIZE = 8
 
 
-def grayscale_and_resize(image):
-    """Convert image to grayscale and resize to hash size."""
-    gray = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
-    resized = cv2.resize(gray, (HASH_SIZE, HASH_SIZE))
-    return resized
-
-
 def array_to_hex(bits_string: np.array):
     """Convert numpy array to hexadecimal."""
     hash_str = "".join(["1" if b else "0" for b in bits_string.flatten()])
@@ -22,7 +15,8 @@ def array_to_hex(bits_string: np.array):
 
 def compute_average_hash(image):
     """Compute average hash using OpenCV."""
-    gray_resized = grayscale_and_resize(image)
+    gray = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
+    gray_resized = cv2.resize(gray, (HASH_SIZE, HASH_SIZE))
     avg_pixel = np.mean(gray_resized)
     diff = gray_resized > avg_pixel
     return array_to_hex(diff)
@@ -30,7 +24,8 @@ def compute_average_hash(image):
 
 def compute_difference_hash(image):
     """Compute difference hash using OpenCV"""
-    gray_resized = grayscale_and_resize(image)
+    gray = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
+    gray_resized = cv2.resize(gray, (HASH_SIZE + 1, HASH_SIZE))
     diff = gray_resized[:, 1:] > gray_resized[:, :-1]
     return array_to_hex(diff)
 
@@ -88,7 +83,7 @@ class CardMatcher:
         h1_parts = hash1.split(":")
         h2_parts = hash2.split(":")
 
-        weights = {"average": 0.6, "difference": 0.4}  # Overall structure  # Gradients
+        weights = {"average": 0.5, "difference": 0.5}  # Overall structure  # Gradients
 
         # Calculate weighted Hamming distances
         avg_dist = hamming_distance(h1_parts[0], h2_parts[0])
