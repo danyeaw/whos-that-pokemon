@@ -42,7 +42,7 @@ $ conda activate pokemon
 
 ## Credit
 
-OpenCV Card Scanning ideas partially based on:
+OpenCV Card Scanning ideas and Magmar test image from:
 https://github.com/NolanAmblard/Pokemon-Card-Scanner
 
 Image Hashing algorithms partially based on:
