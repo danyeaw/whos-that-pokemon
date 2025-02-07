@@ -2,6 +2,10 @@
 
 A Pokémon Trading Card scanner using OpenCV.
 
+It currently only supports the US-English
+[Scarlet & Violet—Stellar Crown](https://tcg.pokemon.com/en-us/galleries/stellar-crown/)
+expansion set, but others could easily be added.
+
 ## Usage
 
 The app is hosted on PyScript.com:
