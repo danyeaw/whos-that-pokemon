@@ -102,16 +102,28 @@ class PokemonCardApp:
         card_subtypes.innerHTML = ", ".join(data.get("subtypes", [])) or "N/A"
 
         # Update card image
-        if "images" in data and (data["images"].get("large") or data["images"].get("small")):
-            pokemon_image.setAttribute("src", data["images"].get("large") or data["images"].get("small"))
+        if "images" in data and (
+            data["images"].get("large") or data["images"].get("small")
+        ):
+            pokemon_image.setAttribute(
+                "src", data["images"].get("large") or data["images"].get("small")
+            )
         else:
             pokemon_image.setAttribute("src", "/api/placeholder/300/420")
 
         # Update market prices
         if "market_prices" in data:
-            tcg_price.innerHTML = f"${data['market_prices'].get('tcgplayer', 0):.2f}" if data['market_prices'].get('tcgplayer') else "N/A"
-            cardmarket_price.innerHTML = f"€{data['market_prices'].get('cardmarket', 0):.2f}" if data['market_prices'].get('cardmarket') else "N/A"
-            price_date.innerHTML = data['market_prices'].get('updated_at', 'N/A')
+            tcg_price.innerHTML = (
+                f"${data['market_prices'].get('tcgplayer', 0):.2f}"
+                if data["market_prices"].get("tcgplayer")
+                else "N/A"
+            )
+            cardmarket_price.innerHTML = (
+                f"€{data['market_prices'].get('cardmarket', 0):.2f}"
+                if data["market_prices"].get("cardmarket")
+                else "N/A"
+            )
+            price_date.innerHTML = data["market_prices"].get("updated_at", "N/A")
 
         # Update match information
         match_confidence.innerHTML = f"{int(data.get('confidence', 0) * 100)}%"
@@ -128,7 +140,6 @@ class PokemonCardApp:
         # Show result screen, hide main container
         self.result_screen.classList.add("active")
         self.main_container.style["display"] = "none"
-
 
     def process_match_result(self, match_result):
         """Process and display the card matching results"""
@@ -152,7 +163,7 @@ class PokemonCardApp:
             ),
             "confidence": float(match_result.get("confidence", 0)),
             "match_quality": match_result.get("match_quality", ""),
-            "detected_card_image": match_result.get("detected_card_image", None)
+            "detected_card_image": match_result.get("detected_card_image", None),
         }
 
         self.show_result_screen(str(match_result.get("name", "")), data)
