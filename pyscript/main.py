@@ -1,14 +1,12 @@
 import asyncio
 import base64
 import cv2
-import js
 import numpy as np
-from card_detector import detect_card
-from card_matcher import CardMatcher
 from pyscript import when, window
 from pyscript.media import Device, list_devices
 from pyscript.web import page
-from pyscript.ffi import to_js
+from card_detector import detect_card
+from card_matcher import CardMatcher
 
 
 class PokemonCardApp:
@@ -17,16 +15,24 @@ class PokemonCardApp:
         self.available_cameras = []
         self.current_camera_index = 0
 
+        # Camera UI Elements
         self.video = page["#video"][0]
         self.video_element = self.video._dom_element
         self.click_button = page["#click-photo"]
         self.camera_toggle = page["#camera-toggle"]
         self.camera_switch = page["#camera-switch"]
-        self.result_div = page["#result"]
+
+        # Main containers
+        self.loading_screen = page["#loading-screen"]
+        self.main_container = page["#main-container"]
+        self.result_screen = page["#result-screen"][0]
+
+        self.try_again = page["#try-again"]
 
         # Hide loading screen, show main container
-        page["#loading-screen"].style["display"] = "none"
-        page["#main-container"].style["display"] = "block"
+        self.loading_screen.style["display"] = "none"
+        self.main_container.style["display"] = "block"
+        self.result_screen.classList.remove("active")
 
         # Start camera
         asyncio.create_task(self.start_camera())
@@ -60,6 +66,70 @@ class PokemonCardApp:
         except Exception as e:
             window.console.log(f"Camera error: {str(e)}")
 
+    def reset_ui(self):
+        """Reset the UI to initial state"""
+        self.result_screen.classList.remove("active")
+        self.main_container.style["display"] = "block"
+        # Reset video display
+        if self.video:
+            self.video.style["display"] = "block"
+        # Clear any no-card messages
+        no_card_message = page["#no-card-message"][0]
+        if no_card_message:
+            no_card_message.classList.add("hidden")
+
+    def show_result_screen(self, card_name, data):
+        """Display the results in the result screen"""
+        pokemon_name = page["#pokemon-name"][0]
+        pokemon_image = page["#pokemon-image"][0]
+        card_number = page["#card-number"][0]
+        card_type = page["#card-type"][0]
+        card_rarity = page["#card-rarity"][0]
+        card_subtypes = page["#card-subtypes"][0]
+        tcg_price = page["#tcg-price"][0]
+        cardmarket_price = page["#cardmarket-price"][0]
+        price_date = page["#price-date"][0]
+        match_confidence = page["#match-confidence"][0]
+        match_quality = page["#match-quality"][0]
+        detected_card_debug = page["#detected-card-debug"][0]
+        no_card_message = page["#no-card-message"][0]
+
+        # Update card name and basic info
+        pokemon_name.innerHTML = card_name or "Unknown"
+        card_number.innerHTML = data.get("number", "N/A")
+        card_type.innerHTML = data.get("supertype", "N/A")
+        card_rarity.innerHTML = data.get("rarity", "N/A")
+        card_subtypes.innerHTML = ", ".join(data.get("subtypes", [])) or "N/A"
+
+        # Update card image
+        if "images" in data and (data["images"].get("large") or data["images"].get("small")):
+            pokemon_image.setAttribute("src", data["images"].get("large") or data["images"].get("small"))
+        else:
+            pokemon_image.setAttribute("src", "/api/placeholder/300/420")
+
+        # Update market prices
+        if "market_prices" in data:
+            tcg_price.innerHTML = f"${data['market_prices'].get('tcgplayer', 0):.2f}" if data['market_prices'].get('tcgplayer') else "N/A"
+            cardmarket_price.innerHTML = f"€{data['market_prices'].get('cardmarket', 0):.2f}" if data['market_prices'].get('cardmarket') else "N/A"
+            price_date.innerHTML = data['market_prices'].get('updated_at', 'N/A')
+
+        # Update match information
+        match_confidence.innerHTML = f"{int(data.get('confidence', 0) * 100)}%"
+        match_quality.innerHTML = data.get("match_quality", "N/A")
+
+        # Update debug image
+        if data.get("detected_card_image"):
+            detected_card_debug.setAttribute("src", data["detected_card_image"])
+            no_card_message.classList.add("hidden")
+        else:
+            detected_card_debug.setAttribute("src", "/api/placeholder/300/420")
+            no_card_message.classList.remove("hidden")
+
+        # Show result screen, hide main container
+        self.result_screen.classList.add("active")
+        self.main_container.style["display"] = "none"
+
+
     def process_match_result(self, match_result):
         """Process and display the card matching results"""
         if not match_result:
@@ -82,13 +152,10 @@ class PokemonCardApp:
             ),
             "confidence": float(match_result.get("confidence", 0)),
             "match_quality": match_result.get("match_quality", ""),
-            "detected_card_image": match_result.get("detected_card_image", None),
+            "detected_card_image": match_result.get("detected_card_image", None)
         }
 
-        js.showResultScreen(
-            str(match_result.get("name", "")),
-            to_js(data, dict_converter=js.Object.fromEntries),
-        )
+        self.show_result_screen(str(match_result.get("name", "")), data)
 
     def handle_photo_click(self, event):
         """Handle the photo capture button click"""
@@ -116,7 +183,7 @@ class PokemonCardApp:
                 )
                 self.process_match_result(match_result)
         else:
-            page["#no-card-message"][0].classes.remove("hidden")
+            page["#no-card-message"][0].classList.remove("hidden")
 
     async def toggle_camera(self, event):
         """Toggle the camera on/off"""
@@ -163,3 +230,8 @@ async def handle_toggle(event):
 @when("click", app.camera_switch)
 async def handle_switch(event):
     await app.switch_camera(event)
+
+
+@when("click", app.try_again)
+def handle_try_again(event):
+    app.reset_ui()

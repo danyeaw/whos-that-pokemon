@@ -4,8 +4,8 @@
     <meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width,initial-scale=1"/>
     <title>Pokemon Card Detector</title>
-    <link rel="stylesheet" href="https://pyscript.net/releases/2025.2.1/core.css">
-    <script type="module" src="https://pyscript.net/releases/2025.2.1/core.js"></script>
+    <link rel="stylesheet" href="https://pyscript.net/releases/2025.2.3/core.css">
+    <script type="module" src="https://pyscript.net/releases/2025.2.3/core.js"></script>
     <style>
         * {
           box-sizing: border-box;
@@ -375,8 +375,7 @@
                 <p><strong>Match Confidence:</strong> <span id="match-confidence"></span></p>
                 <p><strong>Match Quality:</strong> <span id="match-quality"></span></p>
             </div>
-            <button class="try-again-button"
-                    onclick="document.getElementById('result-screen').classList.remove('active');document.getElementById('main-container').style.display='block';">
+            <button id="try-again" class="try-again-button">
                 🔄 Try Another Card
             </button>
             <div class="debug-section">
@@ -391,60 +390,5 @@
         </div>
     </div>
 </div>
-<script>
-    function showResultScreen(name, data) {
-      if (!name || !data) {
-        console.error('Invalid input parameters')
-        return
-      }
-
-      try {
-        console.log('Showing result for:', name)
-        console.log('Data:', data)
-
-        // Update existing fields
-        document.getElementById('pokemon-name').textContent = name
-        document.getElementById('card-number').textContent = data.number || 'N/A'
-        document.getElementById('card-type').textContent = data.supertype || 'N/A'
-        document.getElementById('card-rarity').textContent = data.rarity || 'N/A'
-        document.getElementById('card-subtypes').textContent = data.subtypes?.join(', ') || 'N/A'
-
-        const imageUrl = data.images?.large || data.images?.small
-        if (imageUrl) {
-          document.getElementById('pokemon-image').src = imageUrl
-        }
-
-        if (data.market_prices) {
-          document.getElementById('tcg-price').textContent =
-            data.market_prices.tcgplayer ? `$${data.market_prices.tcgplayer.toFixed(2)}` : 'N/A'
-          document.getElementById('cardmarket-price').textContent =
-            data.market_prices.cardmarket ? `€${data.market_prices.cardmarket.toFixed(2)}` : 'N/A'
-          document.getElementById('price-date').textContent = data.market_prices.updated_at || 'N/A'
-        }
-
-        document.getElementById('match-confidence').textContent =
-          `${Math.round((data.confidence || 0) * 100)}%`
-        document.getElementById('match-quality').textContent = data.match_quality || 'N/A'
-
-        // Update debug image
-        const debugImage = document.getElementById('detected-card-debug')
-        if (data.detected_card_image) {
-          debugImage.src = data.detected_card_image
-          document.getElementById('no-card-message').classList.add('hidden')
-        } else {
-          debugImage.src = '/api/placeholder/300/420'
-          document.getElementById('no-card-message').classList.remove('hidden')
-        }
-
-        document.getElementById('result-screen').classList.add('active')
-        document.getElementById('main-container').style.display = 'none'
-
-      } catch (error) {
-        console.error('Error showing result screen:', error)
-        console.log('Failed data:', { name, data, error: error.message })
-      }
-    }
-    window.onload = () => window.scrollTo(0, 0);
-</script>
 </body>
 </html>
